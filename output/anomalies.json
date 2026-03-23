@@ -1,0 +1,16 @@
+[
+  {
+    "source_row_index": 0,
+    "anomaly_type": "exception_type1_empty_actor",
+    "field": "actor_raw",
+    "raw_value": "137",
+    "message": "Discarded 137 rows with empty actor (col Z)"
+  },
+  {
+    "source_row_index": 0,
+    "anomaly_type": "exception_type2_ancien_submittal",
+    "field": "submittal_id",
+    "raw_value": "4535",
+    "message": "Discarded 4535 rows belonging to 964 ancien submittal IDs"
+  }
+]

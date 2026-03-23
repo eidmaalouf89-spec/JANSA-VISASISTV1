@@ -1,0 +1,74 @@
+{
+  "_meta": {
+    "description": "Response tag normalization map for JANSA VISASIST. Editable. Each key is the exact raw value from column AE (after trimming). Severity tiers: blocking (rejection), caution (qualified), favorable (clean acceptance), neutral (not a real response), non_response (pending/absent).",
+    "version": "1.0",
+    "severity_tiers_ordered": ["blocking", "caution", "favorable", "neutral", "non_response"]
+  },
+
+  "En attente": {
+    "code": "EN_ATTENTE",
+    "label": "En attente",
+    "severity": "non_response",
+    "description": "No response yet — actor has not replied."
+  },
+  "Validé sans observation": {
+    "code": "VAO",
+    "label": "Validé sans observation",
+    "severity": "favorable",
+    "description": "Approved without reservations."
+  },
+  "Validé sans observation - SAS": {
+    "code": "VAO_SAS",
+    "label": "Validé sans observation (SAS)",
+    "severity": "favorable",
+    "description": "Approved without reservations (SAS-specific)."
+  },
+  "Favorable": {
+    "code": "FAV",
+    "label": "Favorable",
+    "severity": "favorable",
+    "description": "Favorable opinion."
+  },
+  "Validé avec observation": {
+    "code": "VSO",
+    "label": "Validé avec observation",
+    "severity": "caution",
+    "description": "Approved with observations — conditions or remarks attached."
+  },
+  "Suspendu": {
+    "code": "SUSP",
+    "label": "Suspendu",
+    "severity": "caution",
+    "description": "Suspended — response withheld pending further information."
+  },
+  "Refusé": {
+    "code": "REF",
+    "label": "Refusé",
+    "severity": "blocking",
+    "description": "Rejected — document does not comply."
+  },
+  "Défavorable": {
+    "code": "DEF",
+    "label": "Défavorable",
+    "severity": "blocking",
+    "description": "Unfavorable opinion — equivalent to rejection."
+  },
+  "Hors Mission": {
+    "code": "HM",
+    "label": "Hors Mission",
+    "severity": "neutral",
+    "description": "Outside this actor's mission scope — not a real response."
+  },
+  "Sollicitation supplémentaire": {
+    "code": "SS",
+    "label": "Sollicitation supplémentaire",
+    "severity": "neutral",
+    "description": "Additional solicitation — not a substantive response."
+  },
+  "_NONE_": {
+    "code": "NONE",
+    "label": "(absent)",
+    "severity": "non_response",
+    "description": "Blank or null value in the response column."
+  }
+}

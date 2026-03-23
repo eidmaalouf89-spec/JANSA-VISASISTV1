@@ -1,0 +1,8132 @@
+{
+  "meta": {
+    "project": "17&CO Tranche 2",
+    "source_main_file": "17_CO_Tranche_2_du_23_mars_2026_07_45.xlsx",
+    "source_ancien_file": "GrandFichier (1).xlsx",
+    "generated_by": "ancien_exception_builder",
+    "version": "1.0",
+    "generated_at": "2026-03-23T18:01:31.650815"
+  },
+  "rules": {
+    "type_1_empty_mission": "Discard at import if column Z is empty. Not stored here.",
+    "type_2_ancien_submittals": "Discard any submittal whose submittal_id is listed below."
+  },
+  "ancien_exception_submittal_ids": [
+    "60003457",
+    "60003605",
+    "60003890",
+    "60003905",
+    "60003906",
+    "60003936",
+    "60003965",
+    "60003981",
+    "60003983",
+    "60003985",
+    "60003987",
+    "60003989",
+    "60003993",
+    "60003995",
+    "60003997",
+    "60003999",
+    "60004001",
+    "60004003",
+    "60004005",
+    "60004007",
+    "60004009",
+    "60004011",
+    "60004013",
+    "60004071",
+    "60004072",
+    "60004073",
+    "60004074",
+    "60004075",
+    "60004104",
+    "60004105",
+    "60004106",
+    "60004107",
+    "60004108",
+    "60004109",
+    "60004110",
+    "60004111",
+    "60004112",
+    "60004113",
+    "60004124",
+    "60004179",
+    "60004180",
+    "60004181",
+    "60004182",
+    "60004183",
+    "60004184",
+    "60004185",
+    "60004187",
+    "60004261",
+    "60004262",
+    "60004418",
+    "60004438",
+    "60004445",
+    "60004472",
+    "60004643",
+    "60004700",
+    "60004749",
+    "60004755",
+    "60004758",
+    "60004760",
+    "60004761",
+    "60004762",
+    "60005289",
+    "60005290",
+    "60005291",
+    "60005293",
+    "60005294",
+    "60005297",
+    "60005308",
+    "60005309",
+    "60005310",
+    "60005311",
+    "60005312",
+    "60005322",
+    "60005341",
+    "60005355",
+    "60005356",
+    "60005363",
+    "60005365",
+    "60005367",
+    "60005370",
+    "60005371",
+    "60005372",
+    "60005373",
+    "60005396",
+    "60005414",
+    "60005418",
+    "60005422",
+    "60005442",
+    "60005476",
+    "60005497",
+    "60005499",
+    "60005552",
+    "60005554",
+    "60005555",
+    "60005559",
+    "60005560",
+    "60005597",
+    "60005598",
+    "60005599",
+    "60005613",
+    "60005616",
+    "60005617",
+    "60005618",
+    "60005619",
+    "60005620",
+    "60005621",
+    "60005624",
+    "60005625",
+    "60005626",
+    "60005629",
+    "60005630",
+    "60005631",
+    "60005632",
+    "60005633",
+    "60005634",
+    "60005636",
+    "60005637",
+    "60005638",
+    "60005644",
+    "60005645",
+    "60005646",
+    "60005647",
+    "60005648",
+    "60005649",
+    "60005650",
+    "60005652",
+    "60005653",
+    "60005654",
+    "60005662",
+    "60005663",
+    "60005664",
+    "60005675",
+    "60005677",
+    "60005678",
+    "60005679",
+    "60005715",
+    "60005717",
+    "60005721",
+    "60005763",
+    "60005764",
+    "60005765",
+    "60005766",
+    "60005767",
+    "60005768",
+    "60005778",
+    "60005787",
+    "60005788",
+    "60005793",
+    "60005796",
+    "60005797",
+    "60005798",
+    "60005808",
+    "60005809",
+    "60005818",
+    "60005844",
+    "60005849",
+    "60005859",
+    "60005890",
+    "60005892",
+    "60005894",
+    "60005900",
+    "60005901",
+    "60005920",
+    "60006030",
+    "60006092",
+    "60006251",
+    "60006252",
+    "60006254",
+    "60006255",
+    "60006258",
+    "60006261",
+    "60006262",
+    "60006263",
+    "60006264",
+    "60006266",
+    "60006274",
+    "60006276",
+    "60006278",
+    "60006288",
+    "60006290",
+    "60006293",
+    "60006294",
+    "60006295",
+    "60006297",
+    "60006299",
+    "60006302",
+    "60006304",
+    "60006306",
+    "60006345",
+    "60006346",
+    "60006347",
+    "60006348",
+    "60006349",
+    "60006386",
+    "60006387",
+    "60006388",
+    "60006389",
+    "60006390",
+    "60006391",
+    "60006392",
+    "60006393",
+    "60006420",
+    "60006421",
+    "60006424",
+    "60006425",
+    "60006432",
+    "60006442",
+    "60006443",
+    "60006444",
+    "60006445",
+    "60006476",
+    "60006478",
+    "60006479",
+    "60006486",
+    "60006554",
+    "60006555",
+    "60006557",
+    "60006565",
+    "60006566",
+    "60006603",
+    "60006605",
+    "60006606",
+    "60006617",
+    "60006623",
+    "60006624",
+    "60006625",
+    "60006627",
+    "60006628",
+    "60006629",
+    "60006630",
+    "60006631",
+    "60006632",
+    "60006665",
+    "60006666",
+    "60006667",
+    "60006702",
+    "60006704",
+    "60006705",
+    "60006782",
+    "60006783",
+    "60006786",
+    "60006789",
+    "60006790",
+    "60006791",
+    "60006818",
+    "60006819",
+    "60006821",
+    "60006822",
+    "60006823",
+    "60006824",
+    "60006825",
+    "60006827",
+    "60006828",
+    "60006829",
+    "60006830",
+    "60006831",
+    "60006832",
+    "60006842",
+    "60006881",
+    "60006882",
+    "60007038",
+    "60007039",
+    "60007062",
+    "60007063",
+    "60007064",
+    "60007065",
+    "60007066",
+    "60007067",
+    "60007068",
+    "60007069",
+    "60007070",
+    "60007071",
+    "60007072",
+    "60007073",
+    "60007075",
+    "60007076",
+    "60007078",
+    "60007079",
+    "60007080",
+    "60007081",
+    "60007082",
+    "60007083",
+    "60007084",
+    "60007085",
+    "60007086",
+    "60007087",
+    "60007088",
+    "60007089",
+    "60007090",
+    "60007091",
+    "60007092",
+    "60007093",
+    "60007094",
+    "60007095",
+    "60007096",
+    "60007097",
+    "60007098",
+    "60007099",
+    "60007100",
+    "60007101",
+    "60007104",
+    "60007106",
+    "60007107",
+    "60007111",
+    "60007114",
+    "60007140",
+    "60007141",
+    "60007150",
+    "60007152",
+    "60007153",
+    "60007154",
+    "60007155",
+    "60007156",
+    "60007187",
+    "60007194",
+    "60007195",
+    "60007196",
+    "60007198",
+    "60007247",
+    "60007268",
+    "60007269",
+    "60007270",
+    "60007271",
+    "60007272",
+    "60007273",
+    "60007274",
+    "60007284",
+    "60007305",
+    "60007306",
+    "60007308",
+    "60007346",
+    "60007354",
+    "60007365",
+    "60007366",
+    "60007372",
+    "60007373",
+    "60007385",
+    "60007386",
+    "60007387",
+    "60007437",
+    "60007462",
+    "60007463",
+    "60007464",
+    "60007465",
+    "60007476",
+    "60007528",
+    "60007529",
+    "60007530",
+    "60007531",
+    "60007537",
+    "60007538",
+    "60007539",
+    "60007540",
+    "60007548",
+    "60007549",
+    "60007552",
+    "60007553",
+    "60007555",
+    "60007557",
+    "60007558",
+    "60007562",
+    "60007563",
+    "60007566",
+    "60007567",
+    "60007574",
+    "60007583",
+    "60007584",
+    "60007594",
+    "60007595",
+    "60007642",
+    "60007647",
+    "60007651",
+    "60007657",
+    "60007658",
+    "60007659",
+    "60007660",
+    "60007661",
+    "60007662",
+    "60007663",
+    "60007664",
+    "60007666",
+    "60007667",
+    "60007668",
+    "60007669",
+    "60007671",
+    "60007678",
+    "60007680",
+    "60007681",
+    "60007712",
+    "60007714",
+    "60007715",
+    "60007716",
+    "60007717",
+    "60007718",
+    "60007719",
+    "60007720",
+    "60007721",
+    "60007724",
+    "60007725",
+    "60007726",
+    "60007727",
+    "60007728",
+    "60007730",
+    "60007734",
+    "60007750",
+    "60007751",
+    "60007752",
+    "60007753",
+    "60007754",
+    "60007755",
+    "60007756",
+    "60007758",
+    "60007759",
+    "60007761",
+    "60007763",
+    "60007765",
+    "60007774",
+    "60007776",
+    "60007779",
+    "60007780",
+    "60007781",
+    "60007782",
+    "60007783",
+    "60007784",
+    "60007785",
+    "60007831",
+    "60007836",
+    "60007837",
+    "60007838",
+    "60007875",
+    "60007876",
+    "60007877",
+    "60007878",
+    "60007885",
+    "60007886",
+    "60007940",
+    "60007941",
+    "60007959",
+    "60007960",
+    "60007961",
+    "60007962",
+    "60007964",
+    "60008019",
+    "60008022",
+    "60008041",
+    "60008042",
+    "60008052",
+    "60008053",
+    "60008054",
+    "60008055",
+    "60008061",
+    "60008062",
+    "60008119",
+    "60008218",
+    "60008221",
+    "60008223",
+    "60008225",
+    "60008226",
+    "60008235",
+    "60008236",
+    "60008290",
+    "60008316",
+    "60008317",
+    "60008360",
+    "60008362",
+    "60008363",
+    "60008368",
+    "60008371",
+    "60008383",
+    "60008385",
+    "60008386",
+    "60008392",
+    "60008393",
+    "60008413",
+    "60008566",
+    "60008567",
+    "60008568",
+    "60008570",
+    "60008572",
+    "60008574",
+    "60008601",
+    "60008611",
+    "60008623",
+    "60008627",
+    "60008629",
+    "60008631",
+    "60008639",
+    "60008643",
+    "60008649",
+    "60008652",
+    "60008676",
+    "60008677",
+    "60008678",
+    "60008679",
+    "60008684",
+    "60008685",
+    "60008703",
+    "60008705",
+    "60008707",
+    "60008744",
+    "60008745",
+    "60008746",
+    "60008748",
+    "60008749",
+    "60008750",
+    "60008751",
+    "60008758",
+    "60008759",
+    "60008760",
+    "60008768",
+    "60008770",
+    "60008776",
+    "60008777",
+    "60008778",
+    "60008779",
+    "60008780",
+    "60008781",
+    "60008782",
+    "60008785",
+    "60008786",
+    "60008789",
+    "60008790",
+    "60008793",
+    "60008795",
+    "60008797",
+    "60008799",
+    "60008801",
+    "60008803",
+    "60008806",
+    "60008808",
+    "60008821",
+    "60008836",
+    "60008837",
+    "60008838",
+    "60008839",
+    "60008899",
+    "60008900",
+    "60008959",
+    "60008960",
+    "60008964",
+    "60008985",
+    "60008986",
+    "60008987",
+    "60008990",
+    "60008998",
+    "60009035",
+    "60009051",
+    "60009056",
+    "60009058",
+    "60009147",
+    "60009166",
+    "60009167",
+    "60009168",
+    "60009177",
+    "60009178",
+    "60009179",
+    "60009180",
+    "60009183",
+    "60009191",
+    "60009192",
+    "60009199",
+    "60009213",
+    "60009216",
+    "60009217",
+    "60009220",
+    "60009222",
+    "60009225",
+    "60009230",
+    "60009234",
+    "60009235",
+    "60009237",
+    "60009238",
+    "60009239",
+    "60009240",
+    "60009241",
+    "60009242",
+    "60009253",
+    "60009269",
+    "60009272",
+    "60009273",
+    "60009274",
+    "60009277",
+    "60009278",
+    "60009286",
+    "60009287",
+    "60009288",
+    "60009290",
+    "60009292",
+    "60009293",
+    "60009294",
+    "60009296",
+    "60009297",
+    "60009298",
+    "60009299",
+    "60009300",
+    "60009301",
+    "60009302",
+    "60009303",
+    "60009304",
+    "60009305",
+    "60009306",
+    "60009307",
+    "60009308",
+    "60009309",
+    "60009310",
+    "60009311",
+    "60009312",
+    "60009313",
+    "60009314",
+    "60009315",
+    "60009316",
+    "60009317",
+    "60009318",
+    "60009319",
+    "60009320",
+    "60009321",
+    "60009322",
+    "60009323",
+    "60009324",
+    "60009325",
+    "60009326",
+    "60009327",
+    "60009328",
+    "60009329",
+    "60009330",
+    "60009331",
+    "60009332",
+    "60009333",
+    "60009334",
+    "60009335",
+    "60009336",
+    "60009337",
+    "60009338",
+    "60009339",
+    "60009340",
+    "60009341",
+    "60009400",
+    "60009415",
+    "60009417",
+    "60009419",
+    "60009420",
+    "60009421",
+    "60009422",
+    "60009423",
+    "60009427",
+    "60009428",
+    "60009429",
+    "60009432",
+    "60009435",
+    "60009444",
+    "60009445",
+    "60009446",
+    "60009447",
+    "60009458",
+    "60009461",
+    "60009462",
+    "60009463",
+    "60009500",
+    "60009520",
+    "60009540",
+    "60009541",
+    "60009543",
+    "60009545",
+    "60009585",
+    "60009633",
+    "60009656",
+    "60009658",
+    "60009660",
+    "60009662",
+    "60009664",
+    "60009666",
+    "60009668",
+    "60009680",
+    "60009686",
+    "60009688",
+    "60009711",
+    "60009714",
+    "60009715",
+    "60009716",
+    "60009735",
+    "60009736",
+    "60009740",
+    "60009752",
+    "60009826",
+    "60009839",
+    "60009850",
+    "60010387",
+    "60010388",
+    "60010391",
+    "60010401",
+    "60010444",
+    "60010458",
+    "60010459",
+    "60010490",
+    "60010521",
+    "60010522",
+    "60010524",
+    "60010532",
+    "60010533",
+    "60010635",
+    "60010664",
+    "60010705",
+    "60010706",
+    "60010707",
+    "60010708",
+    "60010709",
+    "60010710",
+    "60010711",
+    "60010712",
+    "60010713",
+    "60010716",
+    "60010717",
+    "60010718",
+    "60010719",
+    "60010720",
+    "60010721",
+    "60010722",
+    "60010723",
+    "60010740",
+    "60010744",
+    "60010799",
+    "60010818",
+    "60010819",
+    "60010831",
+    "60010832",
+    "60010836",
+    "60010838",
+    "60010839",
+    "60010840",
+    "60010841",
+    "60010842",
+    "60010843",
+    "60010844",
+    "60010906",
+    "60010945",
+    "60010951",
+    "60011004",
+    "60011005",
+    "60011006",
+    "60011099",
+    "60011106",
+    "60011107",
+    "60011108",
+    "60011109",
+    "60011110",
+    "60011111",
+    "60011112",
+    "60011113",
+    "60011170",
+    "60011171",
+    "60011172",
+    "60011177",
+    "60011178",
+    "60011179",
+    "60011191",
+    "60011192",
+    "60011194",
+    "60011210",
+    "60011212",
+    "60011213",
+    "60011214",
+    "60011236",
+    "60011237",
+    "60011238",
+    "60011240",
+    "60011241",
+    "60011242",
+    "60011252",
+    "60011254",
+    "60011303",
+    "60011304",
+    "60011310",
+    "60011384",
+    "60011385",
+    "60011386",
+    "60011387",
+    "60011388",
+    "60011389",
+    "60011390",
+    "60011391",
+    "60011396",
+    "60011397",
+    "60011398",
+    "60011399",
+    "60011401",
+    "60011422",
+    "60011423",
+    "60011491",
+    "60011511",
+    "60011512",
+    "60011513",
+    "60011514",
+    "60011515",
+    "60011516",
+    "60011517",
+    "60011519",
+    "60011521",
+    "60011524",
+    "60011525",
+    "60011526",
+    "60011527",
+    "60011528",
+    "60011529",
+    "60011530",
+    "60011531",
+    "60011532",
+    "60011533",
+    "60011534",
+    "60011537",
+    "60011541",
+    "60011542",
+    "60011543",
+    "60011565",
+    "60011566",
+    "60011567",
+    "60011568",
+    "60011573",
+    "60011574",
+    "60011583",
+    "60011586",
+    "60011610",
+    "60011623",
+    "60011638",
+    "60011649",
+    "60011666",
+    "60011667",
+    "60011669",
+    "60011670",
+    "60011671",
+    "60011675",
+    "60011676",
+    "60011681",
+    "60011692",
+    "60011711",
+    "60011712",
+    "60011733",
+    "60011741",
+    "60011762",
+    "60011763",
+    "60011796",
+    "60011800",
+    "60011801",
+    "60011802",
+    "60011806",
+    "60011812",
+    "60011813",
+    "60011833",
+    "60011862",
+    "60011882",
+    "60011883",
+    "60011884",
+    "60011885",
+    "60011896",
+    "60011922",
+    "60011926",
+    "60011927",
+    "60011928",
+    "60011947",
+    "60011952",
+    "60011954",
+    "60011955",
+    "60011956",
+    "60011959",
+    "60011966",
+    "60011969",
+    "60011971",
+    "60011972",
+    "60011973",
+    "60011986",
+    "60011987",
+    "60011988",
+    "60012087",
+    "60012099",
+    "60012147",
+    "60012156",
+    "60012244",
+    "60012245",
+    "60012246",
+    "60012247",
+    "60012248",
+    "60012249",
+    "60012250",
+    "60012251",
+    "60012252",
+    "60012253",
+    "60012254",
+    "60012255",
+    "60012256",
+    "60012257",
+    "60012258",
+    "60012266",
+    "60012303",
+    "60012320",
+    "60012321",
+    "60012322",
+    "60012324",
+    "60012326",
+    "60012372",
+    "60012373",
+    "60012400",
+    "60012419",
+    "60012420",
+    "60012445",
+    "60012446",
+    "60012448",
+    "60012449",
+    "60012450",
+    "60012451",
+    "60012531",
+    "60012545",
+    "60012550",
+    "60012557",
+    "60012573",
+    "60012574",
+    "60012601",
+    "60012619",
+    "60012648",
+    "60012657",
+    "60012671",
+    "60012674",
+    "60012675",
+    "60012676",
+    "60012677",
+    "60012714",
+    "60012715",
+    "60012716",
+    "60012717",
+    "60012718",
+    "60012743",
+    "60012753",
+    "60012803",
+    "60012812",
+    "60012822",
+    "60012869",
+    "60012870",
+    "60012875",
+    "60012877",
+    "60012884",
+    "60012899",
+    "60012917",
+    "60012924",
+    "60012983",
+    "60013021",
+    "60013042",
+    "60013043",
+    "60013092",
+    "60013118",
+    "60013219",
+    "60013240",
+    "60013265",
+    "60013266",
+    "60013267",
+    "60013273",
+    "60013390",
+    "60013561",
+    "60013562",
+    "60013942",
+    "60014003",
+    "60014058",
+    "60014078",
+    "60014159",
+    "60014162",
+    "60014235",
+    "60014764"
+  ],
+  "ancien_matches": [
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041LSTAZTX249101",
+      "matched_submittal_ids": [
+        "60005290"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041LSTHZTX249101",
+      "matched_submittal_ids": [
+        "60005290"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041MATAZTX249506",
+      "matched_submittal_ids": [
+        "60009237"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041MATAZTX249510",
+      "matched_submittal_ids": [
+        "60009293"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041MATAZTX249511",
+      "matched_submittal_ids": [
+        "60009286"
+      ],
+      "match_count_rows": 5
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041MATAZTX249512",
+      "matched_submittal_ids": [
+        "60009446"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041MATAZTX249519",
+      "matched_submittal_ids": [
+        "60013266"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041MATAZTX249521",
+      "matched_submittal_ids": [
+        "60006299"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041MATAZTX249524",
+      "matched_submittal_ids": [
+        "60009240"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041MATAZTX249529",
+      "matched_submittal_ids": [
+        "60011398"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041MATAZTX249532",
+      "matched_submittal_ids": [
+        "60011987"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041MATAZTX249534",
+      "matched_submittal_ids": [
+        "60006297"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041NDCAZTX249211",
+      "matched_submittal_ids": [
+        "60005311"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041NDCAZTX249212",
+      "matched_submittal_ids": [
+        "60005372"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041NDCAZTX249213",
+      "matched_submittal_ids": [
+        "60005597"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041NDCAZTX249241",
+      "matched_submittal_ids": [
+        "60011110"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041NDCAZTX249242",
+      "matched_submittal_ids": [
+        "60011111"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041NDCAZTX249246",
+      "matched_submittal_ids": [
+        "60012875"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041NDCAZTX249251",
+      "matched_submittal_ids": [
+        "60007150"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041NDCAZTX249251B",
+      "matched_submittal_ids": [
+        "60007150"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041NDCAZTX249252",
+      "matched_submittal_ids": [
+        "60007155"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041NDCAZTX249254",
+      "matched_submittal_ids": [
+        "60011675"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041NDCAZTX249261",
+      "matched_submittal_ids": [
+        "60006263"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041NDCAZTX249501",
+      "matched_submittal_ids": [
+        "60006295"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041RSXAZR1249611",
+      "matched_submittal_ids": [
+        "60008799"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041RSXAZR2249612",
+      "matched_submittal_ids": [
+        "60008801"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041RSXAZR3249613",
+      "matched_submittal_ids": [
+        "60008803"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041RSXAZR4249614",
+      "matched_submittal_ids": [
+        "60011882"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041RSXAZR5249615",
+      "matched_submittal_ids": [
+        "60011883"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041RSXAZR6249616",
+      "matched_submittal_ids": [
+        "60011926"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041RSXAZR7249617",
+      "matched_submittal_ids": [
+        "60011927"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041SYQAZTX249311",
+      "matched_submittal_ids": [
+        "60006831"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041SYQAZTX249342",
+      "matched_submittal_ids": [
+        "60011566"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXEAXICVCA041SYQAZTX249344",
+      "matched_submittal_ids": [
+        "60011236"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXEDUVMEXA008DETAZR0234020",
+      "matched_submittal_ids": [
+        "60009688"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXEDUVMEXA008DETAZR0234045",
+      "matched_submittal_ids": [
+        "60008785"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXEDUVMEXA008MATAZTX234615",
+      "matched_submittal_ids": [
+        "60010716"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXEDUVMEXA008MATAZTX234625",
+      "matched_submittal_ids": [
+        "60010717"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXEDUVMEXA008MATAZTX234630",
+      "matched_submittal_ids": [
+        "60010718"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXEDUVMEXA008MATAZTX234635",
+      "matched_submittal_ids": [
+        "60010719"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXEDUVMEXA008MATAZTX234640",
+      "matched_submittal_ids": [
+        "60010720"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXEDUVMEXA008MATAZTX234645",
+      "matched_submittal_ids": [
+        "60010721"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXEDUVMEXA008MATAZTX234655",
+      "matched_submittal_ids": [
+        "60010722"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXEDUVMEXA008MATAZTX234660",
+      "matched_submittal_ids": [
+        "60010723"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXEDUVMEXA008NDCAZR0234400",
+      "matched_submittal_ids": [
+        "60008749"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2AUEXEDUVMEXA008NDCAZR8234410",
+      "matched_submittal_ids": [
+        "60009420"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXEDUVMEXA008NDCAZTX234420",
+      "matched_submittal_ids": [
+        "60008750"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXEDUVMEXA008NDCAZTX234430",
+      "matched_submittal_ids": [
+        "60008751"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXEDUVMEXA008PLNAZR0234030",
+      "matched_submittal_ids": [
+        "60008572"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXEDUVMEXA008PLNAZR0234040",
+      "matched_submittal_ids": [
+        "60008786"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXEFERREVA006DETAZTX232100",
+      "matched_submittal_ids": [
+        "60009656"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2AUEXEFERREVA006MATTZTX232301",
+      "matched_submittal_ids": [
+        "60010458"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2AUEXEFERREVA006MATTZTX232302",
+      "matched_submittal_ids": [
+        "60010459"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXEHVASDBA022IMPAZTX244002",
+      "matched_submittal_ids": [
+        "60010664"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXEHVASDBA022PLNAZTX244000",
+      "matched_submittal_ids": [
+        "60009850"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2AUEXEICMMEXA005DETAZTX231101",
+      "matched_submittal_ids": [
+        "60009736"
+      ],
+      "match_count_rows": 6
+    },
+    {
+      "ancien_reference": "P17T2AUEXEICMMEXA005RSVAZTX231111",
+      "matched_submittal_ids": [
+        "60010744"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXELACMENA012AMATTZTX237001",
+      "matched_submittal_ids": [
+        "60012419"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXELACMENA012AMATTZTX237002",
+      "matched_submittal_ids": [
+        "60012420"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXELACMENA012AMATTZTX237012",
+      "matched_submittal_ids": [
+        "60012648"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXELACMENA012AREPAZTX237100",
+      "matched_submittal_ids": [
+        "60011969"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDFACA007PLNTZTX233000",
+      "matched_submittal_ids": [
+        "60010533"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003ARMAZR0228126",
+      "matched_submittal_ids": [
+        "60009253"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003ARMAZR0228127",
+      "matched_submittal_ids": [
+        "60009543"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003ARMAZR0228132",
+      "matched_submittal_ids": [
+        "60009540",
+        "60009545"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003ARMAZR1228136",
+      "matched_submittal_ids": [
+        "60012619"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003ARMAZR1228137",
+      "matched_submittal_ids": [
+        "60011310"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003ARMAZR1228139",
+      "matched_submittal_ids": [
+        "60011956"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003ARMAZR3228157",
+      "matched_submittal_ids": [
+        "60014235"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003COFAZR0228119",
+      "matched_submittal_ids": [
+        "60012917"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003COFAZR0228120",
+      "matched_submittal_ids": [
+        "60008676",
+        "60008964"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003COFAZR0228121",
+      "matched_submittal_ids": [
+        "60008677",
+        "60012803"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003COFAZR0228122",
+      "matched_submittal_ids": [
+        "60008959"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003COFAZR0228123",
+      "matched_submittal_ids": [
+        "60008960"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003COFAZR1228132",
+      "matched_submittal_ids": [
+        "60009540",
+        "60009545"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003COFAZR1228133",
+      "matched_submittal_ids": [
+        "60009541"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003COFAZR1228134",
+      "matched_submittal_ids": [
+        "60011214"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003COFAZR2228140",
+      "matched_submittal_ids": [
+        "60012400"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003COFAZR3228150",
+      "matched_submittal_ids": [
+        "60012657"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003COFAZR3228152",
+      "matched_submittal_ids": [
+        "60013219"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003COFAZR4228160",
+      "matched_submittal_ids": [
+        "60012715"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003COFAZR4228161",
+      "matched_submittal_ids": [
+        "60012716"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003COFAZR4228162",
+      "matched_submittal_ids": [
+        "60013561"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003COFAZR5228170",
+      "matched_submittal_ids": [
+        "60012717"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003COFAZR5228171",
+      "matched_submittal_ids": [
+        "60012718"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003COFAZR5228172",
+      "matched_submittal_ids": [
+        "60013562"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003COFAZTX228110",
+      "matched_submittal_ids": [
+        "60008362",
+        "60008748"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003PLNAZR0228101",
+      "matched_submittal_ids": [
+        "60003981"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003PLNAZR0228102",
+      "matched_submittal_ids": [
+        "60003983"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003PLNAZR0228103",
+      "matched_submittal_ids": [
+        "60003985"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003PLNAZR0228104",
+      "matched_submittal_ids": [
+        "60003987"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003PLNAZR0228105",
+      "matched_submittal_ids": [
+        "60003989"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003PLNAZR0228107",
+      "matched_submittal_ids": [
+        "60003993"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003PLNAZR0228108",
+      "matched_submittal_ids": [
+        "60003995"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA003PLNAZR0228400",
+      "matched_submittal_ids": [
+        "60009462"
+      ],
+      "match_count_rows": 5
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA007PLNAZR0233000",
+      "matched_submittal_ids": [
+        "60010533"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXELGDGOEA007PLNAZR1233001",
+      "matched_submittal_ids": [
+        "60011681"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESCHASCA051NOTAZR6253000",
+      "matched_submittal_ids": [
+        "60005442"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESCHASCA051PLNAZTX253000",
+      "matched_submittal_ids": [
+        "60005442"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2AUEXESMAETAA004DETAZTX230006",
+      "matched_submittal_ids": [
+        "60008627"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFAA033MATAZR0246204",
+      "matched_submittal_ids": [
+        "60011521"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFAA033MATAZR0246207",
+      "matched_submittal_ids": [
+        "60009520",
+        "60011733"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFAA034TMXAZR1247502",
+      "matched_submittal_ids": [
+        "60011762"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFAA034TMXAZR2247503",
+      "matched_submittal_ids": [
+        "60011763"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031IMPAZR1245200",
+      "matched_submittal_ids": [
+        "60009335"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031IMPAZR1245501",
+      "matched_submittal_ids": [
+        "60009716"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031IMPAZR1245502",
+      "matched_submittal_ids": [
+        "60010819"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031IMPAZR2245201",
+      "matched_submittal_ids": [
+        "60009336"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031IMPAZR2245202",
+      "matched_submittal_ids": [
+        "60009337"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031IMPAZR2245203",
+      "matched_submittal_ids": [
+        "60009338"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031IMPAZR2245204",
+      "matched_submittal_ids": [
+        "60009339"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031IMPAZR2245502",
+      "matched_submittal_ids": [
+        "60010819"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031IMPAZR6245205",
+      "matched_submittal_ids": [
+        "60009340"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031IMPAZR6245502",
+      "matched_submittal_ids": [
+        "60010819"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031MATHZTX245110",
+      "matched_submittal_ids": [
+        "60009321"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031MATHZTX245111",
+      "matched_submittal_ids": [
+        "60009322"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031MATHZTX245112",
+      "matched_submittal_ids": [
+        "60009323"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031MATHZTX245120",
+      "matched_submittal_ids": [
+        "60009324"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031MATHZTX245121",
+      "matched_submittal_ids": [
+        "60009325"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031MATHZTX245122",
+      "matched_submittal_ids": [
+        "60009326"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031MATHZTX245123",
+      "matched_submittal_ids": [
+        "60009327"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031MATHZTX245124",
+      "matched_submittal_ids": [
+        "60009328"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031MATHZTX245125",
+      "matched_submittal_ids": [
+        "60009329"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031MATHZTX245126",
+      "matched_submittal_ids": [
+        "60009330"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031MATHZTX245127",
+      "matched_submittal_ids": [
+        "60009331"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031MATHZTX245130",
+      "matched_submittal_ids": [
+        "60009332"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031MATHZTX245131",
+      "matched_submittal_ids": [
+        "60009333"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031MATHZTX245132",
+      "matched_submittal_ids": [
+        "60009334"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031MATHZTX245200",
+      "matched_submittal_ids": [
+        "60009335"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031MATHZTX245201",
+      "matched_submittal_ids": [
+        "60009336"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031MATHZTX245202",
+      "matched_submittal_ids": [
+        "60009337"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031MATHZTX245203",
+      "matched_submittal_ids": [
+        "60009338"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031MATHZTX245204",
+      "matched_submittal_ids": [
+        "60009339"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031MATHZTX245205",
+      "matched_submittal_ids": [
+        "60009340"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031MATHZTX245206",
+      "matched_submittal_ids": [
+        "60009341"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031NDCAZTX245001",
+      "matched_submittal_ids": [
+        "60012303"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031RSXAZR0245017",
+      "matched_submittal_ids": [
+        "60006624"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031RSXAZR1245018",
+      "matched_submittal_ids": [
+        "60006625"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031RSXAZR3245020",
+      "matched_submittal_ids": [
+        "60006627"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031RSXAZR4245021",
+      "matched_submittal_ids": [
+        "60006628"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031RSXAZR5245022",
+      "matched_submittal_ids": [
+        "60006629"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031RSXAZR6245023",
+      "matched_submittal_ids": [
+        "60006630"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031RSXAZR7245024",
+      "matched_submittal_ids": [
+        "60006631"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031RSXAZR8245025",
+      "matched_submittal_ids": [
+        "60006632"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031RSXAZS1245016",
+      "matched_submittal_ids": [
+        "60006623"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031RSXAZS1245026",
+      "matched_submittal_ids": [
+        "60007072"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031TMXAZR0245027",
+      "matched_submittal_ids": [
+        "60007081"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031TMXAZR0245037",
+      "matched_submittal_ids": [
+        "60007091"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031TMXAZR1245028",
+      "matched_submittal_ids": [
+        "60007080"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031TMXAZR1245038",
+      "matched_submittal_ids": [
+        "60007090"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031TMXAZR2245029",
+      "matched_submittal_ids": [
+        "60007079"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031TMXAZR2245039",
+      "matched_submittal_ids": [
+        "60007089"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031TMXAZR3245030",
+      "matched_submittal_ids": [
+        "60007078"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031TMXAZR3245040",
+      "matched_submittal_ids": [
+        "60007088"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031TMXAZR3245503",
+      "matched_submittal_ids": [
+        "60012812"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031TMXAZR4245031",
+      "matched_submittal_ids": [
+        "60011491"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031TMXAZR4245041",
+      "matched_submittal_ids": [
+        "60007087"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031TMXAZR5245032",
+      "matched_submittal_ids": [
+        "60007076"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031TMXAZR5245042",
+      "matched_submittal_ids": [
+        "60007086"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031TMXAZR6245033",
+      "matched_submittal_ids": [
+        "60007075"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031TMXAZR6245043",
+      "matched_submittal_ids": [
+        "60007085"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031TMXAZR7245044",
+      "matched_submittal_ids": [
+        "60007084"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031TMXAZR8245035",
+      "matched_submittal_ids": [
+        "60007073"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031TMXAZR8245045",
+      "matched_submittal_ids": [
+        "60007083"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031TMXAZS1245036",
+      "matched_submittal_ids": [
+        "60007082"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031TMXAZTT245046",
+      "matched_submittal_ids": [
+        "60011537"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA031TMXAZTX245046",
+      "matched_submittal_ids": [
+        "60007114"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNICFOA033TMXAZS1245026",
+      "matched_submittal_ids": [
+        "60007072"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNISSIA033MATAZR0246204",
+      "matched_submittal_ids": [
+        "60011521"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNISSIA033SYQAZTX246150",
+      "matched_submittal_ids": [
+        "60011692"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXESNISSIA033TMXAZR4245031",
+      "matched_submittal_ids": [
+        "60011491"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXEUTBPLBA042DETAZTX250302",
+      "matched_submittal_ids": [
+        "60005677"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXEUTBPLBA042NOTAZTX250504",
+      "matched_submittal_ids": [
+        "60007196"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2AUEXEUTBPLBA042NOTTZTX250504",
+      "matched_submittal_ids": [
+        "60007196"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXEUTBPLBA042SYQAZTX250411",
+      "matched_submittal_ids": [
+        "60005652"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2AUEXEUTBPLBA042SYQAZTX250412",
+      "matched_submittal_ids": [
+        "60005664"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAMPCLDB011REPBZR0136100",
+      "matched_submittal_ids": [
+        "60012251"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAMPCLDB011REPBZR1136110",
+      "matched_submittal_ids": [
+        "60012252"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAMPCLDB011REPBZR2136120",
+      "matched_submittal_ids": [
+        "60012253"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAMPCLDB011REPBZR3136130",
+      "matched_submittal_ids": [
+        "60012254"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAMPCLDB011REPBZR4136140",
+      "matched_submittal_ids": [
+        "60012255"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAMPCLDB011REPBZR4136150",
+      "matched_submittal_ids": [
+        "60012256"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAMPCLDB011REPBZR4136160",
+      "matched_submittal_ids": [
+        "60012257"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAMPCLDB011REPBZR4136170",
+      "matched_submittal_ids": [
+        "60012258"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAMPFPLB16ACLPBZR1139110",
+      "matched_submittal_ids": [
+        "60012245"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAMPFPLB16ACLPBZR2139120",
+      "matched_submittal_ids": [
+        "60012246"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAMPFPLB16ACLPBZR3139130",
+      "matched_submittal_ids": [
+        "60012247"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAMPFPLB16ACLPBZR4139140",
+      "matched_submittal_ids": [
+        "60012248"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAMPFPLB16ACLPBZR5139150",
+      "matched_submittal_ids": [
+        "60012249"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAMPFPLB16ACLPBZR6139160",
+      "matched_submittal_ids": [
+        "60012250"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAMPFPLB16ALSTBZTX139000",
+      "matched_submittal_ids": [
+        "60011254"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAPIGTBB035PLNBZR3148206",
+      "matched_submittal_ids": [
+        "60009633"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041LSTBZTX149101",
+      "matched_submittal_ids": [
+        "60005289"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041MATBZTX149502",
+      "matched_submittal_ids": [
+        "60006294"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041MATBZTX149503",
+      "matched_submittal_ids": [
+        "60006293"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041MATBZTX149506",
+      "matched_submittal_ids": [
+        "60009238"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041MATBZTX149510",
+      "matched_submittal_ids": [
+        "60009292"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041MATBZTX149511",
+      "matched_submittal_ids": [
+        "60009287"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041MATBZTX149512",
+      "matched_submittal_ids": [
+        "60009445"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041MATBZTX149519",
+      "matched_submittal_ids": [
+        "60013265"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041MATBZTX149521",
+      "matched_submittal_ids": [
+        "60006290"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041MATBZTX149524",
+      "matched_submittal_ids": [
+        "60009241"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041MATBZTX149525",
+      "matched_submittal_ids": [
+        "60009242"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041MATBZTX149528",
+      "matched_submittal_ids": [
+        "60011401"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041MATBZTX149529",
+      "matched_submittal_ids": [
+        "60011397"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041MATBZTX149532",
+      "matched_submittal_ids": [
+        "60011986"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041MATBZTX149534",
+      "matched_submittal_ids": [
+        "60006288"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041MATBZTX149536",
+      "matched_submittal_ids": [
+        "60006825"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041NDCBZTX149201",
+      "matched_submittal_ids": [
+        "60006261"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041NDCBZTX149222",
+      "matched_submittal_ids": [
+        "60006274"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041NDCBZTX149232",
+      "matched_submittal_ids": [
+        "60012983"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041NDCBZTX149241",
+      "matched_submittal_ids": [
+        "60011109"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041NDCBZTX149242",
+      "matched_submittal_ids": [
+        "60011108"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041NDCBZTX149246",
+      "matched_submittal_ids": [
+        "60012870"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041NDCBZTX149251",
+      "matched_submittal_ids": [
+        "60007106"
+      ],
+      "match_count_rows": 7
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041NDCBZTX149252",
+      "matched_submittal_ids": [
+        "60007154"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041NDCBZTX149261",
+      "matched_submittal_ids": [
+        "60006262"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041NDCIZTX149211",
+      "matched_submittal_ids": [
+        "60005312"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041NDCIZTX149212",
+      "matched_submittal_ids": [
+        "60005371"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041NDCIZTX149213",
+      "matched_submittal_ids": [
+        "60005598"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041RSOBZR1149611",
+      "matched_submittal_ids": [
+        "60007372"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041RSOBZR1149613",
+      "matched_submittal_ids": [
+        "60007373"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041RSXBZR0149610",
+      "matched_submittal_ids": [
+        "60007557"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041RSXBZR1149611",
+      "matched_submittal_ids": [
+        "60007372"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041RSXBZR1149613",
+      "matched_submittal_ids": [
+        "60007373"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041RSXBZR2149612",
+      "matched_submittal_ids": [
+        "60007558"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041RSXBZR3149613",
+      "matched_submittal_ids": [
+        "60007373"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041RSXBZR4149614",
+      "matched_submittal_ids": [
+        "60008806"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041RSXBZR5149615",
+      "matched_submittal_ids": [
+        "60008808"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041RSXBZR6149616",
+      "matched_submittal_ids": [
+        "60011862"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041SYQBZTX149311",
+      "matched_submittal_ids": [
+        "60006830"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041SYQBZTX149321",
+      "matched_submittal_ids": [
+        "60006266"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041SYQBZTX149342",
+      "matched_submittal_ids": [
+        "60011567"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEAXICVCB041SYQBZTX149344",
+      "matched_submittal_ids": [
+        "60011237"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBANFPRB017LSTBZTX141001",
+      "matched_submittal_ids": [
+        "60009711"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBANFPRB017REPBZTX141209",
+      "matched_submittal_ids": [
+        "60011922"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFAB034MATBZTX145610",
+      "matched_submittal_ids": [
+        "60008611"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031LSTBZTX145500",
+      "matched_submittal_ids": [
+        "60007734"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031LTEB1R0145159",
+      "matched_submittal_ids": [
+        "60007940"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031MAQB1R0145159",
+      "matched_submittal_ids": [
+        "60007941"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031MAQB1R0145400",
+      "matched_submittal_ids": [
+        "60008601"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031MAQBZR0145159",
+      "matched_submittal_ids": [
+        "60007941"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031MAQBZR0145159B",
+      "matched_submittal_ids": [
+        "60007940",
+        "60007941"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031MATBZTX145501",
+      "matched_submittal_ids": [
+        "60007647"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031MATBZTX145505",
+      "matched_submittal_ids": [
+        "60007651"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031MATBZTX145511",
+      "matched_submittal_ids": [
+        "60007657"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031MATBZTX145512",
+      "matched_submittal_ids": [
+        "60007658"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031MATBZTX145513",
+      "matched_submittal_ids": [
+        "60007659"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031MATBZTX145514",
+      "matched_submittal_ids": [
+        "60007660"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031MATBZTX145515",
+      "matched_submittal_ids": [
+        "60007661"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031MATBZTX145516",
+      "matched_submittal_ids": [
+        "60007662"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031MATBZTX145517",
+      "matched_submittal_ids": [
+        "60007663"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031MATBZTX145518",
+      "matched_submittal_ids": [
+        "60007664"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031MATBZTX145520",
+      "matched_submittal_ids": [
+        "60007666"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031MATBZTX145521",
+      "matched_submittal_ids": [
+        "60007667"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031MATBZTX145522",
+      "matched_submittal_ids": [
+        "60007668"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031MATBZTX145523",
+      "matched_submittal_ids": [
+        "60007669"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031MATBZTX145525",
+      "matched_submittal_ids": [
+        "60007671"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031MATBZTX145532",
+      "matched_submittal_ids": [
+        "60009269"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031MATBZTX145535",
+      "matched_submittal_ids": [
+        "60009272"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031MATBZTX145536",
+      "matched_submittal_ids": [
+        "60009273"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031MATBZTX145537",
+      "matched_submittal_ids": [
+        "60009274"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031MATBZTX145538",
+      "matched_submittal_ids": [
+        "60009458"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031MATBZTX145651",
+      "matched_submittal_ids": [
+        "60012884"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031NDCBZTT145151",
+      "matched_submittal_ids": [
+        "60008317"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031NDCTZTX145332",
+      "matched_submittal_ids": [
+        "60012714"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031PLNB1R0145170",
+      "matched_submittal_ids": [
+        "60007562"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031PLNB1R0145180",
+      "matched_submittal_ids": [
+        "60007566"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031PLNB1R0145181",
+      "matched_submittal_ids": [
+        "60008316"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031PLNB1R0145190",
+      "matched_submittal_ids": [
+        "60007567"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031PLNB1R0145240",
+      "matched_submittal_ids": [
+        "60009585"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031PLNB1R1145171",
+      "matched_submittal_ids": [
+        "60007563"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031PLNB1R1145241",
+      "matched_submittal_ids": [
+        "60010951"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031PLNBZTX145230",
+      "matched_submittal_ids": [
+        "60009147"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031PLNBZTX145231",
+      "matched_submittal_ids": [
+        "60009179"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031PLNBZTX145232",
+      "matched_submittal_ids": [
+        "60009230"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031PLNBZTX145233",
+      "matched_submittal_ids": [
+        "60009400"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031SYQB1R0145159",
+      "matched_submittal_ids": [
+        "60007940",
+        "60007941"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031SYQB1R0145159A",
+      "matched_submittal_ids": [
+        "60007940",
+        "60007941"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB031SYQBZTT145155",
+      "matched_submittal_ids": [
+        "60007387"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB033TMXTZTX146001",
+      "matched_submittal_ids": [
+        "60010838"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB033TMXTZTX146002",
+      "matched_submittal_ids": [
+        "60010839"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB033TMXTZTX146003",
+      "matched_submittal_ids": [
+        "60010840"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB033TMXTZTX146004",
+      "matched_submittal_ids": [
+        "60010841"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB033TMXTZTX146005",
+      "matched_submittal_ids": [
+        "60010842"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB033TMXTZTX146006",
+      "matched_submittal_ids": [
+        "60010843"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEBENCFOB033TMXTZTX146007",
+      "matched_submittal_ids": [
+        "60010844"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXECREPLBB42BPLNBZTX151001",
+      "matched_submittal_ids": [
+        "60008684"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXECREPLBB42BPLNTZTX151992",
+      "matched_submittal_ids": [
+        "60008685"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEDUVMEXB008DETBZR0134040",
+      "matched_submittal_ids": [
+        "60009415"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEDUVMEXB008DETBZR0134045",
+      "matched_submittal_ids": [
+        "60009417"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2BXEXEDUVMEXB008DETBZTX134010",
+      "matched_submittal_ids": [
+        "60009199"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEDUVMEXB008MATBZTX134600",
+      "matched_submittal_ids": [
+        "60010705"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEDUVMEXB008MATBZTX134605",
+      "matched_submittal_ids": [
+        "60010706"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEDUVMEXB008MATBZTX134615",
+      "matched_submittal_ids": [
+        "60010707"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEDUVMEXB008MATBZTX134625",
+      "matched_submittal_ids": [
+        "60010708"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEDUVMEXB008MATBZTX134630",
+      "matched_submittal_ids": [
+        "60010709"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEDUVMEXB008MATBZTX134635",
+      "matched_submittal_ids": [
+        "60010710"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEDUVMEXB008MATBZTX134640",
+      "matched_submittal_ids": [
+        "60010711"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEDUVMEXB008MATBZTX134645",
+      "matched_submittal_ids": [
+        "60010712"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEDUVMEXB008MATBZTX134655",
+      "matched_submittal_ids": [
+        "60010713"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEDUVMEXB008NDCBZR0134400",
+      "matched_submittal_ids": [
+        "60008758"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEDUVMEXB008NDCBZR8134410",
+      "matched_submittal_ids": [
+        "60009419"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEDUVMEXB008NDCBZTX134420",
+      "matched_submittal_ids": [
+        "60008759"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEDUVMEXB008NDCBZTX134430",
+      "matched_submittal_ids": [
+        "60008760"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEDUVMEXB008PLNBZR0134030",
+      "matched_submittal_ids": [
+        "60008570"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEDUVMEXB008PLNBZR0134040",
+      "matched_submittal_ids": [
+        "60009415"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEICMMEXB005DETBZTX131104",
+      "matched_submittal_ids": [
+        "60014058"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEICMMEXB005DETTZTX131101",
+      "matched_submittal_ids": [
+        "60009290"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEICMMEXB005MATBZTX131005",
+      "matched_submittal_ids": [
+        "60009735"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEICMMEXB005MATTZTX131023",
+      "matched_submittal_ids": [
+        "60010387"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEICMMEXB005MATTZTX131024",
+      "matched_submittal_ids": [
+        "60010388"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEICMMEXB005REPBZTX131113",
+      "matched_submittal_ids": [
+        "60013390"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEICMMEXB005REPBZTX131150",
+      "matched_submittal_ids": [
+        "60012531"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELACMENB012AMATTZTX137002",
+      "matched_submittal_ids": [
+        "60011586"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXELACMENB012AMATTZTX137014",
+      "matched_submittal_ids": [
+        "60011638"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELACMENB012AMATTZTX137025",
+      "matched_submittal_ids": [
+        "60011610"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELACMENB12ADETBZR1137112",
+      "matched_submittal_ids": [
+        "60014003"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELACMENB12AMATTZTX137001",
+      "matched_submittal_ids": [
+        "60012924"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELACMENB12AREPBZTX137100",
+      "matched_submittal_ids": [
+        "60011952"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELACMENB12AREPBZTX137105",
+      "matched_submittal_ids": [
+        "60014078"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDFACB006PLNBZTX132010",
+      "matched_submittal_ids": [
+        "60009422"
+      ],
+      "match_count_rows": 5
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003ARMBZR0128122",
+      "matched_submittal_ids": [
+        "60008985"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003ARMBZR0128123",
+      "matched_submittal_ids": [
+        "60008986"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003ARMBZR0128125",
+      "matched_submittal_ids": [
+        "60009177",
+        "60009178"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003ARMBZR0128126",
+      "matched_submittal_ids": [
+        "60009839"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003ARMBZR0128129",
+      "matched_submittal_ids": [
+        "60008987"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003ARMBZR1128134",
+      "matched_submittal_ids": [
+        "60011212",
+        "60011213"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003ARMBZR1128135",
+      "matched_submittal_ids": [
+        "60010836",
+        "60010945"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003ARMBZR1128136",
+      "matched_submittal_ids": [
+        "60011303",
+        "60011304"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003ARMBZR2128146",
+      "matched_submittal_ids": [
+        "60011649"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003ARMBZR3128154",
+      "matched_submittal_ids": [
+        "60012372"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003ARMBZR3128156",
+      "matched_submittal_ids": [
+        "60012373"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003ARMBZR4128165",
+      "matched_submittal_ids": [
+        "60013118"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003ARMBZR5128174",
+      "matched_submittal_ids": [
+        "60013942"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003ARMBZR5128175",
+      "matched_submittal_ids": [
+        "60014159"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003CLPBZR1128400",
+      "matched_submittal_ids": [
+        "60009461"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003CLPBZR1128401",
+      "matched_submittal_ids": [
+        "60012099"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003CLPBZR3128403",
+      "matched_submittal_ids": [
+        "60012743"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003COFBZR0128120",
+      "matched_submittal_ids": [
+        "60008768",
+        "60008990"
+      ],
+      "match_count_rows": 8
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003COFBZR0128121",
+      "matched_submittal_ids": [
+        "60008770"
+      ],
+      "match_count_rows": 6
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003COFBZR0128127",
+      "matched_submittal_ids": [
+        "60008899"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003COFBZR0128128",
+      "matched_submittal_ids": [
+        "60008900"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003COFBZR1128130",
+      "matched_submittal_ids": [
+        "60009277"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003COFBZR1128131",
+      "matched_submittal_ids": [
+        "60009278"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003COFBZR1128137",
+      "matched_submittal_ids": [
+        "60009826"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003COFBZR1128138",
+      "matched_submittal_ids": [
+        "60010490",
+        "60013092"
+      ],
+      "match_count_rows": 6
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003COFBZR2128140",
+      "matched_submittal_ids": [
+        "60011971"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003COFBZR2128141",
+      "matched_submittal_ids": [
+        "60011972"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003COFBZR2128147",
+      "matched_submittal_ids": [
+        "60011973"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003COFBZR3128150",
+      "matched_submittal_ids": [
+        "60011800"
+      ],
+      "match_count_rows": 5
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003COFBZR3128151",
+      "matched_submittal_ids": [
+        "60011801"
+      ],
+      "match_count_rows": 5
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003COFBZR3128157",
+      "matched_submittal_ids": [
+        "60011802"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003COFBZR4128160",
+      "matched_submittal_ids": [
+        "60012320"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003COFBZR4128161",
+      "matched_submittal_ids": [
+        "60012321"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003COFBZR4128167",
+      "matched_submittal_ids": [
+        "60012322"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003COFBZR5128170",
+      "matched_submittal_ids": [
+        "60012574"
+      ],
+      "match_count_rows": 5
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003COFBZR5128171",
+      "matched_submittal_ids": [
+        "60012324"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003COFBZR5128177",
+      "matched_submittal_ids": [
+        "60014162"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003COFBZR6128180",
+      "matched_submittal_ids": [
+        "60012573"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003COFBZR6128181",
+      "matched_submittal_ids": [
+        "60012326"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003COFBZTX128110",
+      "matched_submittal_ids": [
+        "60008225"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003COFBZTX128111",
+      "matched_submittal_ids": [
+        "60008226"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003NDCBZTX128002",
+      "matched_submittal_ids": [
+        "60011896"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003PLNBZR0128100",
+      "matched_submittal_ids": [
+        "60004185"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003PLNBZR0128102",
+      "matched_submittal_ids": [
+        "60004187"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003PLNBZR0128103",
+      "matched_submittal_ids": [
+        "60004179"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003PLNBZR0128104",
+      "matched_submittal_ids": [
+        "60004180"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003PLNBZR0128105",
+      "matched_submittal_ids": [
+        "60004181"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003PLNBZR0128106",
+      "matched_submittal_ids": [
+        "60004182"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003PLNBZR0128107",
+      "matched_submittal_ids": [
+        "60004183"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003PLNBZR0128108",
+      "matched_submittal_ids": [
+        "60004184"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003PLNBZR0128109",
+      "matched_submittal_ids": [
+        "60013021"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003PLNBZR0128400",
+      "matched_submittal_ids": [
+        "60009461"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003PLNBZR1128309",
+      "matched_submittal_ids": [
+        "60012822"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003PLNBZR2128003",
+      "matched_submittal_ids": [
+        "60012156"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003PLNBZR2128102",
+      "matched_submittal_ids": [
+        "60004187"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003PLNBZR2128303",
+      "matched_submittal_ids": [
+        "60011099"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003PLNBZR2128411",
+      "matched_submittal_ids": [
+        "60012601"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003PLNBZR3128103",
+      "matched_submittal_ids": [
+        "60004179"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003PLNBZR3128306",
+      "matched_submittal_ids": [
+        "60012147"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003PLNBZR4128104",
+      "matched_submittal_ids": [
+        "60004180"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003PLNBZR5128105",
+      "matched_submittal_ids": [
+        "60004181"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003PLNBZR6128106",
+      "matched_submittal_ids": [
+        "60004182"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB003PLNBZTX128318",
+      "matched_submittal_ids": [
+        "60012087"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDGOEB006PLNBZTN132100",
+      "matched_submittal_ids": [
+        "60009217"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXELGDSTRB003PLNB3TT128510",
+      "matched_submittal_ids": [
+        "60011959"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXELINCVCB16BPLNBZR0140100",
+      "matched_submittal_ids": [
+        "60008777"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXELINFPLB16BPLNBZR0140010",
+      "matched_submittal_ids": [
+        "60008776"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELINFPLB16BPLNBZR1140100",
+      "matched_submittal_ids": [
+        "60008777"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELINPLFB16BPLNBZR1140100",
+      "matched_submittal_ids": [
+        "60008777"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXELINPLFB16BPLNBZR2140200",
+      "matched_submittal_ids": [
+        "60008778"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELINPLFB16BPLNBZR3140300",
+      "matched_submittal_ids": [
+        "60008779"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELINPLFB16BPLNBZR4140400",
+      "matched_submittal_ids": [
+        "60008780"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELINPLFB16BPLNBZR5140500",
+      "matched_submittal_ids": [
+        "60008781"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXELINPLFB16BPLNBZR6140600",
+      "matched_submittal_ids": [
+        "60008782"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXESCHASCB051NOTBZR7153100",
+      "matched_submittal_ids": [
+        "60005859"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXESCHASCB051PLNBZTX153000",
+      "matched_submittal_ids": [
+        "60005414"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXESCHASCB051PLNBZTX153100",
+      "matched_submittal_ids": [
+        "60005859"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2BXEXESMACOUB06BDETBZTT133006",
+      "matched_submittal_ids": [
+        "60008631"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXESMAETAB004DETBZTX130006",
+      "matched_submittal_ids": [
+        "60008629"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEUTBPLBB042MATTZTX150907",
+      "matched_submittal_ids": [
+        "60009213"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEUTBPLBB042NOTBZTX150403",
+      "matched_submittal_ids": [
+        "60007194"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEUTBPLBB042NOTTZTX150403",
+      "matched_submittal_ids": [
+        "60007194"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2BXEXEUTBPLBB042SYQBZTX150304",
+      "matched_submittal_ids": [
+        "60006476"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2BXEXEUTBPLBB042SYQBZTX150312",
+      "matched_submittal_ids": [
+        "60005663"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2GEEXELGDFACB006PLNBZTX132010",
+      "matched_submittal_ids": [
+        "60009183"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2GEEXELGDGOEB003MTDBZTX128500",
+      "matched_submittal_ids": [
+        "60011813"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2GEEXELGDGOEB003PLNBZTX128112",
+      "matched_submittal_ids": [
+        "60009432"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2GEEXELGDGOEB003PLNBZTX128318",
+      "matched_submittal_ids": [
+        "60011812"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2GEEXELGDGOEG003REPTZTN280002",
+      "matched_submittal_ids": [
+        "60003890",
+        "60003965"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2GEEXELGDGOEH003PLNHZTX328112",
+      "matched_submittal_ids": [
+        "60009435"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2GEEXELGDGOEI002NDCTZTX027000",
+      "matched_submittal_ids": [
+        "60003457"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2GEEXELGDGOEI003CALTZTX028012",
+      "matched_submittal_ids": [
+        "60004749"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2GEEXELGDGOEI003CLPTZR0028278",
+      "matched_submittal_ids": [
+        "60008567"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2GEEXELGDGOEI003NDCTZFD028004",
+      "matched_submittal_ids": [
+        "60005613",
+        "60005679",
+        "60005788"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2GEEXELGDGOEI003NDCTZFD028007",
+      "matched_submittal_ids": [
+        "60006667",
+        "60007198"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2GEEXELGDGOEI003NDCTZFD028008",
+      "matched_submittal_ids": [
+        "60004472"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2GEEXELGDGOEI003NDCTZFD028009",
+      "matched_submittal_ids": [
+        "60004643",
+        "60005297"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2GEEXELGDGOEI003NDCTZTX029000",
+      "matched_submittal_ids": [
+        "60005355",
+        "60005356"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2GEEXELGDGOEI003NOTTZTX028012",
+      "matched_submittal_ids": [
+        "60004749"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2GEEXELGDGOEI003PICTZTX028004",
+      "matched_submittal_ids": [
+        "60003605",
+        "60003905"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2GEEXELGDGOEI003PICTZTX028005",
+      "matched_submittal_ids": [
+        "60003936",
+        "60006702"
+      ],
+      "match_count_rows": 6
+    },
+    {
+      "ancien_reference": "P17T2GEEXELGDGOEI003PLNTZTX028259",
+      "matched_submittal_ids": [
+        "60007779",
+        "60007831"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2GEEXELGDGOEI003PLNTZTX028401",
+      "matched_submittal_ids": [
+        "60008836"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2GEEXELGDGOEI003PLNTZTX028402",
+      "matched_submittal_ids": [
+        "60008837"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2GEEXELGDGOEI003PLNTZTX028403",
+      "matched_submittal_ids": [
+        "60008838"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2GEEXELGDGOEI003PLNTZTX028404",
+      "matched_submittal_ids": [
+        "60008839"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2GEEXELGDGOEI003REPTZTX029008",
+      "matched_submittal_ids": [
+        "60006617",
+        "60006842"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2GEEXESPAVRDG61PLNTZR0023501",
+      "matched_submittal_ids": [
+        "60009423"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2GEEXEUTBPLBI042MATTZTX050944",
+      "matched_submittal_ids": [
+        "60012550"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041LSTHZTX349101",
+      "matched_submittal_ids": [
+        "60005291"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041MATHZTX349501",
+      "matched_submittal_ids": [
+        "60006302"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041MATHZTX349506",
+      "matched_submittal_ids": [
+        "60009235"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041MATHZTX349510",
+      "matched_submittal_ids": [
+        "60009294"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041MATHZTX349511",
+      "matched_submittal_ids": [
+        "60009288"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041MATHZTX349512",
+      "matched_submittal_ids": [
+        "60009447"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041MATHZTX349519",
+      "matched_submittal_ids": [
+        "60013267"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041MATHZTX349521",
+      "matched_submittal_ids": [
+        "60006306"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041MATHZTX349524",
+      "matched_submittal_ids": [
+        "60009239"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041MATHZTX349529",
+      "matched_submittal_ids": [
+        "60011399"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041MATHZTX349532",
+      "matched_submittal_ids": [
+        "60011988"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041MATHZTX349534",
+      "matched_submittal_ids": [
+        "60006304"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041MATHZTX349536",
+      "matched_submittal_ids": [
+        "60006827"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041NDCHZTX349211D",
+      "matched_submittal_ids": [
+        "60005310"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041NDCHZTX349212",
+      "matched_submittal_ids": [
+        "60005373"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041NDCHZTX349212B",
+      "matched_submittal_ids": [
+        "60005373"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041NDCHZTX349213",
+      "matched_submittal_ids": [
+        "60005599"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041NDCHZTX349241",
+      "matched_submittal_ids": [
+        "60011113"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041NDCHZTX349242",
+      "matched_submittal_ids": [
+        "60011112"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041NDCHZTX349246",
+      "matched_submittal_ids": [
+        "60012877"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041NDCHZTX349251",
+      "matched_submittal_ids": [
+        "60007152"
+      ],
+      "match_count_rows": 6
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041NDCHZTX349251B",
+      "matched_submittal_ids": [
+        "60007152"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041NDCHZTX349252",
+      "matched_submittal_ids": [
+        "60007156"
+      ],
+      "match_count_rows": 5
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041NDCHZTX349254",
+      "matched_submittal_ids": [
+        "60011676"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041NDCHZTX349261",
+      "matched_submittal_ids": [
+        "60006264"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041NDCIZTX349211",
+      "matched_submittal_ids": [
+        "60005310"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041RSXHZR0349610",
+      "matched_submittal_ids": [
+        "60008371"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041RSXHZR1349611",
+      "matched_submittal_ids": [
+        "60008793"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041RSXHZR2349612",
+      "matched_submittal_ids": [
+        "60008795"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041RSXHZR3349613",
+      "matched_submittal_ids": [
+        "60008797"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041RSXHZR4349614",
+      "matched_submittal_ids": [
+        "60011884"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041RSXHZR5349615",
+      "matched_submittal_ids": [
+        "60011885"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041RSXHZR6349616",
+      "matched_submittal_ids": [
+        "60014764"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041RSXHZR7349617",
+      "matched_submittal_ids": [
+        "60011928"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041SYQHZTX349311",
+      "matched_submittal_ids": [
+        "60006832"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041SYQHZTX349342",
+      "matched_submittal_ids": [
+        "60011565"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEAXICVCH041SYQHZTX349344",
+      "matched_submittal_ids": [
+        "60011238"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEDUVMEXH008DETHZR0334020",
+      "matched_submittal_ids": [
+        "60009686"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXEDUVMEXH008DETHZR0334045",
+      "matched_submittal_ids": [
+        "60008789"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXEDUVMEXH008DETHZR8334010",
+      "matched_submittal_ids": [
+        "60011796"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEDUVMEXH008NDCHZR0334400",
+      "matched_submittal_ids": [
+        "60009166"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXEDUVMEXH008NDCHZR8334410",
+      "matched_submittal_ids": [
+        "60009421"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXEDUVMEXH008NDCHZTX334420",
+      "matched_submittal_ids": [
+        "60009167"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXEDUVMEXH008NDCHZTX334430",
+      "matched_submittal_ids": [
+        "60009168"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXEDUVMEXH008PLNHZR0334030",
+      "matched_submittal_ids": [
+        "60008574"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXEDUVMEXH008PLNHZR0334040",
+      "matched_submittal_ids": [
+        "60008790"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEFERREVA006DETAZTX332100",
+      "matched_submittal_ids": [
+        "60011177"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXEFERREVA006MATTZTX332300",
+      "matched_submittal_ids": [
+        "60011004"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXEFERREVA006MATTZTX332301",
+      "matched_submittal_ids": [
+        "60011006"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2HOEXEFERREVA006MATTZTX332302",
+      "matched_submittal_ids": [
+        "60011005"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEFERREVH006DETAZTX332100",
+      "matched_submittal_ids": [
+        "60011177"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEFERREVH006DETTZTX332101",
+      "matched_submittal_ids": [
+        "60011178"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEFERREVH006DETTZTX332102",
+      "matched_submittal_ids": [
+        "60011179"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEFERREVH006MATTZTX332300",
+      "matched_submittal_ids": [
+        "60011004"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEFERREVH006MATTZTX332301",
+      "matched_submittal_ids": [
+        "60011006"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEFERREVH006MATTZTX332302",
+      "matched_submittal_ids": [
+        "60011005"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEFERREVH006NDCTZTX332350",
+      "matched_submittal_ids": [
+        "60012545"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXEICMMEXH005DETHZTX331101",
+      "matched_submittal_ids": [
+        "60009740"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXEICMMEXH005RSVHZTX331111",
+      "matched_submittal_ids": [
+        "60010740"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELACMENH012AMATTZTX337001",
+      "matched_submittal_ids": [
+        "60012674"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELACMENH012AMATTZTX337002",
+      "matched_submittal_ids": [
+        "60012675"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELACMENH012AMATTZTX337003",
+      "matched_submittal_ids": [
+        "60012676"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELACMENH012AMATTZTX337004",
+      "matched_submittal_ids": [
+        "60012677"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELACMENH012REPHZTX337100",
+      "matched_submittal_ids": [
+        "60011966"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDFACH007PLNHZR0333000",
+      "matched_submittal_ids": [
+        "60010532"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDFACH007PLNHZR1333001",
+      "matched_submittal_ids": [
+        "60011666"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDFACH007PLNHZR2333002",
+      "matched_submittal_ids": [
+        "60011667"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDFACH007PLNHZR2333003",
+      "matched_submittal_ids": [
+        "60011833"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDFACH007PLNHZR5333005",
+      "matched_submittal_ids": [
+        "60011669"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDFACH007PLNHZR6333006",
+      "matched_submittal_ids": [
+        "60011670"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDFACH007PLNHZR7333007",
+      "matched_submittal_ids": [
+        "60011671"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDFACH007PLNTZTX328401",
+      "matched_submittal_ids": [
+        "60009680"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDFACH007PLNTZTX333000",
+      "matched_submittal_ids": [
+        "60010532"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003ARMHZR0328127",
+      "matched_submittal_ids": [
+        "60009752",
+        "60010799"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003ARMHZR0328128",
+      "matched_submittal_ids": [
+        "60009191",
+        "60009192"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003ARMHZR0328129",
+      "matched_submittal_ids": [
+        "60009427",
+        "60010831"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003ARMHZR1328135",
+      "matched_submittal_ids": [
+        "60011191",
+        "60011194"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003ARMHZR1328136",
+      "matched_submittal_ids": [
+        "60011192"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003ARMHZR1328139",
+      "matched_submittal_ids": [
+        "60011954"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003ARMHZR2328144",
+      "matched_submittal_ids": [
+        "60011955"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003ARMHZR3328154",
+      "matched_submittal_ids": [
+        "60012899"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003CLPH3R0328109",
+      "matched_submittal_ids": [
+        "60009180"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003COFHZR0328120",
+      "matched_submittal_ids": [
+        "60008678",
+        "60008744"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003COFHZR0328121",
+      "matched_submittal_ids": [
+        "60008679"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003COFHZR0328122",
+      "matched_submittal_ids": [
+        "60008745"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003COFHZR0328123",
+      "matched_submittal_ids": [
+        "60008746"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003COFHZR1328132",
+      "matched_submittal_ids": [
+        "60009428"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003COFHZR1328133",
+      "matched_submittal_ids": [
+        "60009429"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003COFHZR1328134",
+      "matched_submittal_ids": [
+        "60010832"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003COFHZR2328140",
+      "matched_submittal_ids": [
+        "60011240"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003COFHZR2328141",
+      "matched_submittal_ids": [
+        "60011241"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003COFHZR2328142",
+      "matched_submittal_ids": [
+        "60011242"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003COFHZR3328150",
+      "matched_submittal_ids": [
+        "60012445"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003COFHZR3328151",
+      "matched_submittal_ids": [
+        "60012446"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003COFHZR4328160",
+      "matched_submittal_ids": [
+        "60012448"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003COFHZR4328161",
+      "matched_submittal_ids": [
+        "60012449"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003COFHZR5328170",
+      "matched_submittal_ids": [
+        "60012450"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003COFHZR5328171",
+      "matched_submittal_ids": [
+        "60012451"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003COFHZR6328180",
+      "matched_submittal_ids": [
+        "60013042"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003COFHZR6328181",
+      "matched_submittal_ids": [
+        "60013043"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003COFHZTX328100",
+      "matched_submittal_ids": [
+        "60004011",
+        "60005497"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003COFHZTX328110",
+      "matched_submittal_ids": [
+        "60008363"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003PLNHZR0328100",
+      "matched_submittal_ids": [
+        "60004011"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003PLNHZR0328400",
+      "matched_submittal_ids": [
+        "60009463"
+      ],
+      "match_count_rows": 6
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003PLNHZR1328101",
+      "matched_submittal_ids": [
+        "60004013"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003PLNHZR2328102",
+      "matched_submittal_ids": [
+        "60003997"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003PLNHZR3328103",
+      "matched_submittal_ids": [
+        "60003999"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003PLNHZR4328104",
+      "matched_submittal_ids": [
+        "60004001"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003PLNHZR5328105",
+      "matched_submittal_ids": [
+        "60004003"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003PLNHZR6328106",
+      "matched_submittal_ids": [
+        "60004005"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003PLNHZR7328107",
+      "matched_submittal_ids": [
+        "60004007"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDGOEH003PLNHZR8328108",
+      "matched_submittal_ids": [
+        "60004009"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXELGDSTRB003PLNH3TT328510",
+      "matched_submittal_ids": [
+        "60011947"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXESCHASCB051PLNHZTX353000",
+      "matched_submittal_ids": [
+        "60012753"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2HOEXESCHASCH051NOTHZR8353000",
+      "matched_submittal_ids": [
+        "60012753"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESCHASCH051PLNAZTX353000",
+      "matched_submittal_ids": [
+        "60012753"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2HOEXESCHASCH051PLNHZTX353001",
+      "matched_submittal_ids": [
+        "60005418"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2HOEXESMACOUH06BDETHZTT335006",
+      "matched_submittal_ids": [
+        "60008623"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFAH033MATHZR0346204",
+      "matched_submittal_ids": [
+        "60011519"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOA031SYQAZTX245005",
+      "matched_submittal_ids": [
+        "60009298"
+      ],
+      "match_count_rows": 5
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031IMPH1S1000001",
+      "matched_submittal_ids": [
+        "60007038",
+        "60007039"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031IMPHZR1345501",
+      "matched_submittal_ids": [
+        "60009714"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031IMPHZR6345506",
+      "matched_submittal_ids": [
+        "60009715"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031LTEHZTX345077",
+      "matched_submittal_ids": [
+        "60011423"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031MATHZTX345110",
+      "matched_submittal_ids": [
+        "60009299"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031MATHZTX345111",
+      "matched_submittal_ids": [
+        "60009300"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031MATHZTX345112",
+      "matched_submittal_ids": [
+        "60009301"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031MATHZTX345120",
+      "matched_submittal_ids": [
+        "60009302"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031MATHZTX345121",
+      "matched_submittal_ids": [
+        "60009303"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031MATHZTX345122",
+      "matched_submittal_ids": [
+        "60009304"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031MATHZTX345123",
+      "matched_submittal_ids": [
+        "60009305"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031MATHZTX345124",
+      "matched_submittal_ids": [
+        "60009306"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031MATHZTX345125",
+      "matched_submittal_ids": [
+        "60009307"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031MATHZTX345126",
+      "matched_submittal_ids": [
+        "60009308"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031MATHZTX345127",
+      "matched_submittal_ids": [
+        "60009309"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031MATHZTX345130",
+      "matched_submittal_ids": [
+        "60009310"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031MATHZTX345131",
+      "matched_submittal_ids": [
+        "60009311"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031MATHZTX345132",
+      "matched_submittal_ids": [
+        "60009312"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031MATHZTX345200",
+      "matched_submittal_ids": [
+        "60009313"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031MATHZTX345201",
+      "matched_submittal_ids": [
+        "60009314"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031MATHZTX345202",
+      "matched_submittal_ids": [
+        "60009315"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031MATHZTX345203",
+      "matched_submittal_ids": [
+        "60009316"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031MATHZTX345204",
+      "matched_submittal_ids": [
+        "60009317"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031MATHZTX345205",
+      "matched_submittal_ids": [
+        "60009318"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031MATHZTX345206",
+      "matched_submittal_ids": [
+        "60009319"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031MATHZTX345207",
+      "matched_submittal_ids": [
+        "60009320"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031NDCHZTX345097",
+      "matched_submittal_ids": [
+        "60012557"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031RSVHZR0245131",
+      "matched_submittal_ids": [
+        "60009333"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031RSVHZR1245141",
+      "matched_submittal_ids": [
+        "60011623"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031RSXH1S1345003",
+      "matched_submittal_ids": [
+        "60008413"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031RSXHZR0345003",
+      "matched_submittal_ids": [
+        "60008413"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031RSXHZR0345018",
+      "matched_submittal_ids": [
+        "60011543"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031RSXHZR0345022",
+      "matched_submittal_ids": [
+        "60011541"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031RSXHZR0345023",
+      "matched_submittal_ids": [
+        "60011542"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031RSXHZS1245089",
+      "matched_submittal_ids": [
+        "60007062"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031SYNH1S1000001",
+      "matched_submittal_ids": [
+        "60004418",
+        "60005396",
+        "60007038",
+        "60007039",
+        "60009222"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031SYQHZTX245065",
+      "matched_submittal_ids": [
+        "60009297"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR0245090",
+      "matched_submittal_ids": [
+        "60007071"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR0245100",
+      "matched_submittal_ids": [
+        "60007101"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR1245091",
+      "matched_submittal_ids": [
+        "60007070"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR1245101",
+      "matched_submittal_ids": [
+        "60007100"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR1345030",
+      "matched_submittal_ids": [
+        "60011511"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR1345031",
+      "matched_submittal_ids": [
+        "60011512"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR1345032",
+      "matched_submittal_ids": [
+        "60011513"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR1345033",
+      "matched_submittal_ids": [
+        "60011514"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR1345034",
+      "matched_submittal_ids": [
+        "60011515"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR1345035",
+      "matched_submittal_ids": [
+        "60011516"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR1345036",
+      "matched_submittal_ids": [
+        "60011517"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR1345038",
+      "matched_submittal_ids": [
+        "60011533"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR1345039",
+      "matched_submittal_ids": [
+        "60011524"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR1345040",
+      "matched_submittal_ids": [
+        "60011525"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR1345041",
+      "matched_submittal_ids": [
+        "60011526"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR1345042",
+      "matched_submittal_ids": [
+        "60011527"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR1345043",
+      "matched_submittal_ids": [
+        "60011528"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR1345044",
+      "matched_submittal_ids": [
+        "60011529"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR1345045",
+      "matched_submittal_ids": [
+        "60011530"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR1345046",
+      "matched_submittal_ids": [
+        "60011531"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR1345047",
+      "matched_submittal_ids": [
+        "60011532"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR2245092",
+      "matched_submittal_ids": [
+        "60007069"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR2245102",
+      "matched_submittal_ids": [
+        "60007099"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR3245093",
+      "matched_submittal_ids": [
+        "60007068"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR3245103",
+      "matched_submittal_ids": [
+        "60007098"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR3345042",
+      "matched_submittal_ids": [
+        "60011527"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR4245094",
+      "matched_submittal_ids": [
+        "60007067"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR4245104",
+      "matched_submittal_ids": [
+        "60007097"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR5245095",
+      "matched_submittal_ids": [
+        "60007066"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR5245105",
+      "matched_submittal_ids": [
+        "60007096"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR6245096",
+      "matched_submittal_ids": [
+        "60007065"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR6245106",
+      "matched_submittal_ids": [
+        "60007095"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR6245107",
+      "matched_submittal_ids": [
+        "60007094"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR7245097",
+      "matched_submittal_ids": [
+        "60007064"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR7245108",
+      "matched_submittal_ids": [
+        "60007093"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZR8245098",
+      "matched_submittal_ids": [
+        "60007063"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZS1245099",
+      "matched_submittal_ids": [
+        "60007092"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZS1345038",
+      "matched_submittal_ids": [
+        "60011533"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNICFOH031TMXHZTT345048",
+      "matched_submittal_ids": [
+        "60011534"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNISSIH033MATHZR0346207",
+      "matched_submittal_ids": [
+        "60009500"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNISSIH033SYQHZTX346150",
+      "matched_submittal_ids": [
+        "60011712"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNISSIH033TMXHZR0346014",
+      "matched_submittal_ids": [
+        "60011384"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNISSIH033TMXHZR0346015",
+      "matched_submittal_ids": [
+        "60011385"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNISSIH033TMXHZR0346016",
+      "matched_submittal_ids": [
+        "60011386"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNISSIH033TMXHZR0346017",
+      "matched_submittal_ids": [
+        "60011387"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNISSIH033TMXHZR0346018",
+      "matched_submittal_ids": [
+        "60011388"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNISSIH033TMXHZR0346019",
+      "matched_submittal_ids": [
+        "60011389"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNISSIH033TMXHZR0346020",
+      "matched_submittal_ids": [
+        "60011390"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNISSIH033TMXHZR8346021",
+      "matched_submittal_ids": [
+        "60011391"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXESNISSIH033TMXHZR8346107",
+      "matched_submittal_ids": [
+        "60011711"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEUTBPLBH042DETHZR1350303",
+      "matched_submittal_ids": [
+        "60006566"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEUTBPLBH042DETHZTX350302",
+      "matched_submittal_ids": [
+        "60005678"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEUTBPLBH042MATTZTX350907",
+      "matched_submittal_ids": [
+        "60008998"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2HOEXEUTBPLBH042SYQHZTX350411",
+      "matched_submittal_ids": [
+        "60005653"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEAAISPKI043NDCIZS1051011",
+      "matched_submittal_ids": [
+        "60009058"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAAISPKI043NDCIZS2051020",
+      "matched_submittal_ids": [
+        "60009056"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAAISPKI043NDCIZS2051021",
+      "matched_submittal_ids": [
+        "60010635"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAAISPKI043NDCIZS3051030",
+      "matched_submittal_ids": [
+        "60005894"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAAISPKI043NDCIZS3051031",
+      "matched_submittal_ids": [
+        "60010524"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEAAISPKI043NDCIZS4051040",
+      "matched_submittal_ids": [
+        "60005892"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAAISPKI043NDCIZS4051041",
+      "matched_submittal_ids": [
+        "60010522"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEAAISPKI043NDCIZS5051020",
+      "matched_submittal_ids": [
+        "60009056"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAAISPKI043NDCIZS5051030",
+      "matched_submittal_ids": [
+        "60005894"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEAAISPKI043NDCIZS5051040",
+      "matched_submittal_ids": [
+        "60005892"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEAAISPKI043NDCIZS5051050",
+      "matched_submittal_ids": [
+        "60005890"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXEAAISPKI043NDCIZS5051051",
+      "matched_submittal_ids": [
+        "60010521"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEAAISPKI043NOTTZTX051133",
+      "matched_submittal_ids": [
+        "60010444"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEAAISPKI043PLNI1S1051060",
+      "matched_submittal_ids": [
+        "60007247"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2INEXEAAISPKI043PLNI1S1051065",
+      "matched_submittal_ids": [
+        "60009658"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAAISPKI043PLNIZS2051020",
+      "matched_submittal_ids": [
+        "60009056"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXEAAISPKI043PLNIZS3051030",
+      "matched_submittal_ids": [
+        "60005894"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXEAAISPKI043PLNIZS4051040",
+      "matched_submittal_ids": [
+        "60005892"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2INEXEAAISPKI043PLNIZS4051069",
+      "matched_submittal_ids": [
+        "60009666"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAAISPKI043PLNIZS5051050",
+      "matched_submittal_ids": [
+        "60005890"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2INEXEAAISPKI043PLNIZS5051070",
+      "matched_submittal_ids": [
+        "60009668"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAAISPKI043PLNIZTX051065",
+      "matched_submittal_ids": [
+        "60009658"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAAISPKI043PLNIZTX051066",
+      "matched_submittal_ids": [
+        "60009660"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAAISPKI043PLNIZTX051067",
+      "matched_submittal_ids": [
+        "60009662"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAAISPKI043PLNIZTX051068",
+      "matched_submittal_ids": [
+        "60009664"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAAISPKI043PLNIZTX051073",
+      "matched_submittal_ids": [
+        "60010906"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAMPCLDI011LSTIZTX036000",
+      "matched_submittal_ids": [
+        "60011252"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAMPCLDI011MATIZS1036007",
+      "matched_submittal_ids": [
+        "60012266"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAMPCLDI011REPIZS1036100",
+      "matched_submittal_ids": [
+        "60012244"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041LSTIZTX049101",
+      "matched_submittal_ids": [
+        "60008019"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041MATAZTX049521",
+      "matched_submittal_ids": [
+        "60006276"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041MATIZTX049501",
+      "matched_submittal_ids": [
+        "60006278"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041MATIZTX049506",
+      "matched_submittal_ids": [
+        "60009234"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041MATIZTX049508",
+      "matched_submittal_ids": [
+        "60010391"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041MATIZTX049512",
+      "matched_submittal_ids": [
+        "60009444"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041MATIZTX049529",
+      "matched_submittal_ids": [
+        "60011396"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041MATIZTX049551",
+      "matched_submittal_ids": [
+        "60012671"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041NDCIZTX049202",
+      "matched_submittal_ids": [
+        "60007476"
+      ],
+      "match_count_rows": 9
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041NDCIZTX049211",
+      "matched_submittal_ids": [
+        "60005309"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041NDCIZTX049211D",
+      "matched_submittal_ids": [
+        "60005309"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041NDCIZTX049212",
+      "matched_submittal_ids": [
+        "60005370"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041NDCIZTX049214",
+      "matched_submittal_ids": [
+        "60007308"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041NDCIZTX049217",
+      "matched_submittal_ids": [
+        "60005844"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041NDCIZTX049218",
+      "matched_submittal_ids": [
+        "60005849"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041NDCIZTX049219",
+      "matched_submittal_ids": [
+        "60006349"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041NDCIZTX049220",
+      "matched_submittal_ids": [
+        "60005293"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041NDCIZTX049220A",
+      "matched_submittal_ids": [
+        "60005293"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041NDCIZTX049220B",
+      "matched_submittal_ids": [
+        "60005293"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041NDCIZTX049220C",
+      "matched_submittal_ids": [
+        "60005293"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041NDCIZTX049220D",
+      "matched_submittal_ids": [
+        "60005293"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041NDCIZTX049221",
+      "matched_submittal_ids": [
+        "60005322"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041NDCIZTX049241",
+      "matched_submittal_ids": [
+        "60011106"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041NDCIZTX049242",
+      "matched_submittal_ids": [
+        "60011107"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041NDCIZTX049246",
+      "matched_submittal_ids": [
+        "60012869"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041NDCIZTX049251",
+      "matched_submittal_ids": [
+        "60007107"
+      ],
+      "match_count_rows": 8
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041NDCIZTX049251D",
+      "matched_submittal_ids": [
+        "60007107"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041NDCIZTX049252",
+      "matched_submittal_ids": [
+        "60007153"
+      ],
+      "match_count_rows": 5
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041NDCIZTX049252C",
+      "matched_submittal_ids": [
+        "60007153"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041NDCIZTX049261",
+      "matched_submittal_ids": [
+        "60005308"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041NDCIZTX049322",
+      "matched_submittal_ids": [
+        "60005294"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041NDCIZTX049908",
+      "matched_submittal_ids": [
+        "60005476"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041PLNIZS1049909",
+      "matched_submittal_ids": [
+        "60011210"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041PLNIZS3049602",
+      "matched_submittal_ids": [
+        "60005808"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041PLNIZS3049603",
+      "matched_submittal_ids": [
+        "60005367"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041PLNIZS4049604",
+      "matched_submittal_ids": [
+        "60005365"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041PLNIZS5049605",
+      "matched_submittal_ids": [
+        "60005363"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041RSXIZS3049601",
+      "matched_submittal_ids": [
+        "60005809"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041RSXIZS3049602",
+      "matched_submittal_ids": [
+        "60005808"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041RSXIZS3049603",
+      "matched_submittal_ids": [
+        "60005367"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041RSXIZS4049604",
+      "matched_submittal_ids": [
+        "60005365"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041RSXIZS5049605",
+      "matched_submittal_ids": [
+        "60005363"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041SYQIZTX049301",
+      "matched_submittal_ids": [
+        "60006828"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041SYQIZTX049311",
+      "matched_submittal_ids": [
+        "60006829"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041SYQIZTX049322",
+      "matched_submittal_ids": [
+        "60005294"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEAXICVCI041SYQIZTX049342",
+      "matched_submittal_ids": [
+        "60011568"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFAB034MATBZTX145601",
+      "matched_submittal_ids": [
+        "60007678"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFAB034MATBZTX145603",
+      "matched_submittal_ids": [
+        "60007680"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFAB034MATBZTX145604",
+      "matched_submittal_ids": [
+        "60007681"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFAB034MATBZTX145606",
+      "matched_submittal_ids": [
+        "60007712"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFAB034MATBZTX145608",
+      "matched_submittal_ids": [
+        "60007714"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFAB034MATBZTX145609",
+      "matched_submittal_ids": [
+        "60007715"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFAB034MATBZTX145610",
+      "matched_submittal_ids": [
+        "60007716"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFAB034MATBZTX145611",
+      "matched_submittal_ids": [
+        "60007717"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFAB034MATBZTX145612",
+      "matched_submittal_ids": [
+        "60007718"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFAB034MATBZTX145613",
+      "matched_submittal_ids": [
+        "60007719"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFAB034MATBZTX145614",
+      "matched_submittal_ids": [
+        "60007720"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFAB034MATBZTX145615",
+      "matched_submittal_ids": [
+        "60007721"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFAB034MATBZTX145618",
+      "matched_submittal_ids": [
+        "60007724"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFAB034MATBZTX145619",
+      "matched_submittal_ids": [
+        "60007725"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFAB034MATBZTX145620",
+      "matched_submittal_ids": [
+        "60007726"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFAB034MATBZTX145621",
+      "matched_submittal_ids": [
+        "60007727"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFAB034MATBZTX145622",
+      "matched_submittal_ids": [
+        "60007728"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFAB034MATBZTX145624",
+      "matched_submittal_ids": [
+        "60007730"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFAI034MATTZTX047015",
+      "matched_submittal_ids": [
+        "60007366"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFAI034RSXTZS1047005",
+      "matched_submittal_ids": [
+        "60007750"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFAI034RSXTZS2047006",
+      "matched_submittal_ids": [
+        "60007751"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFAI034RSXTZS3047007",
+      "matched_submittal_ids": [
+        "60007752"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFAI034RSXTZS4047008",
+      "matched_submittal_ids": [
+        "60007753"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFAI034RSXTZS5047009",
+      "matched_submittal_ids": [
+        "60007754"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031LSTTZTX045080",
+      "matched_submittal_ids": [
+        "60005763"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031LTETZTX045007",
+      "matched_submittal_ids": [
+        "60005787",
+        "60007386"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031LTETZTX045008",
+      "matched_submittal_ids": [
+        "60009216"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031LTETZTX045008A",
+      "matched_submittal_ids": [
+        "60009216"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031LTETZTX045015",
+      "matched_submittal_ids": [
+        "60007529"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031LTETZTX045016",
+      "matched_submittal_ids": [
+        "60007528"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031LTETZTX045017",
+      "matched_submittal_ids": [
+        "60007531"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031LTETZTX045018",
+      "matched_submittal_ids": [
+        "60007530"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031MATBZTX045051",
+      "matched_submittal_ids": [
+        "60005796"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031MATBZTX045052",
+      "matched_submittal_ids": [
+        "60005797"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031MATBZTX045053",
+      "matched_submittal_ids": [
+        "60005798"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031MATTZTX045049",
+      "matched_submittal_ids": [
+        "60005793"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031MATTZTX045051",
+      "matched_submittal_ids": [
+        "60005796"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031MATTZTX045052",
+      "matched_submittal_ids": [
+        "60005797"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031MATTZTX045053",
+      "matched_submittal_ids": [
+        "60005798"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031MATTZTX045064",
+      "matched_submittal_ids": [
+        "60005767"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031MATTZTX045065",
+      "matched_submittal_ids": [
+        "60005768"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031MATTZTX045071",
+      "matched_submittal_ids": [
+        "60007537"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031MATTZTX045073",
+      "matched_submittal_ids": [
+        "60007538"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031MATTZTX045074",
+      "matched_submittal_ids": [
+        "60007539"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031MATTZTX045075",
+      "matched_submittal_ids": [
+        "60007540"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031MATTZTX045076",
+      "matched_submittal_ids": [
+        "60009225"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031NDCTZTX045000",
+      "matched_submittal_ids": [
+        "60005764"
+      ],
+      "match_count_rows": 5
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031NDCTZTX045002",
+      "matched_submittal_ids": [
+        "60006252"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031NDCTZTX045003",
+      "matched_submittal_ids": [
+        "60006251"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031NDCTZTX045007",
+      "matched_submittal_ids": [
+        "60005787",
+        "60007386"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031PLNTZS1045026",
+      "matched_submittal_ids": [
+        "60005901"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031PLNTZS2045027",
+      "matched_submittal_ids": [
+        "60005900"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031PLNTZTX045006",
+      "matched_submittal_ids": [
+        "60005766"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031PLNTZTX045024",
+      "matched_submittal_ids": [
+        "60008385"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031PLNTZTX045025",
+      "matched_submittal_ids": [
+        "60008386"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031RSVTZTX045015",
+      "matched_submittal_ids": [
+        "60007529"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031RSVTZTX045016",
+      "matched_submittal_ids": [
+        "60007528"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031RSVTZTX045017",
+      "matched_submittal_ids": [
+        "60007531"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031RSVTZTX045018",
+      "matched_submittal_ids": [
+        "60007530"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031RSXI1S2045022",
+      "matched_submittal_ids": [
+        "60008383"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031RSXTZS1045021",
+      "matched_submittal_ids": [
+        "60009296"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031RSXTZS2045022A",
+      "matched_submittal_ids": [
+        "60008383"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031RSXTZS2045022B",
+      "matched_submittal_ids": [
+        "60008383"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031SYQTZS1045036",
+      "matched_submittal_ids": [
+        "60007755"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031SYQTZS1045037",
+      "matched_submittal_ids": [
+        "60007756"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031SYQTZS1045039",
+      "matched_submittal_ids": [
+        "60007758"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031SYQTZS1045041",
+      "matched_submittal_ids": [
+        "60007759"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031SYQTZS1045043",
+      "matched_submittal_ids": [
+        "60007761"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031SYQTZS1045045",
+      "matched_submittal_ids": [
+        "60007763"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031SYQTZS1045047",
+      "matched_submittal_ids": [
+        "60007765"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031SYQTZTX045004",
+      "matched_submittal_ids": [
+        "60007141"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031SYQTZTX045005",
+      "matched_submittal_ids": [
+        "60005765"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031SYQTZTX045072",
+      "matched_submittal_ids": [
+        "60007385"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031SYQTZTX045072A",
+      "matched_submittal_ids": [
+        "60007385"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031TMXTZS1045021",
+      "matched_submittal_ids": [
+        "60009296"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031TMXTZS1045026",
+      "matched_submittal_ids": [
+        "60005901"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031TMXTZS1045031",
+      "matched_submittal_ids": [
+        "60007140"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031TMXTZS3045033",
+      "matched_submittal_ids": [
+        "60007305"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031TMXTZS4045029",
+      "matched_submittal_ids": [
+        "60005818"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031TMXTZS4045034",
+      "matched_submittal_ids": [
+        "60007306"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENCFOI031TMXTZS5045035",
+      "matched_submittal_ids": [
+        "60007346"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENSSII031TMXTZS1046002A",
+      "matched_submittal_ids": [
+        "60007781"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENSSII031TMXTZS2046003A",
+      "matched_submittal_ids": [
+        "60007782"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENSSII031TMXTZS3046004A",
+      "matched_submittal_ids": [
+        "60007783"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENSSII031TMXTZS4046005A",
+      "matched_submittal_ids": [
+        "60007784"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENSSII031TMXTZS5046006A",
+      "matched_submittal_ids": [
+        "60007785"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEBENSSII033SYQTZS1046001",
+      "matched_submittal_ids": [
+        "60010818"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEFKIFSPI002PLNTZFD027007",
+      "matched_submittal_ids": [
+        "60004445"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEFKIFSPI002PLNTZFD027008",
+      "matched_submittal_ids": [
+        "60004438"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXEFKIFSPI002PPSTZFD027008",
+      "matched_submittal_ids": [
+        "60004438"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELACMENI012MATTZTX037001",
+      "matched_submittal_ids": [
+        "60011573"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELACMENI012MATTZTX037002",
+      "matched_submittal_ids": [
+        "60011574"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELACMENI012MATTZTX037011",
+      "matched_submittal_ids": [
+        "60011583"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI1FD028160",
+      "matched_submittal_ids": [
+        "60006389"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI1S1028286",
+      "matched_submittal_ids": [
+        "60008235",
+        "60008236"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI1S1028292",
+      "matched_submittal_ids": [
+        "60008360"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI1S1028294",
+      "matched_submittal_ids": [
+        "60008290"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI1S1028298",
+      "matched_submittal_ids": [
+        "60008703",
+        "60008707"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI1S2028259",
+      "matched_submittal_ids": [
+        "60007779",
+        "60007831"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI1S2028265",
+      "matched_submittal_ids": [
+        "60007780"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI1S2028268",
+      "matched_submittal_ids": [
+        "60008041",
+        "60008042"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI1S3028229",
+      "matched_submittal_ids": [
+        "60006786",
+        "60007111"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI1S5028176",
+      "matched_submittal_ids": [
+        "60006478",
+        "60006479"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI1S5028182",
+      "matched_submittal_ids": [
+        "60006603",
+        "60006606"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI2FD028154",
+      "matched_submittal_ids": [
+        "60006442",
+        "60006443"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI2FD028157",
+      "matched_submittal_ids": [
+        "60006444"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI2FD028161",
+      "matched_submittal_ids": [
+        "60006445"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI2FD028201",
+      "matched_submittal_ids": [
+        "60006421"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI2FD028208",
+      "matched_submittal_ids": [
+        "60006705",
+        "60007104"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI2FD028209",
+      "matched_submittal_ids": [
+        "60006665"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI2FD028210",
+      "matched_submittal_ids": [
+        "60006666"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI2S1028290",
+      "matched_submittal_ids": [
+        "60008061",
+        "60008649"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI2S1028293",
+      "matched_submittal_ids": [
+        "60008392",
+        "60008393"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI2S1028296",
+      "matched_submittal_ids": [
+        "60008223"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI2S1028308",
+      "matched_submittal_ids": [
+        "60008062"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI2S2028257",
+      "matched_submittal_ids": [
+        "60007548"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI2S2028263",
+      "matched_submittal_ids": [
+        "60007595"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI2S2028266",
+      "matched_submittal_ids": [
+        "60007594"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI2S3028239",
+      "matched_submittal_ids": [
+        "60006881"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI2S4028197",
+      "matched_submittal_ids": [
+        "60006554",
+        "60006565"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI2S4028200",
+      "matched_submittal_ids": [
+        "60006555"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI2S5028183",
+      "matched_submittal_ids": [
+        "60006605"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI3FD028153",
+      "matched_submittal_ids": [
+        "60006386"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI3FD028155",
+      "matched_submittal_ids": [
+        "60006345",
+        "60006348"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI3FD028156",
+      "matched_submittal_ids": [
+        "60006387"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI3FD028158",
+      "matched_submittal_ids": [
+        "60006346"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI3FD028159",
+      "matched_submittal_ids": [
+        "60006388"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI3FD028162",
+      "matched_submittal_ids": [
+        "60006347"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI3FD028174",
+      "matched_submittal_ids": [
+        "60006390",
+        "60006393"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI3FD028175",
+      "matched_submittal_ids": [
+        "60006391"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI3FD028177",
+      "matched_submittal_ids": [
+        "60006420"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI3FD028198",
+      "matched_submittal_ids": [
+        "60006392"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI3FD028199",
+      "matched_submittal_ids": [
+        "60006704"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI3S1028288",
+      "matched_submittal_ids": [
+        "60007959",
+        "60007964"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI3S1028291",
+      "matched_submittal_ids": [
+        "60007960"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI3S1028297",
+      "matched_submittal_ids": [
+        "60007961",
+        "60008119"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI3S1028307",
+      "matched_submittal_ids": [
+        "60007962"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI3S1028311",
+      "matched_submittal_ids": [
+        "60008821",
+        "60009051"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI3S2028258",
+      "matched_submittal_ids": [
+        "60007549"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI3S2028261",
+      "matched_submittal_ids": [
+        "60007552"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI3S2028264",
+      "matched_submittal_ids": [
+        "60007885"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI3S3028228",
+      "matched_submittal_ids": [
+        "60006789",
+        "60006791"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI3S3028231",
+      "matched_submittal_ids": [
+        "60006790"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003ARMI3S3028240",
+      "matched_submittal_ids": [
+        "60006882"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003CLPTZS1028277",
+      "matched_submittal_ids": [
+        "60008568",
+        "60008652"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003CLPTZS1028279",
+      "matched_submittal_ids": [
+        "60008566"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003CLPTZS4029011",
+      "matched_submittal_ids": [
+        "60008022"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003CLPTZTX028275",
+      "matched_submittal_ids": [
+        "60008218"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003COFI1S1028280",
+      "matched_submittal_ids": [
+        "60008221",
+        "60009220"
+      ],
+      "match_count_rows": 9
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003COFI1S1028283",
+      "matched_submittal_ids": [
+        "60008705",
+        "60013273"
+      ],
+      "match_count_rows": 9
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003COFI1S2028250",
+      "matched_submittal_ids": [
+        "60007555",
+        "60007776"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003COFI1S2028253",
+      "matched_submittal_ids": [
+        "60007642"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003COFI1S2028271",
+      "matched_submittal_ids": [
+        "60007268",
+        "60007284",
+        "60007553"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003COFI1S3028220",
+      "matched_submittal_ids": [
+        "60006557"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003COFI1S5028170",
+      "matched_submittal_ids": [
+        "60006254",
+        "60006258"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003COFI1S5028170A",
+      "matched_submittal_ids": [
+        "60006254",
+        "60006258"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003COFI1S5028171",
+      "matched_submittal_ids": [
+        "60006425",
+        "60006432"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003COFI1S5028172",
+      "matched_submittal_ids": [
+        "60006255"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003COFI1S5028172A",
+      "matched_submittal_ids": [
+        "60006255"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003COFI2S1028281",
+      "matched_submittal_ids": [
+        "60008052"
+      ],
+      "match_count_rows": 5
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003COFI2S1028284",
+      "matched_submittal_ids": [
+        "60008053",
+        "60010401"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003COFI2S1028302",
+      "matched_submittal_ids": [
+        "60008054",
+        "60008643"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003COFI2S1028305",
+      "matched_submittal_ids": [
+        "60008055"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003COFI2S2028251",
+      "matched_submittal_ids": [
+        "60007269",
+        "60007774"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003COFI2S2028254",
+      "matched_submittal_ids": [
+        "60007270"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003COFI2S2028272",
+      "matched_submittal_ids": [
+        "60007271"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003COFI2S3028221",
+      "matched_submittal_ids": [
+        "60006782"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003COFI3S1028282",
+      "matched_submittal_ids": [
+        "60007875",
+        "60007886"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003COFI3S1028285",
+      "matched_submittal_ids": [
+        "60007876"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003COFI3S1028303",
+      "matched_submittal_ids": [
+        "60007877"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003COFI3S1028303A",
+      "matched_submittal_ids": [
+        "60007877"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003COFI3S1028306",
+      "matched_submittal_ids": [
+        "60007878"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003COFI3S2028252",
+      "matched_submittal_ids": [
+        "60007272"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003COFI3S2028255",
+      "matched_submittal_ids": [
+        "60007273"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003COFI3S2028273",
+      "matched_submittal_ids": [
+        "60007274"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003COFI3S3028222",
+      "matched_submittal_ids": [
+        "60006783"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003COFI3S4028192",
+      "matched_submittal_ids": [
+        "60006424"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003DETTZTX028245",
+      "matched_submittal_ids": [
+        "60011741"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003PLNI1S1028104",
+      "matched_submittal_ids": [
+        "60004075"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003PLNI1S2028103",
+      "matched_submittal_ids": [
+        "60004074"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003PLNI1S3028102",
+      "matched_submittal_ids": [
+        "60004073"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003PLNI1S4028101",
+      "matched_submittal_ids": [
+        "60004072"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003PLNI1S5028100",
+      "matched_submittal_ids": [
+        "60004071"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003PLNI1TX028123",
+      "matched_submittal_ids": [
+        "60004755",
+        "60005341"
+      ],
+      "match_count_rows": 6
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003PLNI2S1028109",
+      "matched_submittal_ids": [
+        "60004105",
+        "60004124"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003PLNI2S2028108",
+      "matched_submittal_ids": [
+        "60004106"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003PLNI2S3028107",
+      "matched_submittal_ids": [
+        "60004107"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003PLNI2S4028106",
+      "matched_submittal_ids": [
+        "60004108"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003PLNI2S5028105",
+      "matched_submittal_ids": [
+        "60004109"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003PLNI3S1028114",
+      "matched_submittal_ids": [
+        "60004110"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003PLNI3S2028113",
+      "matched_submittal_ids": [
+        "60004111"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003PLNI3S3028112",
+      "matched_submittal_ids": [
+        "60004112"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003PLNI3S4028111",
+      "matched_submittal_ids": [
+        "60004113"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003PLNI3S5028110",
+      "matched_submittal_ids": [
+        "60004104"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003PLNI3TX028127",
+      "matched_submittal_ids": [
+        "60004700"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003PLNIZS1028125",
+      "matched_submittal_ids": [
+        "60005715",
+        "60005721"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003PLNIZS2028115",
+      "matched_submittal_ids": [
+        "60004758",
+        "60005920"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003PLNIZS3028116",
+      "matched_submittal_ids": [
+        "60004760"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003PLNIZS4028117",
+      "matched_submittal_ids": [
+        "60004761"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003PLNIZS5028118",
+      "matched_submittal_ids": [
+        "60004762",
+        "60006030"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003PLNIZS5028119",
+      "matched_submittal_ids": [
+        "60005499"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXELGDGOEI003PLNIZTX028128",
+      "matched_submittal_ids": [
+        "60005717"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXESCHASCB051PLNIZTX053000",
+      "matched_submittal_ids": [
+        "60005422"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXESCHASCI051NOTIZR0053000",
+      "matched_submittal_ids": [
+        "60005422"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXESMAETAI004REPIZR0030005",
+      "matched_submittal_ids": [
+        "60008368"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXESNICFOH031SYQHZTX245065A",
+      "matched_submittal_ids": [
+        "60007574",
+        "60009297"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXESNICFOH031SYQHZTX345076",
+      "matched_submittal_ids": [
+        "60011422"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042DETIZS1050202",
+      "matched_submittal_ids": [
+        "60005650"
+      ],
+      "match_count_rows": 5
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042DETIZS1050203",
+      "matched_submittal_ids": [
+        "60007583"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042DETIZS1050204",
+      "matched_submittal_ids": [
+        "60007584"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042DETIZS1050301",
+      "matched_submittal_ids": [
+        "60008639"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042DETIZS1050302",
+      "matched_submittal_ids": [
+        "60007437"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042DETIZS1050304",
+      "matched_submittal_ids": [
+        "60007365"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042DETIZS1050401",
+      "matched_submittal_ids": [
+        "60011170"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042DETIZS2050305",
+      "matched_submittal_ids": [
+        "60006818"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042DETIZS2050402",
+      "matched_submittal_ids": [
+        "60011171"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042DETIZS3050306",
+      "matched_submittal_ids": [
+        "60006819"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042DETIZS3050403",
+      "matched_submittal_ids": [
+        "60011172"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042DETIZS5050308",
+      "matched_submittal_ids": [
+        "60006821"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042DETIZS5050401",
+      "matched_submittal_ids": [
+        "60007836"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042DETIZS5050402",
+      "matched_submittal_ids": [
+        "60007837"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042DETIZS5050403",
+      "matched_submittal_ids": [
+        "60007838"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042DETIZTX050502",
+      "matched_submittal_ids": [
+        "60005675"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042MATI1S1050934",
+      "matched_submittal_ids": [
+        "60007354"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042MATIZS4050950",
+      "matched_submittal_ids": [
+        "60013240"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042MATIZS5350939",
+      "matched_submittal_ids": [
+        "60009035"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042NDCIZTX050702",
+      "matched_submittal_ids": [
+        "60005552"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042NDCIZTX050703",
+      "matched_submittal_ids": [
+        "60005554"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042NDCIZTX050704",
+      "matched_submittal_ids": [
+        "60005555"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042NDCIZTX050707",
+      "matched_submittal_ids": [
+        "60006486"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042NDCIZTX050710",
+      "matched_submittal_ids": [
+        "60005616"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042NDCIZTX050801",
+      "matched_submittal_ids": [
+        "60005617"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042NDCIZTX050802",
+      "matched_submittal_ids": [
+        "60005618"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042NDCIZTX050803",
+      "matched_submittal_ids": [
+        "60005619"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042NDCIZTX050804",
+      "matched_submittal_ids": [
+        "60005620"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042NDCIZTX050807",
+      "matched_submittal_ids": [
+        "60005636"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042NDCIZTX050808",
+      "matched_submittal_ids": [
+        "60005637"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042NDCIZTX050809",
+      "matched_submittal_ids": [
+        "60005638"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042NDCIZTX050810",
+      "matched_submittal_ids": [
+        "60005621"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042NDCIZTX050813",
+      "matched_submittal_ids": [
+        "60005624"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042NDCIZTX050814",
+      "matched_submittal_ids": [
+        "60005625"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042NDCIZTX050815",
+      "matched_submittal_ids": [
+        "60005626"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042NDCIZTX050818",
+      "matched_submittal_ids": [
+        "60005629"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042NDCIZTX050819",
+      "matched_submittal_ids": [
+        "60005630"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042NDCIZTX050820",
+      "matched_submittal_ids": [
+        "60005631"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042NDCIZTX050824",
+      "matched_submittal_ids": [
+        "60005632"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042NDCIZTX050825",
+      "matched_submittal_ids": [
+        "60005633"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042NDCIZTX050826",
+      "matched_submittal_ids": [
+        "60005634"
+      ],
+      "match_count_rows": 3
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042NOTIZTX050709",
+      "matched_submittal_ids": [
+        "60007195"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042NOTIZTX050932",
+      "matched_submittal_ids": [
+        "60007187"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042NOTTZTX050709",
+      "matched_submittal_ids": [
+        "60007195"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042PLNIZS2050002B",
+      "matched_submittal_ids": [
+        "60007462"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042PLNIZS3050003B",
+      "matched_submittal_ids": [
+        "60007463"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042PLNIZS4050004B",
+      "matched_submittal_ids": [
+        "60007464"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042PLNIZS5050005B",
+      "matched_submittal_ids": [
+        "60007465"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042PNLIZS2050001",
+      "matched_submittal_ids": [
+        "60006092"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042PNLIZS3050002",
+      "matched_submittal_ids": [
+        "60007462"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042PNLIZS3050003",
+      "matched_submittal_ids": [
+        "60007463"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042PNLIZS4050004",
+      "matched_submittal_ids": [
+        "60007464"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042PNLIZS5050005",
+      "matched_submittal_ids": [
+        "60007465"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042RSVIZS3050103",
+      "matched_submittal_ids": [
+        "60006824"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042RSVIZS4050104",
+      "matched_submittal_ids": [
+        "60006823"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042RSVIZS5050105",
+      "matched_submittal_ids": [
+        "60006822"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042SYQIZS1050602",
+      "matched_submittal_ids": [
+        "60005560"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042SYQIZS1050603",
+      "matched_submittal_ids": [
+        "60005559"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042SYQIZS1050604",
+      "matched_submittal_ids": [
+        "60005778"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042SYQIZS1050606",
+      "matched_submittal_ids": [
+        "60005644"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042SYQIZS1050607",
+      "matched_submittal_ids": [
+        "60005645"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042SYQIZS1050608",
+      "matched_submittal_ids": [
+        "60005646"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042SYQIZS1050609",
+      "matched_submittal_ids": [
+        "60005647"
+      ],
+      "match_count_rows": 4
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042SYQIZS1050610",
+      "matched_submittal_ids": [
+        "60005648"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042SYQIZS1050611",
+      "matched_submittal_ids": [
+        "60005649"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042SYQIZS1050612",
+      "matched_submittal_ids": [
+        "60005662"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEUTBPLBI042SYQIZS2050610",
+      "matched_submittal_ids": [
+        "60005648"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEVDPTERI001CPETZFD026001",
+      "matched_submittal_ids": [
+        "60003906"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEVTPGEOI001CRVTZFD026012",
+      "matched_submittal_ids": [
+        "60005654"
+      ],
+      "match_count_rows": 1
+    },
+    {
+      "ancien_reference": "P17T2INEXEVTPTERI001MTDTZFD026002",
+      "matched_submittal_ids": [
+        "60004262",
+        "60011806"
+      ],
+      "match_count_rows": 2
+    },
+    {
+      "ancien_reference": "P17T2INEXEVTPTERI001MTDTZFD026003",
+      "matched_submittal_ids": [
+        "60004261"
+      ],
+      "match_count_rows": 3
+    }
+  ],
+  "unmatched_ancien_references": [
+    "P17T2AUEXEAXICVCA041MATAZTX249525",
+    "P17T2AUEXEDUVMEXA008MATAZTX234605",
+    "P17T2AUEXEHVASDBA022PLNAZTX240000A",
+    "P17T2AUEXELGDFACA007PLNTZTX228401",
+    "P17T2AUEXESNICFOA031NDCAZTX245002",
+    "P17T2AUEXESNICFOA031RSXAZR2245019",
+    "P17T2AUEXESNICFOA031TMXAZR7245034",
+    "P17T2AUEXESNISSIA033SYQAZTX246022A",
+    "P17T2AUEXEUTBPLBH042NOTTZTX350504",
+    "P17T2BXEXEAMPCLDB011MATBZTX136010",
+    "P17T2BXEXEAMPCLDB011MATBZTX136017",
+    "P17T2BXEXEAXICVCB041MATBZTX149501",
+    "P17T2BXEXEAXICVCB041MATBZTX149537",
+    "P17T2BXEXEBENCFAB034PLNB1R0145200",
+    "P17T2BXEXEBENCFAB034PLNB1R1145201",
+    "P17T2BXEXEBENCFOB031PLNB1R0145160",
+    "P17T2BXEXEBENCFOB033TMXTZTX146000",
+    "P17T2BXEXELACMENA012AMATTZTX237003",
+    "P17T2BXEXELACMENA012AMATTZTX237004",
+    "P17T2BXEXELGDGOEB003PLNBZR0128101",
+    "P17T2BXEXELINPLFB16BPLNBZR11001",
+    "P17T2GEEXELGDGOEG003NDCTZTN28003",
+    "P17T2GEEXELGDGOEG003REPTZTN28001",
+    "P17T2GEEXELGDGOEG003REPTZTN28002",
+    "P17T2GEEXELGDGOEI003LSTTZTX028013",
+    "P17T2GEEXELGDGOEI003SMATTZTX029004",
+    "P17T2GEEXELGDGOEI003SMATTZTX029005",
+    "P17T2GEEXESPAVRDG61MATTZR0023501",
+    "P17T2HOEXEAXICVCH041MATHZTX349525",
+    "P17T2HOEXESMAETAH004DETHZTX330006",
+    "P17T2HOEXESNICFOH031LTEHZTX245067",
+    "P17T2HOEXESNICFOH031LTEHZTX245067C",
+    "P17T2HOEXESNICFOH031LTEHZTX245068",
+    "P17T2HOEXESNICFOH031LTEHZTX245068C",
+    "P17T2HOEXESNICFOH031NDCHZTX245063",
+    "P17T2HOEXESNICFOH031RSVHZR1345009",
+    "P17T2HOEXESNICFOH031RSVHZR3345011",
+    "P17T2HOEXESNICFOH031RSVHZR4345012",
+    "P17T2HOEXESNICFOH031RSVHZR5345013",
+    "P17T2HOEXESNICFOH031RSVHZR6345014",
+    "P17T2HOEXESNICFOH031RSVHZR7345015",
+    "P17T2HOEXESNICFOH031RSVHZR8345016",
+    "P17T2HOEXESNICFOH031SYNH1R1000003",
+    "P17T2HOEXESNICFOH031SYNH1R1000004",
+    "P17T2HOEXESNICFOH031SYNH1R6000006",
+    "P17T2HOEXESNICFOH031SYNH1S1000002",
+    "P17T2HOEXESNICFOH031SYNHZTX345099",
+    "P17T2HOEXEUTBPLBH042DSYQHZTX350411",
+    "P17T2HOEXEUTBPLBH042DSYQHZTX350412",
+    "P17T2INEXEAAISPKI043PLNIZS1051010",
+    "P17T2INEXEAPIGTBI35LSTTZTX048000",
+    "P17T2INEXEAXICVCI041MATIZTX059505",
+    "P17T2INEXEAXICVCI041NDCZTX049215",
+    "P17T2INEXEBENCFOI031NDCTZTX045001",
+    "P17T2INEXEBENCFOI031PLNTZTX0050",
+    "P17T2INEXEBENCFOI031PLNTZTX0051",
+    "P17T2INEXEBENCFOI031PLNTZTX0052",
+    "P17T2INEXEBENCFOI031PLNTZTX0053",
+    "P17T2INEXEBENCFOI031PLNTZTX0054",
+    "P17T2INEXEBENCFOI031PLNTZTX045023",
+    "P17T2INEXEBENCFOI031RSVTZTX045014",
+    "P17T2INEXEBENCFOI031RSXTZS20450228",
+    "P17T2INEXEBENCFOI031TMXTZTS3045028",
+    "P17T2INEXEBENCFOI031TMXTZTS4045029",
+    "P17T2INEXEBENCFOI031TMXTZTS5045030",
+    "P17T2INEXEFKIFSPI002NDCTZTX027002",
+    "P17T2INEXEFKIFSPI002NDCTZTX027003",
+    "P17T2INEXEFKIFSPI002NDCTZTX027006",
+    "P17T2INEXEFKIFSPI002PLNTZFD027009",
+    "P17T2INEXEFRSSDSI018MATB1S1420001",
+    "P17T2INEXEFRSSDSI018MATB1S1420002",
+    "P17T2INEXEFRSSDSI018MATB1S1420003",
+    "P17T2INEXEFRSSDSI018MATB1S1420004",
+    "P17T2INEXEFRSSDSI018MATB1S1420005",
+    "P17T2INEXEFRSSDSI018MATB1S1420006",
+    "P17T2INEXEFRSSDSI018MATB1S1420007",
+    "P17T2INEXEFRSSDSI018MATB1S1420008",
+    "P17T2INEXEFRSSDSI018MATB1S1420009",
+    "P17T2INEXEFRSSDSI018MATB1S1420010",
+    "P17T2INEXEFRSSDSI018MATB1S1420011",
+    "P17T2INEXEFRSSSPI019MATIZS1430001",
+    "P17T2INEXEFRSSSPI019MATIZS1430002",
+    "P17T2INEXEFRSSSPI019MATIZS1430003",
+    "P17T2INEXEFRSSSPI019MATIZS1430004",
+    "P17T2INEXEFRSSSPI019MATIZS1430005",
+    "P17T2INEXEFRSSSPI019MATIZS1430006",
+    "P17T2INEXEFRSSSPI019MATIZS1430007",
+    "P17T2INEXELGDGOE003COFI2S4028190",
+    "P17T2INEXELGDGOE003COFI2S4028191",
+    "P17T2INEXELGDGOE003COFI2S4028193",
+    "P17T2INEXELGDGOEI003ARMIS5028179",
+    "P17T2INEXELGDGOEI003COFI21S2028250",
+    "P17T2INEXELGDGOEI003COFIS3028223",
+    "P17T2INEXELGDGOEI003PLNI1X028122",
+    "P17T2INEXELGDGOEI003PLNI1X028124",
+    "P17T2INEXELGDGOEI003PLNITX028125",
+    "P17T2INEXELGDGOEI003PLNITX028126",
+    "P17T2INEXELGDGOEI003PLNTZRFD028150A",
+    "P17T2INEXELGDGOEI003PLNTZRFD028150B",
+    "P17T2INEXELGDGOEI003PLNTZRFD028152",
+    "P17T2INEXELGDGOEI003PLNTZRFD028152A",
+    "P17T2INEXELGDGOEI003PLNTZRFD028152B",
+    "P17T2INEXESNICFOH031SYQHZTX247030",
+    "P17T2INEXEUTBPLBI042MATI2S2350936",
+    "P17T2INEXEUTBPLBI042MATI3S3350937",
+    "P17T2INEXEUTBPLBI042MATIZS4350938",
+    "P17T2INEXEUTBPLBI042MATTZTX350935"
+  ]
+}
