@@ -18,6 +18,7 @@ from processing.exporter import (
     export_workflow_rows, export_submittals, export_anomalies,
     export_emetteur_stats, export_actor_stats,
 )
+from processing.cockpit_export import export_cockpit_json
 
 
 def main(excel_path: str):
@@ -43,6 +44,7 @@ def main(excel_path: str):
     export_anomalies(anomalies, output_dir)
     export_emetteur_stats(em_stats, output_dir)
     export_actor_stats(act_stats, output_dir)
+    cockpit_path = export_cockpit_json(all_subs, grouped, em_stats, act_stats, output_dir)
 
     # 6. Summary report
     P("=" * 74)
@@ -107,6 +109,7 @@ def main(excel_path: str):
     P(f"  anomalies.json     ({len(anomalies)} anomalies)")
     P(f"  emetteur_stats.csv ({len(em_stats)} emetteurs)")
     P(f"  actor_stats.csv    ({len(act_stats)} actors)")
+    P(f"  cockpit_data.json  (V2 UI cockpit data)")
 
     P(f"\n{'═'*74}")
     P(f"  PIPELINE COMPLETE")

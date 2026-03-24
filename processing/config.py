@@ -348,3 +348,114 @@ ANCIEN_EXCEPTION_SUBMITTAL_IDS: set[str] = {
     "60013561", "60013562", "60013942", "60014003", "60014058", "60014078",
     "60014159", "60014162", "60014235", "60014764",
 }
+
+# ---------------------------------------------------------------------------
+# Mission Grouping Matrix — 51 original actor_clean → 22 unified missions
+# Source: Mission grouping.xlsx
+# Used for cockpit "Acteur Goulots" report aggregation.
+# ---------------------------------------------------------------------------
+MISSION_GROUPING: dict[str, str] = {
+    "0-BET Structure":                "BET Structure",
+    "B-BET Structure":                "BET Structure",
+    "A-BET Structure":                "BET Structure",
+    "H-BET Structure":                "BET Structure",
+    "0-Bureau de Contrôle":           "Bureau de Contrôle",
+    "0-AMO HQE":                      "AMO HQE",
+    "B-AMO HQE":                      "AMO HQE",
+    "A-AMO HQE":                      "AMO HQE",
+    "H-AMO HQE":                      "AMO HQE",
+    "0-SAS":                          "MOEX",
+    "0-Maître d'Oeuvre EXE":          "MOEX",
+    "B-Maître d'Oeuvre EXE":          "MOEX",
+    "A-Maître d'Oeuvre EXE":          "MOEX",
+    "H-Maître d'Oeuvre EXE":          "MOEX",
+    "0-BET POL":                      "BET POL",
+    "0-BET Géotech":                  "BET Géotech",
+    "Sollicitation supplémentaire":   "Sollicitation supplémentaire",
+    "0-CSPS":                         "CSPS",
+    "0-ARCHITECTE":                   "ARCHITECTE",
+    "B-ARCHITECTE":                   "ARCHITECTE",
+    "A-ARCHITECTE":                   "ARCHITECTE",
+    "H-ARCHITECTE":                   "ARCHITECTE",
+    "0-BET Acoustique":               "BET Acoustique",
+    "B-BET Acoustique":               "BET Acoustique",
+    "A-BET Acoustique":               "BET Acoustique",
+    "H-BET Acoustique":               "BET Acoustique",
+    "0-BET CVC":                      "BET CVC",
+    "B-BET CVC":                      "BET CVC",
+    "A-BET CVC":                      "BET CVC",
+    "H-BET CVC":                      "BET CVC",
+    "0-BIM Manager":                  "BIM Manager",
+    "0-BET Ascenseur":                "BET Ascenseur",
+    "B-BET Ascenseur":                "BET Ascenseur",
+    "A-BET Ascenseur":                "BET Ascenseur",
+    "H-BET Ascenseur":                "BET Ascenseur",
+    "0-BET Plomberie":                "BET Plomberie",
+    "A-BET Plomberie":                "BET Plomberie",
+    "B-BET Plomberie":                "BET Plomberie",
+    "H-BET Plomberie":                "BET Plomberie",
+    "0-BET Electricité":              "BET Electricité",
+    "A-BET Electricité":              "BET Electricité",
+    "B-BET Electricité":              "BET Electricité",
+    "H-BET Electricité":              "BET Electricité",
+    "0-BET SPK":                      "BET SPK",
+    "B-BET Façade":                   "BET Façade",
+    "A-BET Façade":                   "BET Façade",
+    "H-BET Façade":                   "BET Façade",
+    "B13 - METALLERIE SERRURERIE":    "B13 - Métallerie Serrurerie",
+    "0-BET VRD":                      "BET VRD",
+    "0-BET EV":                       "BET EV",
+    "H51-ASC":                        "H51-ASC",
+}
+
+def resolve_mission(actor_clean: str) -> str:
+    """Map an actor_clean value to its unified mission group.
+    Falls back to the actor_clean value itself if not in the matrix."""
+    return MISSION_GROUPING.get(actor_clean, actor_clean)
+
+# ---------------------------------------------------------------------------
+# Mission Tier — Primary / Secondary classification
+# Source: Mission grouping.xlsx (column "Primary/Secondary")
+#
+# Primary = core BETs whose verdict is required before MOEX can act
+# Secondary = consultants whose input is valuable but not blocking for MOEX
+# MOEX = always phase 3/4 (never primary/secondary)
+#
+# Responsibility flow:
+#   Phase 1 (primary):              primaries still pending
+#   Phase 2 (secondary):            primaries done, <SECONDARY_WINDOW_DAYS elapsed
+#   Phase 3 (moex_relance_secondary): window elapsed, secondaries pending, <MOEX_CLOSE_THRESHOLD_DAYS
+#   Phase 4 (moex):                 all secondaries responded OR >MOEX_CLOSE_THRESHOLD_DAYS → close
+# ---------------------------------------------------------------------------
+SECONDARY_WINDOW_DAYS: int = 10   # calendar days after last primary response
+MOEX_CLOSE_THRESHOLD_DAYS: int = 30  # days after last primary response — MOEX stops chasing, closes
+
+MISSION_TIER: dict[str, str] = {
+    "BET Structure":                "primary",
+    "Bureau de Contrôle":           "secondary",
+    "AMO HQE":                      "secondary",
+    "MOEX":                         "moex",
+    "BET POL":                      "secondary",
+    "BET Géotech":                  "primary",
+    "Sollicitation supplémentaire": "primary",
+    "CSPS":                         "secondary",
+    "ARCHITECTE":                   "primary",
+    "BET Acoustique":               "secondary",
+    "BET CVC":                      "primary",
+    "BIM Manager":                  "primary",
+    "BET Ascenseur":                "primary",
+    "BET Plomberie":                "primary",
+    "BET Electricité":              "primary",
+    "BET SPK":                      "primary",
+    "BET Façade":                   "primary",
+    "B13 - Métallerie Serrurerie":  "primary",
+    "BET VRD":                      "primary",
+    "BET EV":                       "primary",
+    "H51-ASC":                      "primary",
+}
+
+def resolve_mission_tier(actor_clean: str) -> str:
+    """Return 'primary', 'secondary', or 'moex' for a given actor_clean.
+    Resolves through MISSION_GROUPING first, then looks up MISSION_TIER."""
+    mission = resolve_mission(actor_clean)
+    return MISSION_TIER.get(mission, "primary")  # default to primary if unknown

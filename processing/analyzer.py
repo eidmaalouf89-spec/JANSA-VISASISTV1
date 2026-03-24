@@ -6,10 +6,11 @@ build_emetteur_stats(), and build_actor_stats().
 from collections import defaultdict
 
 from processing.config import (
-    TODAY, PROBLEM_HOLDER_THRESHOLD,
+    TODAY, PROBLEM_HOLDER_THRESHOLD, TAG_PRIORITY,
     resolve_worst_tag, has_blocking_tag,
     lateness_bucket, resolve_final_decision, resolve_approval_quality,
     ACTION_LABELS,
+    resolve_mission, resolve_mission_tier, SECONDARY_WINDOW_DAYS, MOEX_CLOSE_THRESHOLD_DAYS,
 )
 from processing.models import (
     WorkflowRow, ResponseDetail, Submittal,
@@ -220,6 +221,122 @@ def analyze_submittal(rows: list[WorkflowRow], actor_map: dict) -> Submittal:
     else:
         bs = current_state
 
+    # --- Open / Closed split (v1.4) ---
+    # A submittal is closed when any MOEX row has an effective response
+    # (tag is not EN_ATTENTE, not NONE — includes HM which means MOEX declined review)
+    moex_responded_rows = [r for r in rows if r.is_moex and r.response_tag_code not in ("EN_ATTENTE", "NONE")]
+    if moex_responded_rows:
+        _is_closed = True
+        # Pick the "best" MOEX decision row (worst tag by priority = most decisive)
+        _best_moex = min(moex_responded_rows,
+                         key=lambda r: TAG_PRIORITY.get(r.response_tag_code, 99))
+        _moex_decision_tag = _best_moex.response_tag_code
+        _moex_decision_comment = _best_moex.comment_raw
+        # clean_close = all active actors responded; forced_close = some still pending
+        if current_state == "fully_responded":
+            _close_type = "clean_close"
+        else:
+            _close_type = "forced_close"
+    else:
+        _is_closed = False
+        _close_type = "open"
+        _moex_decision_tag = None
+        _moex_decision_comment = None
+
+    # --- Responsibility attribution (v1.5 + v1.6 sub-phases) ---
+    # Phase 1: primary    — at least one primary consultant still EN_ATTENTE
+    # Phase 2: secondary  — primaries done, <SECONDARY_WINDOW_DAYS elapsed, secondaries pending
+    # Phase 3: moex_relance_secondary — 10–30d elapsed, secondaries still pending → MOEX chases
+    # Phase 4: moex       — >30d elapsed OR all secondaries responded → MOEX closes
+    #   4a: all_responded     — every solicited actor responded → MOEX synthesizes & closes
+    #   4b: secondary_default — >30d, secondaries never responded → inherited (secondary failure)
+    #   4c: no_secondary      — no secondaries solicited, primaries done → direct close
+    #   4d: orphan            — no primary response dates / no relevant non-MOEX rows
+    _secondary_elapsed = None
+    _moex_sub = None        # v1.6
+    _defaulted = []         # v1.6
+    if _is_closed:
+        _resp_phase = "moex"
+        _resp_missions = []
+        _last_primary_date = None
+        _secondary_remaining = None
+    else:
+        # Classify each active relevant row by mission tier
+        _primary_pending = []
+        _secondary_pending = []
+        _secondary_responded = []
+        _primary_response_dates = []
+        _has_secondary_solicited = False
+
+        for r in rows:
+            if not r.is_relevant_actor or r.is_moex:
+                continue
+            tier = resolve_mission_tier(r.actor_clean)
+            mission = resolve_mission(r.actor_clean)
+
+            if tier == "primary":
+                if r.is_pending:
+                    _primary_pending.append(mission)
+                elif r.response_date is not None:
+                    _primary_response_dates.append(r.response_date)
+            elif tier == "secondary":
+                _has_secondary_solicited = True
+                if r.is_pending:
+                    _secondary_pending.append(mission)
+                else:
+                    _secondary_responded.append(mission)
+
+        # Deduplicate
+        _primary_pending = list(dict.fromkeys(_primary_pending))
+        _secondary_pending = list(dict.fromkeys(_secondary_pending))
+        _secondary_responded = list(dict.fromkeys(_secondary_responded))
+
+        if _primary_pending:
+            # Phase 1: primaries still pending
+            _resp_phase = "primary"
+            _resp_missions = _primary_pending
+            _last_primary_date = None
+            _secondary_remaining = None
+        elif _primary_response_dates:
+            _last_primary_date = max(_primary_response_dates)
+            elapsed = (TODAY - _last_primary_date).days
+            _secondary_elapsed = elapsed
+
+            if _secondary_pending and elapsed < SECONDARY_WINDOW_DAYS:
+                # Phase 2: secondary window open
+                _resp_phase = "secondary"
+                _resp_missions = _secondary_pending
+                _secondary_remaining = SECONDARY_WINDOW_DAYS - elapsed
+            elif _secondary_pending and elapsed < MOEX_CLOSE_THRESHOLD_DAYS:
+                # Phase 3: window elapsed, secondaries still pending, <30d
+                _resp_phase = "moex_relance_secondary"
+                _resp_missions = _secondary_pending
+                _secondary_remaining = None
+            else:
+                # Phase 4: MOEX closes
+                _resp_phase = "moex"
+                _secondary_remaining = None
+                if not _has_secondary_solicited:
+                    # 4c: no secondaries were ever solicited
+                    _moex_sub = "no_secondary"
+                    _resp_missions = []
+                elif _secondary_pending:
+                    # 4b: secondaries timed out (>30d), never responded
+                    _moex_sub = "secondary_default"
+                    _resp_missions = _secondary_pending
+                    _defaulted = list(_secondary_pending)
+                else:
+                    # 4a: all actors (primary + secondary) have responded
+                    _moex_sub = "all_responded"
+                    _resp_missions = []
+        else:
+            # No primary rows at all (edge case) → orphan
+            _resp_phase = "moex"
+            _resp_missions = []
+            _last_primary_date = None
+            _secondary_remaining = None
+            _moex_sub = "orphan"
+
     return Submittal(
         submittal_key=first.submittal_key, submittal_id=first.submittal_id, indice=first.indice,
         directory=first.directory, affaire=first.affaire, projet=first.projet,
@@ -252,6 +369,16 @@ def analyze_submittal(rows: list[WorkflowRow], actor_map: dict) -> Submittal:
         is_problem_submittal=is_problem, is_backlog_item=is_backlog,
         backlog_bucket=backlog_bucket, aging_days=aging_days,
         lateness_bucket=lb, rejection_flag=rejection_flag,
+        is_closed=_is_closed, close_type=_close_type,
+        moex_decision_tag=_moex_decision_tag,
+        moex_decision_comment=_moex_decision_comment,
+        responsibility_phase=_resp_phase,
+        responsible_missions=_resp_missions,
+        last_primary_response_date=_last_primary_date,
+        secondary_window_remaining=_secondary_remaining,
+        secondary_elapsed_days=_secondary_elapsed,
+        moex_sub_phase=_moex_sub,
+        defaulted_missions=_defaulted,
     )
 
 

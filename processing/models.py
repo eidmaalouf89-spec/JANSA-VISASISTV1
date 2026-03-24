@@ -186,6 +186,33 @@ class Submittal:
     lateness_bucket: str = "not_late"
     rejection_flag: bool = False
 
+    # ─── Open / Closed split (v1.4) ───
+    # Closed = at least one MOEX row has effective response (not EN_ATTENTE, NONE)
+    # close_type: "open" | "clean_close" | "forced_close"
+    is_closed: bool = False
+    close_type: str = "open"              # open | clean_close | forced_close
+    moex_decision_tag: Optional[str] = None   # the MOEX response tag that closed it
+    moex_decision_comment: Optional[str] = None  # MOEX comment on that row
+
+    # ─── Responsibility attribution (v1.5) ───
+    # Phase 1: primary consultants still pending → primary
+    # Phase 2: primaries done, <10d elapsed → secondary (their window)
+    # Phase 3: 10–30d elapsed, secondaries still pending → moex_relance_secondary (MOEX chases)
+    # Phase 4: >30d elapsed OR no pending secondaries → moex (MOEX closes)
+    responsibility_phase: str = "primary"   # "primary" | "secondary" | "moex_relance_secondary" | "moex"
+    secondary_elapsed_days: Optional[int] = None  # days since last primary responded (for phase 3 email drafting)
+    responsible_missions: list[str] = field(default_factory=list)  # who is responsible now
+    last_primary_response_date: Optional[date] = None  # when last primary responded
+    secondary_window_remaining: Optional[int] = None   # days left in secondary window (None if not in phase 2)
+
+    # ─── Phase 4 (MOEX) sub-classification (v1.6) ───
+    # 4a: all_responded     — every solicited actor (primary+secondary) has responded → MOEX synthesizes & closes
+    # 4b: secondary_default — >30d, specific secondaries never responded → inherited by MOEX (secondary failure)
+    # 4c: no_secondary      — no secondaries were solicited, primaries done → direct close
+    # 4d: orphan            — no primary response dates / no relevant rows → data issue
+    moex_sub_phase: Optional[str] = None   # None when not in phase "moex", else "all_responded"|"secondary_default"|"no_secondary"|"orphan"
+    defaulted_missions: list[str] = field(default_factory=list)  # secondaries who never responded (4b only)
+
 
 # ═══════════════════════════════════════════════════════════════════════════
 # Queue views
