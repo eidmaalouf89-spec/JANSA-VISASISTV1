@@ -2,9 +2,14 @@
   "_meta": {
     "description": "Response tag normalization map for JANSA VISASIST. Editable. Each key is the exact raw value from column AE (after trimming). Severity tiers: blocking (rejection), caution (qualified), favorable (clean acceptance), neutral (not a real response), non_response (pending/absent).",
     "version": "1.0",
-    "severity_tiers_ordered": ["blocking", "caution", "favorable", "neutral", "non_response"]
+    "severity_tiers_ordered": [
+      "blocking",
+      "caution",
+      "favorable",
+      "neutral",
+      "non_response"
+    ]
   },
-
   "En attente": {
     "code": "EN_ATTENTE",
     "label": "En attente",
@@ -70,5 +75,11 @@
     "label": "(absent)",
     "severity": "non_response",
     "description": "Blank or null value in the response column."
+  },
+  "Blockage GEMO Non Justifié": {
+    "code": "GEMO_NJ",
+    "label": "Blockage GEMO Non Justifié",
+    "severity": "neutral",
+    "description": "Document hors mission BdC — blockage non justifié, reclassifié GEMO."
   }
 }

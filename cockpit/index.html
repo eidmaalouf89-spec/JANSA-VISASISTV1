@@ -39,7 +39,7 @@
 
     const CAT_COLORS = {EASY_WIN:T.success,CONFLICT:T.purple,BLOCKED:T.danger,WAITING:T.info,FAST_REJECT:T.danger,NOT_STARTED:T.text3,CHRONIC:T.warning,MISSING:T.warning};
     const ACT_COLORS = {ISSUE_VISA:T.success,ARBITRATE:T.purple,ESCALATE:T.orange,CHASE:T.warning,HOLD:T.text3,DONE:T.success};
-    const TAG_COLORS = {REF:T.danger,DEF:T.danger,SUSP:T.warning,VSO:T.success,VAO:T.success,FAV:T.success,VAO_SAS:T.info,SS:T.info,HM:T.text3,NONE:T.text3,EN_ATTENTE:T.warning};
+    const TAG_COLORS = {REF:T.danger,DEF:T.danger,SUSP:T.warning,VSO:T.success,VAO:T.success,FAV:T.success,VAO_SAS:T.info,SS:T.info,HM:T.text3,NONE:T.text3,EN_ATTENTE:T.warning,GEMO_NJ:T.orange};
 
     const Badge = ({children,bg,color,s}) => (
       <span style={{display:"inline-flex",alignItems:"center",padding:"2px 7px",borderRadius:4,fontSize:10,fontWeight:700,letterSpacing:".4px",background:bg,color,lineHeight:"18px",whiteSpace:"nowrap",...(s||{})}}>{children}</span>
@@ -290,6 +290,7 @@
       const missionStats = data?.mission_stats || [];
       const closedSummary = data?.closed_summary || {};
       const trend30j = data?.trend_30j || null;
+      const socotecRegistry = data?.socotec_registry || [];
 
       const filtered = useMemo(()=>{
         if (!slFilter) return QUEUE_DATA;
@@ -625,6 +626,36 @@
                     </tr>
                   ))}</tbody>
                 </table>
+              </div>}
+
+              {/* SOCOTEC Registry */}
+              {socotecRegistry.length > 0 && <div style={{background:T.bg2,border:`1px solid ${T.border}`,borderRadius:10,padding:"12px 14px",marginTop:12}}>
+                <div style={{fontSize:12,fontWeight:700,color:T.text1,marginBottom:4}}>Registre SOCOTEC</div>
+                <div style={{fontSize:10,color:T.text3,marginBottom:10}}>{socotecRegistry.length} fiches traitées — {socotecRegistry.reduce((s,r)=>s+(r.docs_listed||0)+(r.explicit_verdicts||0),0)} documents analysés</div>
+                <table style={{width:"100%",borderCollapse:"collapse"}}>
+                  <thead><tr>{["#","Fiche","Date","Pages","Docs","FAV","SUSP","DEF","Fichier"].map(h=><th key={h} style={{padding:"5px 8px",fontSize:9.5,fontWeight:700,color:T.text3,textTransform:"uppercase",textAlign:"left",borderBottom:`1px solid ${T.border}`,background:T.bg3}}>{h}</th>)}</tr></thead>
+                  <tbody>{socotecRegistry.map((r,i)=>{
+                    const totalExpl = (r.fav_explicit||0)+(r.susp_explicit||0)+(r.def_explicit||0);
+                    return (
+                      <tr key={r.fiche_number} style={{background:i%2?T.bg2:"transparent"}}>
+                        <td style={{padding:"5px 8px",borderBottom:`1px solid ${T.border}`,fontSize:11,fontWeight:700,color:T.text2}}>#{i+1}</td>
+                        <td style={{padding:"5px 8px",borderBottom:`1px solid ${T.border}`}}><Badge bg={T.accentDim} color={T.accent}>Fiche {r.fiche_number}</Badge></td>
+                        <td style={{padding:"5px 8px",borderBottom:`1px solid ${T.border}`,fontSize:11,color:T.text1}}>{r.fiche_date||"—"}</td>
+                        <td style={{padding:"5px 8px",borderBottom:`1px solid ${T.border}`,fontSize:11,color:T.text2}}>{r.pages||0}</td>
+                        <td style={{padding:"5px 8px",borderBottom:`1px solid ${T.border}`,fontSize:11,fontWeight:600,color:T.text1}}>{(r.docs_listed||0)+(r.explicit_verdicts||0)}</td>
+                        <td style={{padding:"5px 8px",borderBottom:`1px solid ${T.border}`,fontSize:11,fontWeight:700,color:r.fav_explicit>0?T.success:T.text3}}>{r.fav_explicit||0}</td>
+                        <td style={{padding:"5px 8px",borderBottom:`1px solid ${T.border}`,fontSize:11,fontWeight:700,color:r.susp_explicit>0?T.warning:T.text3}}>{r.susp_explicit||0}</td>
+                        <td style={{padding:"5px 8px",borderBottom:`1px solid ${T.border}`,fontSize:11,fontWeight:700,color:r.def_explicit>0?T.danger:T.text3}}>{r.def_explicit||0}</td>
+                        <td style={{padding:"5px 8px",borderBottom:`1px solid ${T.border}`,fontSize:9.5,color:T.text3,maxWidth:220,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{r.filename||"—"}</td>
+                      </tr>
+                    );
+                  })}</tbody>
+                </table>
+                <div style={{marginTop:8,display:"flex",gap:16,fontSize:10,color:T.text2}}>
+                  <span>Total FAV: <span style={{fontWeight:700,color:T.success}}>{socotecRegistry.reduce((s,r)=>s+(r.fav_explicit||0),0)}</span></span>
+                  <span>Total SUSP: <span style={{fontWeight:700,color:T.warning}}>{socotecRegistry.reduce((s,r)=>s+(r.susp_explicit||0),0)}</span></span>
+                  <span>Total DEF: <span style={{fontWeight:700,color:T.danger}}>{socotecRegistry.reduce((s,r)=>s+(r.def_explicit||0),0)}</span></span>
+                </div>
               </div>}
             </div>}
 

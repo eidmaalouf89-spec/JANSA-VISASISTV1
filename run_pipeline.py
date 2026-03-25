@@ -2,6 +2,7 @@
 JANSA VISASIST — Headless Pipeline
 Usage: python run_pipeline.py <path_to_excel>
 """
+import json
 import sys
 from pathlib import Path
 from collections import Counter
@@ -10,7 +11,7 @@ from datetime import date
 # Ensure project root is on sys.path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from processing.config import TODAY, OUTPUT_DIR
+from processing.config import TODAY, OUTPUT_DIR, SOCOTEC_REGISTRY_PATH, SOCOTEC_VERDICTS_PATH
 from processing.normalizer import normalize
 from processing.grouper import group_submittals
 from processing.analyzer import analyze_all, build_emetteur_stats, build_actor_stats
@@ -19,6 +20,7 @@ from processing.exporter import (
     export_emetteur_stats, export_actor_stats,
 )
 from processing.cockpit_export import export_cockpit_json
+from processing.gemo_nj import apply_gemo_nj
 
 
 def main(excel_path: str):
@@ -30,12 +32,25 @@ def main(excel_path: str):
     # 2. Group
     grouped = group_submittals(rows)
 
+    # 2b. GEMO_NJ post-processing (submittal-level, before analysis)
+    gemo_nj_stats = apply_gemo_nj(grouped)
+
     # 3. Analyze
     all_subs = analyze_all(grouped, actor_map)
 
     # 4. Aggregations
     em_stats = build_emetteur_stats(all_subs)
     act_stats = build_actor_stats(all_subs, grouped)
+
+    # 4b. Load SOCOTEC registry for cockpit
+    socotec_registry = []
+    if SOCOTEC_REGISTRY_PATH.exists():
+        with open(SOCOTEC_REGISTRY_PATH, "r", encoding="utf-8") as f:
+            socotec_registry = json.load(f)
+    socotec_verdicts_count = 0
+    if SOCOTEC_VERDICTS_PATH.exists():
+        with open(SOCOTEC_VERDICTS_PATH, "r", encoding="utf-8") as f:
+            socotec_verdicts_count = len(json.load(f))
 
     # 5. Export
     output_dir = OUTPUT_DIR
@@ -44,7 +59,8 @@ def main(excel_path: str):
     export_anomalies(anomalies, output_dir)
     export_emetteur_stats(em_stats, output_dir)
     export_actor_stats(act_stats, output_dir)
-    cockpit_path = export_cockpit_json(all_subs, grouped, em_stats, act_stats, output_dir)
+    cockpit_path = export_cockpit_json(all_subs, grouped, em_stats, act_stats, output_dir,
+                                       socotec_registry=socotec_registry)
 
     # 6. Summary report
     P("=" * 74)
@@ -86,6 +102,21 @@ def main(excel_path: str):
     P(f"\n  Action needed:")
     for k, v in Counter(s.action_needed for s in all_subs).most_common():
         P(f"    {k:42s} {v:>5d}")
+
+    P(f"\n{'─'*74}\n  3b. SOCOTEC INJECTION\n{'─'*74}")
+    for a in anomalies:
+        if getattr(a, 'anomaly_type', '') == "socotec_verdict_injection":
+            P(f"  {a.message}")
+    P(f"  SOCOTEC registry:  {len(socotec_registry)} fiches processed")
+    P(f"  SOCOTEC verdicts:  {socotec_verdicts_count} hardcoded numeros")
+
+    P(f"\n{'─'*74}\n  3c. GEMO_NJ — Hors Mission BdC (submittal-level)\n{'─'*74}")
+    P(f"  Submittals tagged:  {gemo_nj_stats['submittals_tagged']}")
+    P(f"  Rows tagged:        {gemo_nj_stats['rows_tagged']}")
+    if gemo_nj_stats['by_spec']:
+        P(f"  By specialité:")
+        for spec, cnt in sorted(gemo_nj_stats['by_spec'].items(), key=lambda x: -x[1]):
+            P(f"    {spec:8s}  {cnt} rows")
 
     P(f"\n{'─'*74}\n  4. EMETTEUR PERFORMANCE (top 5 by rejection)\n{'─'*74}")
     for em, es in sorted(em_stats.items(), key=lambda x: -x[1].rejected_submittals)[:5]:

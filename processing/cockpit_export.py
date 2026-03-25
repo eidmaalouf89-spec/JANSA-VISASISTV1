@@ -518,8 +518,9 @@ def export_cockpit_json(
     em_stats: dict[str, EmetteurStats],
     act_stats: dict[str, ActorStats],
     output_dir: Path,
+    socotec_registry: list[dict] | None = None,
 ) -> Path:
-    """Export the full cockpit JSON consumed by the V2 React UI (v1.4 — open/closed split)."""
+    """Export the full cockpit JSON consumed by the V2 React UI (v1.7 — SOCOTEC registry)."""
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # ── Open / Closed split ──
@@ -551,7 +552,7 @@ def export_cockpit_json(
 
     cockpit = {
         "generated_at": TODAY.isoformat(),
-        "version": "1.6",
+        "version": "1.7",
         "kpis": kpis,
         "categories": categories,
         "smart_list_counts": sl_counts,
@@ -560,6 +561,7 @@ def export_cockpit_json(
         "mission_stats": mission_stats_ui,
         "closed_summary": closed_summary,
         "trend_30j": trend_30j,
+        "socotec_registry": socotec_registry or [],
     }
 
     out = output_dir / "cockpit_data.json"

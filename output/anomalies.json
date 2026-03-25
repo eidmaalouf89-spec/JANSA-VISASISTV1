@@ -1,6 +1,13 @@
 [
   {
     "source_row_index": 0,
+    "anomaly_type": "socotec_verdict_injection",
+    "field": "response_tag_raw",
+    "raw_value": "38",
+    "message": "Injected SOCOTEC verdicts into 38 BdC 'En attente' rows (from 592 hardcoded verdicts)"
+  },
+  {
+    "source_row_index": 0,
     "anomaly_type": "exception_type1_empty_actor",
     "field": "actor_raw",
     "raw_value": "137",
@@ -12,5 +19,12 @@
     "field": "submittal_id",
     "raw_value": "4535",
     "message": "Discarded 4535 rows belonging to 964 ancien submittal IDs"
+  },
+  {
+    "source_row_index": 0,
+    "anomaly_type": "exception_type3_goe_completed",
+    "field": "submittal_id",
+    "raw_value": "1081",
+    "message": "Discarded 1081 rows belonging to 289 GOE completed submittal IDs"
   }
 ]
