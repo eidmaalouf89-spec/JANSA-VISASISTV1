@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P17&CO Tranche 2 — MOEX Cockpit</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<style>
+  @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
+  .animate-slide-in { animation: slideIn 0.2s ease-out; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .animate-spin { animation: spin 1s linear infinite; }
+  * { scrollbar-width: thin; scrollbar-color: #cbd5e1 transparent; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  .truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect, useMemo, useCallback, useRef, memo } = React;
+
+// ─── ICONS (inline SVG) ─────────────────────────────────────────
+const Icon = ({ name, size = 18, className = "" }) => {
+  const icons = {
+    dashboard: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>,
+    list: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>,
+    building: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></svg>,
+    users: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+    archive: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg>,
+    shield: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
+    search: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>,
+    x: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>,
+    chevronDown: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>,
+    chevronUp: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="18 15 12 9 6 15"/></svg>,
+    sort: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M11 5h10M11 9h7M11 13h4M3 17l3 3 3-3M6 18V4"/></svg>,
+    menu: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>,
+    download: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>,
+    filter: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>,
+    refresh: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>,
+    file: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>,
+    clock: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>,
+    alert: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>,
+    check: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>,
+    zap: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>,
+    xCircle: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>,
+    activity: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>,
+    trending: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>,
+  };
+  return <span className={className} style={{display:"inline-flex",alignItems:"center"}}>{icons[name] || null}</span>;
+};
+
+// ─── FRENCH LABELS ───────────────────────────────────────────────
+const CAT_L = { EASY_WIN:"Facile", CONFLICT:"Conflit", BLOCKED:"Bloqué", WAITING:"En attente", FAST_REJECT:"Rejet rapide", NOT_STARTED:"Non démarré" };
+const ACT_L = { ISSUE_VISA:"Émettre VISA", ARBITRATE:"Arbitrer", ESCALATE:"Escalader", CHASE:"Relancer", HOLD:"Surveiller", DONE:"Terminé" };
+const PH_L = { primary:"Primaire", secondary:"Secondaire", moex_relance_secondary:"Relance MOEX", moex:"MOEX" };
+const CON_L = { ALL_APPROVE:"Unanime OK", ALL_REJECT:"Unanime REF", MIXED:"Avis partagés", NOT_STARTED:"Aucun retour", INCOMPLETE:"Incomplet" };
+const ST_L = { in_progress:"En cours", fully_responded:"Tous répondu", all_hors_mission:"Hors mission" };
+const CF_L = { hard:"Dur", soft:"Léger", none:"Aucun" };
+const DEC_L = { approved:"Approuvé", approved_with_reservations:"Avec réserves", rejected:"Refusé", pending:"En attente", neutral_only:"Neutre" };
+const TAG_L = { VSO:"Visa Sans Obs.", VAO:"Visa Avec Obs.", REF:"Refusé", DEF:"Défavorable", FAV:"Favorable", SUSP:"Suspendu", HM:"Hors Mission", EN_ATTENTE:"En attente", GEMO_NJ:"HM BdC", NONE:"—", SS:"Sans Suite" };
+const CL_L = { clean_close:"Clôture propre", forced_close:"Clôture forcée" };
+const SL_L = { CONFLICT:"Conflit", CHRONIC:"Chronique", WAITING:"En attente", MISSING:"Manquant", EASY_WIN:"Facile", FAST_REJECT:"Rejet rapide", NOT_STARTED:"Non démarré", BLOCKED:"Bloqué" };
+
+const CAT_C = { EASY_WIN:"#22c55e", CONFLICT:"#ef4444", BLOCKED:"#f97316", WAITING:"#3b82f6", FAST_REJECT:"#dc2626", NOT_STARTED:"#94a3b8" };
+const PH_C = { primary:"#3b82f6", secondary:"#14b8a6", moex_relance_secondary:"#f59e0b", moex:"#ef4444" };
+const SEV_C = { blocking:"#ef4444", caution:"#f59e0b", favorable:"#22c55e", neutral:"#94a3b8", non_response:"#3b82f6" };
+const TAG_C = { VSO:"#22c55e", VAO:"#86efac", REF:"#ef4444", DEF:"#dc2626", FAV:"#22c55e", SUSP:"#f59e0b", HM:"#94a3b8", EN_ATTENTE:"#3b82f6", GEMO_NJ:"#f97316", NONE:"#cbd5e1", SS:"#94a3b8" };
+const DT_C = { VSO:"#22c55e", REF:"#ef4444", HM:"#94a3b8", VAO:"#86efac" };
+
+const fmt = (n) => n == null ? "—" : typeof n==="number" ? (Number.isInteger(n) ? n.toLocaleString("fr-FR") : n.toFixed(1)) : String(n);
+const pct = (n) => n == null ? "—" : `${(n*100).toFixed(0)}%`;
+const hColor = (h) => h >= 70 ? "#22c55e" : h >= 50 ? "#f59e0b" : "#ef4444";
+const sColor = (s) => s >= 80 ? "#ef4444" : s >= 60 ? "#f97316" : s >= 40 ? "#f59e0b" : s >= 20 ? "#3b82f6" : "#22c55e";
+
+// ─── Small Components ────────────────────────────────────────────
+const Badge = ({label, color, small}) => (
+  <span style={{backgroundColor:color+"20", color, border:`1px solid ${color}40`, padding:small?"1px 6px":"2px 8px", borderRadius:999, fontSize:small?10:11, fontWeight:600, whiteSpace:"nowrap", display:"inline-block"}}>
+    {label}
+  </span>
+);
+
+const ScoreBar = ({value}) => (
+  <div style={{display:"flex",alignItems:"center",gap:4}}>
+    <div style={{width:48,height:8,borderRadius:4,background:"#e2e8f0",overflow:"hidden"}}>
+      <div style={{width:`${value}%`,height:"100%",borderRadius:4,background:sColor(value),transition:"width 0.3s"}} />
+    </div>
+    <span style={{fontSize:11,fontFamily:"monospace",fontWeight:700,color:sColor(value)}}>{value}</span>
+  </div>
+);
+
+const CompBar = ({ratio}) => (
+  <div style={{display:"flex",alignItems:"center",gap:4}}>
+    <div style={{width:56,height:8,borderRadius:4,background:"#e2e8f0",overflow:"hidden"}}>
+      <div style={{width:`${ratio*100}%`,height:"100%",borderRadius:4,background:"#3b82f6"}} />
+    </div>
+    <span style={{fontSize:10,color:"#64748b"}}>{pct(ratio)}</span>
+  </div>
+);
+
+const HealthBar = ({value}) => (
+  <div style={{display:"flex",alignItems:"center",gap:4}}>
+    <div style={{width:64,height:10,borderRadius:5,background:"#e2e8f0",overflow:"hidden"}}>
+      <div style={{width:`${value}%`,height:"100%",borderRadius:5,background:hColor(value)}} />
+    </div>
+    <span style={{fontSize:11,fontWeight:700,color:hColor(value)}}>{value}</span>
+  </div>
+);
+
+// ─── LineChart (SVG-based) ──────────────────────────────────────
+const LineChart = ({ data, height = 200 }) => {
+  if (!data || data.length === 0) return null;
+  const w = 400;
+  const padding = 40;
+  const graphWidth = w - 2 * padding;
+  const graphHeight = height - 2 * padding;
+
+  const maxVal = Math.max(...data.map(d => d.count || 0));
+  const minVal = 0;
+  const range = maxVal - minVal || 1;
+
+  const points = data.map((d, i) => {
+    const x = padding + (i / (data.length - 1 || 1)) * graphWidth;
+    const y = padding + graphHeight - ((d.count - minVal) / range) * graphHeight;
+    return { x, y };
+  });
+
+  const pathD = points.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x} ${p.y}`).join(' ');
+
+  return (
+    <svg width="100%" height={height} viewBox={`0 0 ${w} ${height}`} preserveAspectRatio="xMidYMid meet" style={{maxWidth:"100%"}}>
+      <defs>
+        <linearGradient id="lineGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style={{stopColor:"#3b82f6",stopOpacity:0.2}} />
+          <stop offset="100%" style={{stopColor:"#3b82f6",stopOpacity:0}} />
+        </linearGradient>
+      </defs>
+      <line x1={padding} y1={padding+graphHeight} x2={w-padding} y2={padding+graphHeight} stroke="#f1f5f9" strokeWidth="1"/>
+      {[1,2,3,4].map(i => (
+        <line key={i} x1={padding} y1={padding+graphHeight-(graphHeight/4)*i} x2={w-padding} y2={padding+graphHeight-(graphHeight/4)*i} stroke="#f1f5f9" strokeWidth="1"/>
+      ))}
+      <path d={pathD} fill="none" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      {points.map((p, i) => (
+        <circle key={i} cx={p.x} cy={p.y} r="2" fill="#3b82f6"/>
+      ))}
+      {data.map((d, i) => (
+        <text key={`date-${i}`} x={padding + (i / (data.length - 1 || 1)) * graphWidth} y={height - 10} textAnchor="middle" fontSize="10" fill="#64748b">
+          {d.date?.slice(5) || ''}
+        </text>
+      ))}
+    </svg>
+  );
+};
+
+// ─── BarChart (SVG-based) ───────────────────────────────────────
+const BarChart = ({ data, height = 240 }) => {
+  if (!data || data.length === 0) return null;
+  const w = 400;
+  const padding = 40;
+  const graphWidth = w - 2 * padding;
+  const graphHeight = height - 2 * padding;
+  const barWidth = graphWidth / (data.length * 1.3);
+
+  const maxVal = Math.max(...data.map(d => d.value || 0), 1);
+
+  return (
+    <svg width="100%" height={height} viewBox={`0 0 ${w} ${height}`} preserveAspectRatio="xMidYMid meet" style={{maxWidth:"100%"}}>
+      <line x1={padding} y1={padding+graphHeight} x2={w-padding} y2={padding+graphHeight} stroke="#f1f5f9" strokeWidth="1"/>
+      {[1,2,3,4].map(i => (
+        <line key={i} x1={padding} y1={padding+graphHeight-(graphHeight/4)*i} x2={w-padding} y2={padding+graphHeight-(graphHeight/4)*i} stroke="#f1f5f9" strokeWidth="1"/>
+      ))}
+      {data.map((d, i) => {
+        const barHeight = (d.value / maxVal) * graphHeight;
+        const x = padding + i * (barWidth * 1.3) + (barWidth * 0.3);
+        const y = padding + graphHeight - barHeight;
+        const color = d.color || '#3b82f6';
+        return (
+          <g key={i}>
+            <rect x={x} y={y} width={barWidth} height={barHeight} fill={color} rx="4"/>
+            <text x={x + barWidth/2} y={height - 10} textAnchor="middle" fontSize="9" fill="#64748b" maxWidth={barWidth}>
+              {d.name?.slice(0, 6) || ''}
+            </text>
+          </g>
+        );
+      })}
+    </svg>
+  );
+};
+
+// ─── PieChart (SVG-based) ────────────────────────────────────────
+const PieChart = ({ data, height = 240 }) => {
+  if (!data || data.length === 0) return null;
+  const w = 300;
+  const cx = w / 2;
+  const cy = height / 2;
+  const radius = Math.min(cx, height / 2) - 40;
+
+  const total = data.reduce((s, d) => s + d.value, 0) || 1;
+  let startAngle = -90;
+
+  const slices = data.map(d => {
+    const sliceAngle = (d.value / total) * 360;
+    const endAngle = startAngle + sliceAngle;
+
+    const start = ((startAngle + 360) % 360) * (Math.PI / 180);
+    const end = ((endAngle + 360) % 360) * (Math.PI / 180);
+
+    const x1 = cx + radius * Math.cos(start);
+    const y1 = cy + radius * Math.sin(start);
+    const x2 = cx + radius * Math.cos(end);
+    const y2 = cy + radius * Math.sin(end);
+
+    const largeArc = sliceAngle > 180 ? 1 : 0;
+    const pathData = `M ${cx} ${cy} L ${x1} ${y1} A ${radius} ${radius} 0 ${largeArc} 1 ${x2} ${y2} Z`;
+
+    const midAngle = (startAngle + endAngle) / 2 * (Math.PI / 180);
+    const labelRadius = radius * 0.6;
+    const labelX = cx + labelRadius * Math.cos(midAngle);
+    const labelY = cy + labelRadius * Math.sin(midAngle);
+
+    const result = { pathData, labelX, labelY, name: d.name, value: d.value };
+    startAngle = endAngle;
+    return result;
+  });
+
+  const colors = ['#f97316', '#22c55e'];
+
+  return (
+    <svg width="100%" height={height} viewBox={`0 0 ${w} ${height}`} preserveAspectRatio="xMidYMid meet" style={{maxWidth:"100%"}}>
+      {slices.map((s, i) => (
+        <g key={i}>
+          <path d={s.pathData} fill={colors[i % colors.length]} opacity="0.8"/>
+          <text x={s.labelX} y={s.labelY} textAnchor="middle" dominantBaseline="middle" fontSize="12" fontWeight="600" fill="white">
+            {((s.value / total) * 100).toFixed(0)}%
+          </text>
+        </g>
+      ))}
+      <text x={cx} y={height - 20} textAnchor="middle" fontSize="11" fill="#64748b">
+        {data.map(d => d.name).join(', ')}
+      </text>
+    </svg>
+  );
+};
+
+// ─── MultiSelect ─────────────────────────────────────────────────
+const MultiSelect = ({label, options, selected, onChange}) => {
+  const [open, setOpen] = useState(false);
+  const [search, setSearch] = useState("");
+  const ref = useRef(null);
+  useEffect(() => {
+    const h = (e) => { if(ref.current && !ref.current.contains(e.target)) setOpen(false); };
+    document.addEventListener("mousedown", h);
+    return () => document.removeEventListener("mousedown", h);
+  }, []);
+  const filtered = options.filter(o => o.toLowerCase().includes(search.toLowerCase()));
+  const toggle = (v) => { const n = new Set(selected); n.has(v) ? n.delete(v) : n.add(v); onChange(n); };
+  return (
+    <div ref={ref} style={{position:"relative",display:"inline-block"}}>
+      <button onClick={() => setOpen(!open)}
+        style={{display:"flex",alignItems:"center",gap:4,padding:"4px 10px",fontSize:11,borderRadius:8,
+          border:selected.size>0?"1px solid #60a5fa":"1px solid #cbd5e1",
+          background:selected.size>0?"#eff6ff":"white",color:selected.size>0?"#1d4ed8":"#475569",cursor:"pointer"}}>
+        {label}{selected.size>0 && <span style={{marginLeft:4,background:"#3b82f6",color:"white",borderRadius:999,width:16,height:16,display:"inline-flex",alignItems:"center",justifyContent:"center",fontSize:10}}>{selected.size}</span>}
+        <Icon name="chevronDown" size={12} />
+      </button>
+      {open && (
+        <div style={{position:"absolute",zIndex:999,marginTop:4,width:220,background:"white",borderRadius:8,boxShadow:"0 10px 40px rgba(0,0,0,0.15)",border:"1px solid #e2e8f0",maxHeight:260,overflow:"hidden",left:0}}>
+          {options.length > 8 && (
+            <div style={{padding:8,borderBottom:"1px solid #f1f5f9"}}>
+              <input type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder="Rechercher..."
+                style={{width:"100%",padding:"4px 8px",fontSize:11,border:"1px solid #e2e8f0",borderRadius:4,outline:"none"}} />
+            </div>
+          )}
+          <div style={{overflowY:"auto",maxHeight:200}}>
+            {filtered.map(o => (
+              <label key={o} style={{display:"flex",alignItems:"center",gap:8,padding:"6px 12px",cursor:"pointer",fontSize:11}} onMouseOver={e=>e.currentTarget.style.background="#f8fafc"} onMouseOut={e=>e.currentTarget.style.background=""}>
+                <input type="checkbox" checked={selected.has(o)} onChange={() => toggle(o)} />
+                <span className="truncate">{o}</span>
+              </label>
+            ))}
+          </div>
+          {selected.size>0 && (
+            <div style={{borderTop:"1px solid #f1f5f9",padding:4,textAlign:"center"}}>
+              <button onClick={() => onChange(new Set())} style={{fontSize:11,color:"#ef4444",background:"none",border:"none",cursor:"pointer"}}>Effacer</button>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+};
+
+// ─── Chip Toggles ────────────────────────────────────────────────
+const ChipToggle = ({items, selected, onChange, colorMap, labelMap}) => (
+  <div style={{display:"flex",flexWrap:"wrap",gap:4}}>
+    {items.map(item => {
+      const active = selected.has(item);
+      const color = colorMap?.[item] || "#64748b";
+      return (
+        <button key={item} onClick={() => { const n = new Set(selected); n.has(item) ? n.delete(item) : n.add(item); onChange(n); }}
+          style={{padding:"2px 8px",borderRadius:999,fontSize:11,fontWeight:600,border:"none",cursor:"pointer",transition:"all 0.15s",
+            background:active?color:"#f1f5f9",color:active?"white":"#64748b"}}>
+          {labelMap?.[item] || item}
+        </button>
+      );
+    })}
+  </div>
+);
+
+// ─── KPI Card ────────────────────────────────────────────────────
+const KPICard = ({label, value, color, iconName, suffix, onClick}) => (
+  <button onClick={onClick} style={{background:"white",borderRadius:12,border:"1px solid #e2e8f0",padding:16,display:"flex",flexDirection:"column",gap:4,cursor:"pointer",textAlign:"left",flex:1,minWidth:0,transition:"all 0.15s"}}
+    onMouseOver={e=>e.currentTarget.style.boxShadow="0 4px 12px rgba(0,0,0,0.08)"} onMouseOut={e=>e.currentTarget.style.boxShadow="none"}>
+    <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+      <span style={{fontSize:11,fontWeight:500,color:"#64748b"}} className="truncate">{label}</span>
+      {iconName && <Icon name={iconName} size={14} className="" />}
+    </div>
+    <div style={{display:"flex",alignItems:"baseline",gap:4}}>
+      <span style={{fontSize:24,fontWeight:800,color}}>{fmt(value)}</span>
+      {suffix && <span style={{fontSize:11,color:"#94a3b8"}}>{suffix}</span>}
+    </div>
+  </button>
+);
+
+// ─── Sort+Filter Header ──────────────────────────────────────────
+const SortH = ({label, field, sort, onSort, options, selected, onFilter, labelMap, colorMap}) => {
+  const [open, setOpen] = useState(false);
+  const [search, setSearch] = useState("");
+  const [pos, setPos] = useState({top:0,left:0});
+  const ref = useRef(null);
+  const btnRef = useRef(null);
+  useEffect(() => {
+    const h = (e) => { if(ref.current && !ref.current.contains(e.target)) setOpen(false); };
+    document.addEventListener("mousedown", h);
+    return () => document.removeEventListener("mousedown", h);
+  }, []);
+  const hasFilter = options && options.length > 0;
+  const isFiltered = selected && selected.size > 0;
+  const filtered = hasFilter ? options.filter(o => {
+    const lbl = (labelMap?.[o] || o).toString().toLowerCase();
+    return lbl.includes(search.toLowerCase());
+  }) : [];
+  const toggle = (v) => {
+    if(!onFilter) return;
+    const n = new Set(selected || []);
+    n.has(v) ? n.delete(v) : n.add(v);
+    onFilter(n);
+  };
+  const openDropdown = (e) => {
+    e.stopPropagation();
+    if(btnRef.current){
+      const r = btnRef.current.getBoundingClientRect();
+      setPos({top:r.bottom+2, left:r.left});
+    }
+    setOpen(!open);
+  };
+  return (
+    <th style={{padding:"8px 12px",textAlign:"left",fontSize:11,fontWeight:600,color:"#475569",whiteSpace:"nowrap",userSelect:"none",position:"relative"}}>
+      <div style={{display:"flex",alignItems:"center",gap:2}}>
+        <span style={{cursor:"pointer",display:"inline-flex",alignItems:"center",gap:2}}
+          onClick={() => onSort(field)} onMouseOver={e=>e.currentTarget.style.opacity=0.7} onMouseOut={e=>e.currentTarget.style.opacity=1}>
+          {label}
+          {sort.field === field ? <Icon name={sort.dir==="asc"?"chevronUp":"chevronDown"} size={12} /> : <Icon name="sort" size={10} />}
+        </span>
+        {hasFilter && (
+          <button ref={btnRef} onClick={openDropdown}
+            style={{background:"none",border:"none",cursor:"pointer",padding:1,display:"inline-flex",alignItems:"center",color:isFiltered?"#3b82f6":"#94a3b8",position:"relative"}}>
+            <Icon name="filter" size={10} />
+            {isFiltered && <span style={{position:"absolute",top:-2,right:-4,width:6,height:6,borderRadius:"50%",background:"#3b82f6"}} />}
+          </button>
+        )}
+      </div>
+      {open && hasFilter && ReactDOM.createPortal(
+        <div ref={ref} style={{position:"fixed",zIndex:9999,top:pos.top,left:pos.left,width:210,background:"white",borderRadius:8,boxShadow:"0 10px 40px rgba(0,0,0,0.18)",border:"1px solid #e2e8f0",maxHeight:300,overflow:"hidden"}}>
+          {options.length > 6 && (
+            <div style={{padding:6,borderBottom:"1px solid #f1f5f9"}}>
+              <input type="text" value={search} onChange={e=>setSearch(e.target.value)} placeholder="Rechercher..."
+                style={{width:"100%",padding:"4px 8px",fontSize:11,border:"1px solid #e2e8f0",borderRadius:4,outline:"none"}} />
+            </div>
+          )}
+          <div style={{overflowY:"auto",maxHeight:220}}>
+            {filtered.map(o => (
+              <label key={o} style={{display:"flex",alignItems:"center",gap:6,padding:"5px 10px",cursor:"pointer",fontSize:11}}
+                onMouseOver={e=>e.currentTarget.style.background="#f8fafc"} onMouseOut={e=>e.currentTarget.style.background=""}>
+                <input type="checkbox" checked={selected ? selected.has(o) : false} onChange={()=>toggle(o)} />
+                {colorMap && colorMap[o] && <span style={{width:8,height:8,borderRadius:"50%",background:colorMap[o],flexShrink:0}} />}
+                <span>{labelMap?.[o] || o}</span>
+              </label>
+            ))}
+          </div>
+          <div style={{borderTop:"1px solid #f1f5f9",padding:4,display:"flex",justifyContent:"space-between"}}>
+            <button onClick={()=>{onFilter(new Set());setOpen(false);}} style={{fontSize:10,color:"#ef4444",background:"none",border:"none",cursor:"pointer"}}>Effacer</button>
+            <button onClick={()=>setOpen(false)} style={{fontSize:10,color:"#3b82f6",background:"none",border:"none",cursor:"pointer"}}>OK</button>
+          </div>
+        </div>,
+        document.body
+      )}
+    </th>
+  );
+};
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// MAIN APP
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+function App() {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [view, setView] = useState("dashboard");
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [searchText, setSearchText] = useState("");
+  const searchTimer = useRef(null);
+  const [dSearch, setDSearch] = useState("");
+
+  // Filters
+  const [fLot, setFLot] = useState(new Set());
+  const [fEm, setFEm] = useState(new Set());
+  const [fCat, setFCat] = useState(new Set());
+  const [fAct, setFAct] = useState(new Set());
+  const [fPh, setFPh] = useState(new Set());
+  const [fCon, setFCon] = useState(new Set());
+  const [fCf, setFCf] = useState(new Set());
+  const [fSL, setFSL] = useState(new Set());
+  const [fOv, setFOv] = useState("all");
+  const [fMoex, setFMoex] = useState(false);
+  const [fArb, setFArb] = useState(false);
+  const [fMissionActors, setFMissionActors] = useState(null); // {name, actors: Set}
+  const [sort, setSort] = useState({field:"score",dir:"desc"});
+  const [selRows, setSelRows] = useState(new Set());
+  const [visRange, setVisRange] = useState({s:0,e:50});
+
+  useEffect(() => {
+    clearTimeout(searchTimer.current);
+    searchTimer.current = setTimeout(() => setDSearch(searchText), 300);
+  }, [searchText]);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        let r = await fetch("cockpit_data.json");
+        if (!r.ok) r = await fetch("/uploads/cockpit_data.json");
+        setData(await r.json());
+      } catch(e) { console.error("Load error", e); }
+      setLoading(false);
+    })();
+  }, []);
+
+  const uLots = useMemo(() => data ? [...new Set(data.queue.map(q=>q.lot))].sort() : [], [data]);
+  const uEms = useMemo(() => data ? [...new Set(data.queue.map(q=>q.emetteur))].sort() : [], [data]);
+  const uCats = useMemo(() => data ? [...new Set(data.queue.map(q=>q.cat))].sort() : [], [data]);
+  const uCons = useMemo(() => data ? [...new Set(data.queue.map(q=>q.consensus))].sort() : [], [data]);
+  const uPhs = useMemo(() => data ? [...new Set(data.queue.map(q=>q.responsibility_phase))].sort() : [], [data]);
+  const uActions = useMemo(() => data ? [...new Set(data.queue.map(q=>q.action))].sort() : [], [data]);
+  const uConflicts = useMemo(() => data ? [...new Set(data.queue.map(q=>q.conflict_severity))].sort() : [], [data]);
+
+  const afCount = useMemo(() => {
+    let c=0;
+    if(fLot.size)c++; if(fEm.size)c++; if(fCat.size)c++;
+    if(fAct.size)c++; if(fPh.size)c++; if(fCon.size)c++;
+    if(fCf.size)c++; if(fSL.size)c++; if(fOv!=="all")c++;
+    if(fMoex)c++; if(fArb)c++; if(dSearch)c++; if(fMissionActors)c++;
+    return c;
+  }, [fLot,fEm,fCat,fAct,fPh,fCon,fCf,fSL,fOv,fMoex,fArb,dSearch,fMissionActors]);
+
+  const resetF = useCallback(() => {
+    setFLot(new Set()); setFEm(new Set()); setFCat(new Set());
+    setFAct(new Set()); setFPh(new Set()); setFCon(new Set());
+    setFCf(new Set()); setFSL(new Set()); setFOv("all");
+    setFMoex(false); setFArb(false); setFMissionActors(null); setSearchText(""); setDSearch("");
+  }, []);
+
+  const filteredQ = useMemo(() => {
+    if(!data) return [];
+    let q = data.queue;
+    if(fLot.size) q=q.filter(i=>fLot.has(i.lot));
+    if(fEm.size) q=q.filter(i=>fEm.has(i.emetteur));
+    if(fCat.size) q=q.filter(i=>fCat.has(i.cat));
+    if(fAct.size) q=q.filter(i=>fAct.has(i.action));
+    if(fPh.size) q=q.filter(i=>fPh.has(i.responsibility_phase));
+    if(fCon.size) q=q.filter(i=>fCon.has(i.consensus));
+    if(fCf.size) q=q.filter(i=>fCf.has(i.conflict_severity));
+    if(fSL.size) q=q.filter(i=>i.sl&&i.sl.some(s=>fSL.has(s)));
+    if(fOv==="late") q=q.filter(i=>i.overdue>0);
+    else if(fOv==="30") q=q.filter(i=>i.overdue>30);
+    else if(fOv==="60") q=q.filter(i=>i.overdue>60);
+    if(fMoex) q=q.filter(i=>i.is_moex_holder);
+    if(fArb) q=q.filter(i=>i.is_arbitration_required);
+    if(fMissionActors) {
+      const actors = fMissionActors.actors;
+      q=q.filter(i=>{
+        const h = new Set([...(i.current_holders||[]),...(i.missing||[])]);
+        for(const a of actors){ if(h.has(a)) return true; }
+        return false;
+      });
+    }
+    if(dSearch) {
+      const s=dSearch.toLowerCase();
+      q=q.filter(i=>(i.titre||"").toLowerCase().includes(s)||(i.doc||"").toLowerCase().includes(s)||(i.lot||"").toLowerCase().includes(s)||(i.emetteur||"").toLowerCase().includes(s)||(i.submittal_key||"").toLowerCase().includes(s));
+    }
+    const {field,dir}=sort; const m=dir==="asc"?1:-1;
+    q=[...q].sort((a,b)=>{ let va=a[field],vb=b[field]; if(va==null&&vb==null)return 0; if(va==null)return 1; if(vb==null)return -1; if(typeof va==="string")return m*va.localeCompare(vb,"fr"); return m*(va-vb); });
+    return q;
+  }, [data,fLot,fEm,fCat,fAct,fPh,fCon,fCf,fSL,fOv,fMoex,fArb,fMissionActors,dSearch,sort]);
+
+  const handleSort = useCallback((f) => {
+    setSort(p => p.field===f ? {field:f,dir:p.dir==="asc"?"desc":"asc"} : {field:f,dir:"desc"});
+  }, []);
+
+  const RH = 42;
+  const handleScroll = useCallback((e) => {
+    const st=e.target.scrollTop, vh=e.target.clientHeight;
+    setVisRange({s:Math.max(0,Math.floor(st/RH)-5), e:Math.min(filteredQ.length,Math.ceil((st+vh)/RH)+5)});
+  }, [filteredQ.length]);
+
+  const goQ = useCallback((ft, val) => {
+    resetF();
+    if(ft==="cat") setFCat(new Set([val]));
+    else if(ft==="phase") setFPh(new Set([val]));
+    else if(ft==="lot") setFLot(new Set([val]));
+    else if(ft==="moex_holder") setFMoex(true);
+    else if(ft==="arbitration") setFArb(true);
+    else if(ft==="late") setFOv("late");
+    setView("queue");
+  }, [resetF]);
+
+  const exportXL = useCallback((items, fn="MOEX_Export") => {
+    if(!data) return;
+    const wb = XLSX.utils.book_new();
+    const qd = items.map(q => ({
+      Score:q.score, Document:q.doc, Indice:q.indice, Titre:q.titre,
+      Lot:q.lot, Émetteur:q.emetteur, Catégorie:CAT_L[q.cat]||q.cat,
+      Consensus:CON_L[q.consensus]||q.consensus, "Retard (j)":q.overdue,
+      Complétion:pct(q.completion_ratio), Holders:q.holder_count,
+      Phase:PH_L[q.responsibility_phase]||q.responsibility_phase,
+      Action:q.action_needed||ACT_L[q.action]||q.action,
+      "Résumé blocage":q.blocking_summary,
+      "Holders détail":(q.current_holders||[]).join(", "),
+      Retardataires:(q.late_actors||[]).join(", "),
+      "Ancienneté (j)":q.aging_days,
+      "MOEX holder":q.is_moex_holder?"Oui":"Non",
+      Arbitrage:q.is_arbitration_required?"Oui":"Non"
+    }));
+    const ws1=XLSX.utils.json_to_sheet(qd);
+    XLSX.utils.book_append_sheet(wb,ws1,"File d'attente");
+    const kRows=[
+      {Indicateur:"Dossiers ouverts",Valeur:data.kpis.total_open},
+      {Indicateur:"En retard",Valeur:data.kpis.late},
+      {Indicateur:"Bloqués",Valeur:data.kpis.blocked},
+      {Indicateur:"Arbitrage requis",Valeur:data.kpis.arbitration},
+      {Indicateur:"MOEX en retard",Valeur:data.kpis.moex_late},
+      {Indicateur:"Retard moyen (j)",Valeur:data.kpis.avg_delay_days},
+    ];
+    XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(kRows),"KPIs");
+    const lRows=data.lots.map(l=>({Lot:l.code,Santé:l.health,Total:l.total,"En attente":l.pending,Retard:l.overdue,Refusé:l.ref,Chronique:l.chronic,Complet:l.fully_responded,"Conflit dur":l.hard_conflict,Backlog:l.backlog}));
+    XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(lRows),"Lots");
+    XLSX.writeFile(wb,`${fn}_${data.generated_at}.xlsx`);
+  }, [data]);
+
+  // ─── LOADING ───────────────────────────────────────────────────
+  if(loading) return (
+    <div style={{minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center",background:"#f8fafc"}}>
+      <div style={{textAlign:"center"}}>
+        <div style={{width:48,height:48,border:"4px solid #3b82f6",borderTopColor:"transparent",borderRadius:"50%",margin:"0 auto 16px"}} className="animate-spin" />
+        <p style={{color:"#475569",fontWeight:500}}>Chargement du cockpit MOEX...</p>
+      </div>
+    </div>
+  );
+  if(!data) return <div style={{minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{color:"#ef4444"}}>Erreur: impossible de charger cockpit_data.json</p></div>;
+
+  const {kpis, categories, lots, queue, mission_stats, closed_summary, trend_30j, socotec_registry} = data;
+
+  const navItems = [
+    {id:"dashboard",icon:"dashboard",label:"Tableau de bord"},
+    {id:"queue",icon:"list",label:"File d'attente"},
+    {id:"lots",icon:"building",label:"Santé des lots"},
+    {id:"missions",icon:"users",label:"Missions"},
+    {id:"closed",icon:"archive",label:"Dossiers clôturés"},
+    {id:"socotec",icon:"shield",label:"Registre SOCOTEC"},
+  ];
+
+  // ━━━ RENDER ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  return (
+    <div style={{display:"flex",height:"100vh",background:"#f8fafc",overflow:"hidden"}}>
+      {/* SIDEBAR */}
+      <aside style={{background:"#0f172a",color:"white",display:"flex",flexDirection:"column",transition:"width 0.2s",width:sidebarOpen?220:56,flexShrink:0}}>
+        <div style={{padding:12,display:"flex",alignItems:"center",gap:8,borderBottom:"1px solid #334155"}}>
+          <button onClick={() => setSidebarOpen(!sidebarOpen)} style={{padding:4,borderRadius:6,background:"none",border:"none",color:"white",cursor:"pointer"}}
+            onMouseOver={e=>e.currentTarget.style.background="#1e293b"} onMouseOut={e=>e.currentTarget.style.background="none"}>
+            <Icon name="menu" size={18} />
+          </button>
+          {sidebarOpen && <span style={{fontSize:13,fontWeight:700}}>JANSA VISASIST</span>}
+        </div>
+        <nav style={{flex:1,paddingTop:8}}>
+          {navItems.map(({id,icon,label}) => (
+            <button key={id} onClick={() => {setView(id);setSelectedItem(null);}}
+              style={{width:"100%",display:"flex",alignItems:"center",gap:12,padding:"10px 12px",fontSize:13,border:"none",cursor:"pointer",
+                background:view===id?"#2563eb":"transparent",color:view===id?"white":"#94a3b8",transition:"all 0.15s",textAlign:"left"}}
+              onMouseOver={e=>{if(view!==id)e.currentTarget.style.background="#1e293b";e.currentTarget.style.color="white";}}
+              onMouseOut={e=>{if(view!==id)e.currentTarget.style.background="transparent";if(view!==id)e.currentTarget.style.color="#94a3b8";}}>
+              <Icon name={icon} size={18} />
+              {sidebarOpen && <span className="truncate">{label}</span>}
+            </button>
+          ))}
+        </nav>
+        {sidebarOpen && <div style={{padding:12,borderTop:"1px solid #334155",fontSize:11,color:"#475569"}}>v{data.version} — {data.generated_at}</div>}
+      </aside>
+
+      {/* MAIN */}
+      <div style={{flex:1,display:"flex",flexDirection:"column",minWidth:0,overflow:"hidden"}}>
+        {/* TOP BAR */}
+        <header style={{background:"white",borderBottom:"1px solid #e2e8f0",padding:"10px 16px",display:"flex",alignItems:"center",gap:16,flexShrink:0}}>
+          <div style={{flex:1,minWidth:0}}>
+            <h1 style={{fontSize:14,fontWeight:700,color:"#1e293b",margin:0}}>P17&CO Tranche 2 — MOEX Cockpit</h1>
+            <p style={{fontSize:11,color:"#94a3b8",margin:0}}>{data.generated_at}</p>
+          </div>
+          <div style={{display:"flex",alignItems:"center",gap:8}}>
+            <span style={{padding:"4px 8px",borderRadius:6,background:"#f1f5f9",color:"#475569",fontSize:11,fontWeight:500}}>{fmt(kpis.total_open)} ouverts</span>
+            <span style={{padding:"4px 8px",borderRadius:6,background:"#fef2f2",color:"#dc2626",fontSize:11,fontWeight:500}}>{fmt(kpis.late)} retard</span>
+            <span style={{padding:"4px 8px",borderRadius:6,background:"#fff7ed",color:"#ea580c",fontSize:11,fontWeight:500}}>{fmt(kpis.blocked)} bloqués</span>
+            <span style={{padding:"4px 8px",borderRadius:6,background:"#fffbeb",color:"#d97706",fontSize:11,fontWeight:500}}>{fmt(kpis.arbitration)} arbitrage</span>
+            <div style={{position:"relative"}}>
+              <span style={{position:"absolute",left:8,top:"50%",transform:"translateY(-50%)"}}><Icon name="search" size={14} /></span>
+              <input type="text" value={searchText} onChange={e=>setSearchText(e.target.value)}
+                placeholder="Rechercher..." style={{paddingLeft:28,paddingRight:24,paddingTop:6,paddingBottom:6,fontSize:11,border:"1px solid #e2e8f0",borderRadius:8,width:180,outline:"none"}}
+                onFocus={e=>e.target.style.borderColor="#60a5fa"} onBlur={e=>e.target.style.borderColor="#e2e8f0"} />
+              {searchText && <button onClick={()=>{setSearchText("");setDSearch("");}} style={{position:"absolute",right:6,top:"50%",transform:"translateY(-50%)",background:"none",border:"none",cursor:"pointer"}}><Icon name="x" size={12} /></button>}
+            </div>
+          </div>
+        </header>
+
+        {/* CONTENT */}
+        <main style={{flex:1,overflowY:"auto",padding:16}}>
+
+          {/* ══════════ DASHBOARD ══════════ */}
+          {view === "dashboard" && (
+            <div style={{maxWidth:1200,margin:"0 auto"}}>
+              {/* KPIs */}
+              <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(140px, 1fr))",gap:12,marginBottom:20}}>
+                <KPICard label="Dossiers ouverts" value={kpis.total_open} color="#1e293b" iconName="file" onClick={()=>goQ(null)} />
+                <KPICard label="En retard" value={kpis.late} color={kpis.late>kpis.total_open*0.2?"#ef4444":"#f59e0b"} iconName="clock" onClick={()=>goQ("late")} />
+                <KPICard label="Bloqués (REF/DEF)" value={kpis.blocked} color="#ef4444" iconName="xCircle" onClick={()=>goQ("cat","BLOCKED")} />
+                <KPICard label="Arbitrage requis" value={kpis.arbitration} color="#f97316" iconName="alert" onClick={()=>goQ("arbitration")} />
+                <KPICard label="MOEX en retard" value={kpis.moex_late} color="#ef4444" iconName="activity" onClick={()=>goQ("moex_holder")} />
+                <KPICard label="Easy Wins" value={categories.find(c=>c.key==="EASY_WIN")?.count||0} color="#22c55e" iconName="zap" onClick={()=>goQ("cat","EASY_WIN")} />
+                <KPICard label="Retard moyen" value={kpis.avg_delay_days} color={kpis.avg_delay_days>30?"#ef4444":"#f59e0b"} suffix="j" iconName="trending" />
+                <KPICard label="Clôturés" value={kpis.total_closed} color="#22c55e" iconName="check" onClick={()=>setView("closed")} />
+              </div>
+
+              {/* Responsibility Waterfall */}
+              <div style={{background:"white",borderRadius:12,border:"1px solid #e2e8f0",padding:16,marginBottom:16}}>
+                <h3 style={{fontSize:13,fontWeight:600,color:"#334155",marginBottom:12}}>Cascade de responsabilité</h3>
+                <div style={{display:"flex",gap:2,height:40,borderRadius:8,overflow:"hidden"}}>
+                  {[
+                    {key:"primary",val:kpis.resp_primary,label:"Primaire",color:PH_C.primary},
+                    {key:"secondary",val:kpis.resp_secondary,label:"Secondaire",color:PH_C.secondary},
+                    {key:"moex_relance_secondary",val:kpis.resp_moex_relance,label:"Relance MOEX",color:PH_C.moex_relance_secondary},
+                    {key:"moex",val:kpis.resp_moex,label:"MOEX",color:PH_C.moex},
+                  ].map(seg => {
+                    const w = (seg.val/kpis.total_open)*100;
+                    if(w<1)return null;
+                    return (
+                      <button key={seg.key} onClick={()=>goQ("phase",seg.key)}
+                        style={{height:"100%",width:`${w}%`,background:seg.color,color:"white",fontSize:11,fontWeight:500,border:"none",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",minWidth:w>5?0:24}}
+                        title={`${seg.label}: ${seg.val}`}>
+                        {w>10 && `${seg.label} (${seg.val})`}
+                      </button>
+                    );
+                  })}
+                </div>
+                <div style={{display:"flex",gap:16,marginTop:8}}>
+                  {[{label:"Primaire",val:kpis.resp_primary,color:PH_C.primary},{label:"Secondaire",val:kpis.resp_secondary,color:PH_C.secondary},{label:"Relance MOEX",val:kpis.resp_moex_relance,color:PH_C.moex_relance_secondary},{label:"MOEX",val:kpis.resp_moex,color:PH_C.moex}].map(l => (
+                    <div key={l.label} style={{display:"flex",alignItems:"center",gap:6,fontSize:11}}>
+                      <div style={{width:10,height:10,borderRadius:2,background:l.color}} />
+                      <span style={{color:"#64748b"}}>{l.label}:</span>
+                      <span style={{fontWeight:700,color:"#334155"}}>{l.val}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16,marginBottom:16}}>
+                {/* Categories */}
+                <div style={{background:"white",borderRadius:12,border:"1px solid #e2e8f0",padding:16}}>
+                  <h3 style={{fontSize:13,fontWeight:600,color:"#334155",marginBottom:12}}>Catégories</h3>
+                  <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:8}}>
+                    {categories.map(cat => (
+                      <button key={cat.key} onClick={()=>goQ("cat",cat.key)}
+                        style={{padding:12,borderRadius:8,border:`2px solid ${CAT_C[cat.key]}60`,background:CAT_C[cat.key]+"08",cursor:"pointer",textAlign:"center",transition:"all 0.15s"}}
+                        onMouseOver={e=>e.currentTarget.style.boxShadow="0 4px 12px rgba(0,0,0,0.1)"} onMouseOut={e=>e.currentTarget.style.boxShadow="none"}>
+                        <div style={{fontSize:24,fontWeight:800,color:CAT_C[cat.key]}}>{cat.count}</div>
+                        <div style={{fontSize:11,fontWeight:500,color:"#475569",marginTop:2}}>{CAT_L[cat.key]}</div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Trend 30j */}
+                <div style={{background:"white",borderRadius:12,border:"1px solid #e2e8f0",padding:16}}>
+                  <h3 style={{fontSize:13,fontWeight:600,color:"#334155",marginBottom:12}}>Tendance 30 jours</h3>
+                  {trend_30j?.global?.length > 0 ? (
+                    <LineChart data={trend_30j.global} height={200} />
+                  ) : <p style={{fontSize:11,color:"#94a3b8",textAlign:"center",padding:"32px 0"}}>Aucune donnée</p>}
+                </div>
+              </div>
+
+              <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16}}>
+                {/* Top Defaulters */}
+                <div style={{background:"white",borderRadius:12,border:"1px solid #e2e8f0",padding:16}}>
+                  <h3 style={{fontSize:13,fontWeight:600,color:"#334155",marginBottom:12}}>Top défaillants (secondaires)</h3>
+                  <table style={{width:"100%",fontSize:11,borderCollapse:"collapse"}}>
+                    <thead><tr style={{borderBottom:"1px solid #f1f5f9"}}>
+                      <th style={{textAlign:"left",padding:"6px 0",color:"#64748b",fontWeight:600}}>Mission</th>
+                      <th style={{textAlign:"right",padding:"6px 0",color:"#64748b",fontWeight:600}}>Défauts</th>
+                    </tr></thead>
+                    <tbody>
+                      {(kpis.top_defaulters||[]).map((d,i) => (
+                        <tr key={i} style={{borderBottom:"1px solid #f8fafc"}}>
+                          <td style={{padding:"6px 0",color:"#334155"}}>{d.mission}</td>
+                          <td style={{padding:"6px 0",textAlign:"right",fontWeight:700,color:"#ef4444"}}>{d.count}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                {/* MOEX Sub-phases */}
+                <div style={{background:"white",borderRadius:12,border:"1px solid #e2e8f0",padding:16}}>
+                  <h3 style={{fontSize:13,fontWeight:600,color:"#334155",marginBottom:12}}>Sous-phases MOEX</h3>
+                  {[{label:"Tous répondu",val:kpis.moex_all_responded,color:"#22c55e"},{label:"Défaut secondaire",val:kpis.moex_secondary_default,color:"#f59e0b"},{label:"Sans secondaire",val:kpis.moex_no_secondary,color:"#94a3b8"},{label:"Orphelin",val:kpis.moex_orphan,color:"#ef4444"}].map(sp => (
+                    <div key={sp.label} style={{display:"flex",alignItems:"center",gap:12,marginBottom:8}}>
+                      <div style={{width:12,height:12,borderRadius:2,background:sp.color,flexShrink:0}} />
+                      <span style={{fontSize:12,color:"#475569",flex:1}}>{sp.label}</span>
+                      <span style={{fontSize:14,fontWeight:800,color:sp.color}}>{sp.val}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* ══════════ QUEUE ══════════ */}
+          {view === "queue" && (
+            <div style={{display:"flex",flexDirection:"column",height:"calc(100vh - 100px)"}}>
+              {/* Filters */}
+              <div style={{background:"white",borderRadius:12,border:"1px solid #e2e8f0",padding:12,marginBottom:12,flexShrink:0}}>
+                <div style={{display:"flex",alignItems:"center",gap:8,flexWrap:"wrap",marginBottom:6}}>
+                  <Icon name="filter" size={14} />
+                  <MultiSelect label="Lot" options={uLots} selected={fLot} onChange={setFLot} />
+                  <MultiSelect label="Émetteur" options={uEms} selected={fEm} onChange={setFEm} />
+                  <ChipToggle items={["EASY_WIN","CONFLICT","BLOCKED","WAITING","FAST_REJECT","NOT_STARTED"]} selected={fCat} onChange={setFCat} colorMap={CAT_C} labelMap={CAT_L} />
+                  <div style={{width:1,height:20,background:"#e2e8f0"}} />
+                  <ChipToggle items={["ISSUE_VISA","ARBITRATE","CHASE","DONE"]} selected={fAct} onChange={setFAct} colorMap={{ISSUE_VISA:"#22c55e",ARBITRATE:"#f97316",CHASE:"#3b82f6",DONE:"#94a3b8"}} labelMap={ACT_L} />
+                </div>
+                <div style={{display:"flex",alignItems:"center",gap:8,flexWrap:"wrap",marginBottom:6}}>
+                  <ChipToggle items={["primary","secondary","moex_relance_secondary","moex"]} selected={fPh} onChange={setFPh} colorMap={PH_C} labelMap={PH_L} />
+                  <div style={{width:1,height:20,background:"#e2e8f0"}} />
+                  <ChipToggle items={["ALL_APPROVE","ALL_REJECT","MIXED","NOT_STARTED"]} selected={fCon} onChange={setFCon} colorMap={{ALL_APPROVE:"#22c55e",ALL_REJECT:"#ef4444",MIXED:"#f59e0b",NOT_STARTED:"#94a3b8"}} labelMap={CON_L} />
+                  <div style={{width:1,height:20,background:"#e2e8f0"}} />
+                  <ChipToggle items={["hard","soft","none"]} selected={fCf} onChange={setFCf} colorMap={{hard:"#ef4444",soft:"#f59e0b",none:"#94a3b8"}} labelMap={CF_L} />
+                </div>
+                <div style={{display:"flex",alignItems:"center",gap:8,flexWrap:"wrap"}}>
+                  <span style={{fontSize:11,color:"#64748b"}}>Listes:</span>
+                  <ChipToggle items={["CHRONIC","MISSING","BLOCKED","CONFLICT","EASY_WIN"]} selected={fSL} onChange={setFSL} colorMap={{CHRONIC:"#8b5cf6",MISSING:"#ef4444",BLOCKED:"#f97316",CONFLICT:"#ef4444",EASY_WIN:"#22c55e"}} labelMap={SL_L} />
+                  <div style={{width:1,height:20,background:"#e2e8f0"}} />
+                  <span style={{fontSize:11,color:"#64748b"}}>Retard:</span>
+                  {["all","late","30","60"].map(v => (
+                    <button key={v} onClick={()=>setFOv(v)}
+                      style={{padding:"2px 8px",borderRadius:999,fontSize:11,fontWeight:600,border:"none",cursor:"pointer",
+                        background:fOv===v?"#ef4444":"#f1f5f9",color:fOv===v?"white":"#64748b"}}>
+                      {{all:"Tous",late:"En retard","30":"> 30j","60":"> 60j"}[v]}
+                    </button>
+                  ))}
+                  <div style={{width:1,height:20,background:"#e2e8f0"}} />
+                  <button onClick={()=>setFMoex(!fMoex)}
+                    style={{padding:"2px 8px",borderRadius:999,fontSize:11,fontWeight:600,border:"none",cursor:"pointer",background:fMoex?"#ef4444":"#f1f5f9",color:fMoex?"white":"#64748b"}}>MOEX holder</button>
+                  <button onClick={()=>setFArb(!fArb)}
+                    style={{padding:"2px 8px",borderRadius:999,fontSize:11,fontWeight:600,border:"none",cursor:"pointer",background:fArb?"#f97316":"#f1f5f9",color:fArb?"white":"#64748b"}}>Arbitrage</button>
+                  {fMissionActors && (
+                    <span style={{display:"inline-flex",alignItems:"center",gap:4,padding:"2px 8px",borderRadius:999,fontSize:11,fontWeight:600,background:"#7c3aed",color:"white"}}>
+                      Mission: {fMissionActors.name}
+                      <button onClick={()=>setFMissionActors(null)} style={{background:"none",border:"none",color:"white",cursor:"pointer",padding:0,lineHeight:1,fontSize:14}}>×</button>
+                    </span>
+                  )}
+                  <div style={{flex:1}} />
+                  {afCount>0 && (
+                    <button onClick={resetF} style={{display:"flex",alignItems:"center",gap:4,padding:"4px 8px",fontSize:11,color:"#ef4444",background:"none",border:"none",cursor:"pointer"}}
+                      onMouseOver={e=>e.currentTarget.style.background="#fef2f2"} onMouseOut={e=>e.currentTarget.style.background="none"}>
+                      <Icon name="refresh" size={12} /> Réinitialiser ({afCount})
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              {/* Queue header */}
+              <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:8,flexShrink:0}}>
+                <span style={{fontSize:13,fontWeight:600,color:"#334155"}}>{filteredQ.length} dossiers{afCount>0?" (filtré)":""}</span>
+                <div style={{display:"flex",gap:8}}>
+                  {selRows.size>0 && (
+                    <button onClick={()=>exportXL(filteredQ.filter(q=>selRows.has(q.id)),"Selection")}
+                      style={{display:"flex",alignItems:"center",gap:4,padding:"6px 12px",fontSize:11,background:"#3b82f6",color:"white",borderRadius:8,border:"none",cursor:"pointer"}}>
+                      <Icon name="download" size={12} /> Exporter sélection ({selRows.size})
+                    </button>
+                  )}
+                  <button onClick={()=>exportXL(filteredQ,"Queue_filtree")}
+                    style={{display:"flex",alignItems:"center",gap:4,padding:"6px 12px",fontSize:11,background:"#334155",color:"white",borderRadius:8,border:"none",cursor:"pointer"}}>
+                    <Icon name="download" size={12} /> Exporter vue ({filteredQ.length})
+                  </button>
+                </div>
+              </div>
+
+              {/* Table */}
+              <div style={{background:"white",borderRadius:12,border:"1px solid #e2e8f0",flex:1,overflow:"hidden",display:"flex",flexDirection:"column",minHeight:0}}>
+                <div style={{overflowX:"auto",flexShrink:0}}>
+                  <table style={{width:"100%",borderCollapse:"collapse"}}>
+                    <thead style={{background:"#f8fafc",borderBottom:"1px solid #e2e8f0"}}>
+                      <tr>
+                        <th style={{padding:"8px",width:32}}>
+                          <input type="checkbox" checked={selRows.size===filteredQ.length&&filteredQ.length>0}
+                            onChange={e=>setSelRows(e.target.checked?new Set(filteredQ.map(q=>q.id)):new Set())} />
+                        </th>
+                        <SortH label="Score" field="score" sort={sort} onSort={handleSort} />
+                        <SortH label="Doc" field="doc" sort={sort} onSort={handleSort} />
+                        <SortH label="Ind." field="rev" sort={sort} onSort={handleSort} />
+                        <th style={{padding:"8px 12px",textAlign:"left",fontSize:11,fontWeight:600,color:"#475569"}}>Titre</th>
+                        <SortH label="Lot" field="lot" sort={sort} onSort={handleSort} options={uLots} selected={fLot} onFilter={setFLot} />
+                        <SortH label="Ém." field="emetteur" sort={sort} onSort={handleSort} options={uEms} selected={fEm} onFilter={setFEm} />
+                        <SortH label="Cat." field="cat" sort={sort} onSort={handleSort} options={uCats} selected={fCat} onFilter={setFCat} labelMap={CAT_L} colorMap={CAT_C} />
+                        <SortH label="Consensus" field="consensus" sort={sort} onSort={handleSort} options={uCons} selected={fCon} onFilter={setFCon} labelMap={CON_L} />
+                        <SortH label="Retard" field="overdue" sort={sort} onSort={handleSort} />
+                        <SortH label="Compl." field="completion_ratio" sort={sort} onSort={handleSort} />
+                        <SortH label="Holders" field="holder_count" sort={sort} onSort={handleSort} />
+                        <SortH label="Phase" field="responsibility_phase" sort={sort} onSort={handleSort} options={uPhs} selected={fPh} onFilter={setFPh} labelMap={PH_L} colorMap={PH_C} />
+                        <th style={{padding:"8px 12px",textAlign:"left",fontSize:11,fontWeight:600,color:"#475569"}}>Action</th>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+                <div style={{overflow:"auto",flex:1}} onScroll={handleScroll}>
+                  <div style={{height:filteredQ.length*RH,position:"relative"}}>
+                    {filteredQ.slice(visRange.s,visRange.e).map((q,idx) => (
+                      <div key={q.id} onClick={()=>setSelectedItem(q)}
+                        style={{position:"absolute",top:(visRange.s+idx)*RH,height:RH,width:"100%",display:"flex",alignItems:"center",borderBottom:"1px solid #f8fafc",cursor:"pointer",transition:"background 0.1s"}}
+                        onMouseOver={e=>e.currentTarget.style.background="#eff6ff"} onMouseOut={e=>e.currentTarget.style.background=""}>
+                        <div style={{padding:"0 8px",width:32,flexShrink:0}} onClick={e=>e.stopPropagation()}>
+                          <input type="checkbox" checked={selRows.has(q.id)}
+                            onChange={()=>{const n=new Set(selRows);n.has(q.id)?n.delete(q.id):n.add(q.id);setSelRows(n);}} />
+                        </div>
+                        <div style={{padding:"0 12px",width:80,flexShrink:0}}><ScoreBar value={q.score} /></div>
+                        <div style={{padding:"0 12px",width:90,flexShrink:0,fontSize:11,fontFamily:"monospace",color:"#334155"}} className="truncate">{q.doc}</div>
+                        <div style={{padding:"0 12px",width:40,flexShrink:0,fontSize:11,textAlign:"center",color:"#64748b"}}>{q.indice}</div>
+                        <div style={{padding:"0 12px",flex:1,minWidth:0,fontSize:11,color:"#475569"}} className="truncate" title={q.titre}>{q.titre}</div>
+                        <div style={{padding:"0 12px",width:60,flexShrink:0,fontSize:11,fontWeight:500,color:"#334155"}}>{q.lot}</div>
+                        <div style={{padding:"0 12px",width:50,flexShrink:0,fontSize:11,color:"#64748b"}}>{q.emetteur}</div>
+                        <div style={{padding:"0 12px",width:80,flexShrink:0}}><Badge label={CAT_L[q.cat]||q.cat} color={CAT_C[q.cat]||"#94a3b8"} small /></div>
+                        <div style={{padding:"0 12px",width:96,flexShrink:0}}><Badge label={CON_L[q.consensus]||q.consensus} color={q.consensus==="ALL_APPROVE"?"#22c55e":q.consensus==="ALL_REJECT"?"#ef4444":q.consensus==="MIXED"?"#f59e0b":"#94a3b8"} small /></div>
+                        <div style={{padding:"0 12px",width:60,flexShrink:0,fontSize:11,fontFamily:"monospace",textAlign:"right",color:q.overdue>0?"#ef4444":"#22c55e"}}>{q.overdue>0?`+${q.overdue}j`:"0j"}</div>
+                        <div style={{padding:"0 12px",width:80,flexShrink:0}}><CompBar ratio={q.completion_ratio} /></div>
+                        <div style={{padding:"0 12px",width:56,flexShrink:0,fontSize:11,textAlign:"center"}} title={(q.current_holders||[]).join("\n")}>{q.holder_count}</div>
+                        <div style={{padding:"0 12px",width:96,flexShrink:0}}><Badge label={PH_L[q.responsibility_phase]||q.responsibility_phase} color={PH_C[q.responsibility_phase]||"#94a3b8"} small /></div>
+                        <div style={{padding:"0 12px",width:120,flexShrink:0,fontSize:11,color:"#475569"}} className="truncate" title={q.action_needed}>{q.action_needed||ACT_L[q.action]||q.action}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* ══════════ LOTS ══════════ */}
+          {view === "lots" && (
+            <div style={{maxWidth:1200,margin:"0 auto"}}>
+              <h2 style={{fontSize:18,fontWeight:700,color:"#1e293b",marginBottom:16}}>Santé des lots</h2>
+              <div style={{background:"white",borderRadius:12,border:"1px solid #e2e8f0",overflowX:"auto"}}>
+                <table style={{width:"100%",fontSize:11,borderCollapse:"collapse"}}>
+                  <thead style={{background:"#f8fafc",borderBottom:"1px solid #e2e8f0"}}>
+                    <tr>
+                      {["Lot","Santé","Total","En attente","Retard","Refusé","Chronique","Complet","Conflit dur","Backlog","Compl. moy."].map(h => (
+                        <th key={h} style={{padding:"10px 12px",textAlign:"left",fontWeight:600,color:"#475569",whiteSpace:"nowrap"}}>{h}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {lots.map(l => (
+                      <tr key={l.code} style={{borderBottom:"1px solid #f8fafc",cursor:"pointer"}}
+                        onClick={()=>{resetF();setFEm(new Set([l.code]));setView("queue");}}
+                        onMouseOver={e=>e.currentTarget.style.background="#eff6ff"} onMouseOut={e=>e.currentTarget.style.background=""}>
+                        <td style={{padding:"8px 12px",fontWeight:500,color:"#1e293b"}}>{l.code}</td>
+                        <td style={{padding:"8px 12px"}}><HealthBar value={l.health} /></td>
+                        <td style={{padding:"8px 12px",color:"#475569"}}>{l.total}</td>
+                        <td style={{padding:"8px 12px",color:"#3b82f6",fontWeight:500}}>{l.pending}</td>
+                        <td style={{padding:"8px 12px",color:"#ef4444",fontWeight:500}}>{l.overdue}</td>
+                        <td style={{padding:"8px 12px",color:"#dc2626",fontWeight:500}}>{l.ref}</td>
+                        <td style={{padding:"8px 12px",color:"#7c3aed"}}>{l.chronic}</td>
+                        <td style={{padding:"8px 12px",color:"#16a34a"}}>{l.fully_responded}</td>
+                        <td style={{padding:"8px 12px",color:"#ef4444"}}>{l.hard_conflict}</td>
+                        <td style={{padding:"8px 12px",color:"#ea580c"}}>{l.backlog}</td>
+                        <td style={{padding:"8px 12px",color:"#64748b"}}>{l.avg_completion?.toFixed(1)}%</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+
+          {/* ══════════ MISSIONS ══════════ */}
+          {view === "missions" && (
+            <div style={{maxWidth:1200,margin:"0 auto"}}>
+              <h2 style={{fontSize:18,fontWeight:700,color:"#1e293b",marginBottom:16}}>Missions</h2>
+              <div style={{background:"white",borderRadius:12,border:"1px solid #e2e8f0",overflowX:"auto"}}>
+                <table style={{width:"100%",fontSize:11,borderCollapse:"collapse"}}>
+                  <thead style={{background:"#f8fafc",borderBottom:"1px solid #e2e8f0"}}>
+                    <tr>
+                      {["Mission","","Holds","Sole holds","Retards","Multi","Conflits","Retard moy. (j)","Part backlog"].map(h => (
+                        <th key={h} style={{padding:"10px 12px",textAlign:"left",fontWeight:600,color:"#475569",whiteSpace:"nowrap"}}>{h}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {mission_stats.map(m => (
+                      <tr key={m.mission} style={{borderBottom:"1px solid #f8fafc",cursor:"pointer"}}
+                        onClick={()=>{resetF();setFMissionActors({name:m.mission,actors:new Set(m.actors)});setView("queue");}}
+                        onMouseOver={e=>e.currentTarget.style.background="#eff6ff"} onMouseOut={e=>e.currentTarget.style.background=""}>
+                        <td style={{padding:"8px 12px",fontWeight:500,color:"#1e293b"}}>{m.mission}</td>
+                        <td style={{padding:"8px 12px"}}>{m.is_moex && <Badge label="MOEX" color="#ef4444" small />}</td>
+                        <td style={{padding:"8px 12px",color:"#dc2626",fontWeight:700}}>{m.holds}</td>
+                        <td style={{padding:"8px 12px",color:"#ea580c",fontWeight:500}}>{m.sole_holds}</td>
+                        <td style={{padding:"8px 12px",color:"#ef4444"}}>{m.late}</td>
+                        <td style={{padding:"8px 12px",color:"#475569"}}>{m.multi}</td>
+                        <td style={{padding:"8px 12px",color:"#f97316"}}>{m.conflicts}</td>
+                        <td style={{padding:"8px 12px",color:"#475569"}}>{m.avg_delay?.toFixed(1)}</td>
+                        <td style={{padding:"8px 12px"}}>
+                          <div style={{display:"flex",alignItems:"center",gap:8}}>
+                            <div style={{width:80,height:8,borderRadius:4,background:"#e2e8f0",overflow:"hidden"}}>
+                              <div style={{height:"100%",borderRadius:4,background:"#3b82f6",width:`${m.backlog_share}%`}} />
+                            </div>
+                            <span style={{color:"#64748b"}}>{m.backlog_share}%</span>
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+
+          {/* ══════════ CLOSED ══════════ */}
+          {view === "closed" && (
+            <div style={{maxWidth:1200,margin:"0 auto"}}>
+              <h2 style={{fontSize:18,fontWeight:700,color:"#1e293b",marginBottom:16}}>Dossiers clôturés ({closed_summary.count})</h2>
+              <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16,marginBottom:16}}>
+                <div style={{background:"white",borderRadius:12,border:"1px solid #e2e8f0",padding:16}}>
+                  <h3 style={{fontSize:13,fontWeight:600,color:"#334155",marginBottom:12}}>Type de clôture</h3>
+                  <PieChart data={Object.entries(closed_summary.by_close_type).map(([k,v])=>({name:CL_L[k]||k,value:v}))} height={240} />
+                </div>
+                <div style={{background:"white",borderRadius:12,border:"1px solid #e2e8f0",padding:16}}>
+                  <h3 style={{fontSize:13,fontWeight:600,color:"#334155",marginBottom:12}}>Par décision</h3>
+                  <BarChart data={Object.entries(closed_summary.by_decision_tag).map(([k,v])=>({name:TAG_L[k]||k,value:v,color:DT_C[k]||"#3b82f6"}))} height={240} />
+                </div>
+              </div>
+              <div style={{background:"white",borderRadius:12,border:"1px solid #e2e8f0",padding:16}}>
+                <h3 style={{fontSize:13,fontWeight:600,color:"#334155",marginBottom:12}}>Taux de rejet par émetteur</h3>
+                <table style={{width:"100%",fontSize:11,borderCollapse:"collapse"}}>
+                  <thead style={{borderBottom:"1px solid #e2e8f0"}}>
+                    <tr>
+                      <th style={{padding:"8px 12px",textAlign:"left",fontWeight:600,color:"#475569"}}>Émetteur</th>
+                      <th style={{padding:"8px 12px",textAlign:"right",fontWeight:600,color:"#475569"}}>Clôturés</th>
+                      <th style={{padding:"8px 12px",textAlign:"right",fontWeight:600,color:"#475569"}}>Refusés</th>
+                      <th style={{padding:"8px 12px",textAlign:"right",fontWeight:600,color:"#475569"}}>Taux rejet</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {(closed_summary.emetteur_rejection||[]).map((r,i) => (
+                      <tr key={i} style={{borderBottom:"1px solid #f8fafc"}} onMouseOver={e=>e.currentTarget.style.background="#f8fafc"} onMouseOut={e=>e.currentTarget.style.background=""}>
+                        <td style={{padding:"6px 12px",fontWeight:500,color:"#334155"}}>{r.emetteur}</td>
+                        <td style={{padding:"6px 12px",textAlign:"right",color:"#475569"}}>{r.total_closed}</td>
+                        <td style={{padding:"6px 12px",textAlign:"right",color:"#dc2626",fontWeight:500}}>{r.rejected}</td>
+                        <td style={{padding:"6px 12px",textAlign:"right"}}>
+                          <span style={{fontWeight:700,color:r.rejection_rate>50?"#dc2626":r.rejection_rate>25?"#ea580c":"#16a34a"}}>{r.rejection_rate?.toFixed(1)}%</span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+
+          {/* ══════════ SOCOTEC ══════════ */}
+          {view === "socotec" && (
+            <div style={{maxWidth:1200,margin:"0 auto"}}>
+              <h2 style={{fontSize:18,fontWeight:700,color:"#1e293b",marginBottom:16}}>Registre SOCOTEC ({(socotec_registry||[]).length} fiches)</h2>
+              <div style={{background:"white",borderRadius:12,border:"1px solid #e2e8f0",overflowX:"auto"}}>
+                <table style={{width:"100%",fontSize:11,borderCollapse:"collapse"}}>
+                  <thead style={{background:"#f8fafc",borderBottom:"1px solid #e2e8f0"}}>
+                    <tr>
+                      {["Fiche","Date","Pages","Docs","FAV","SUSP","DEF","Fichier"].map(h => (
+                        <th key={h} style={{padding:"10px 12px",textAlign:"left",fontWeight:600,color:"#475569",whiteSpace:"nowrap"}}>{h}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {(socotec_registry||[]).map((r,i) => (
+                      <tr key={i} style={{borderBottom:"1px solid #f8fafc"}} onMouseOver={e=>e.currentTarget.style.background="#f8fafc"} onMouseOut={e=>e.currentTarget.style.background=""}>
+                        <td style={{padding:"8px 12px",fontWeight:500,color:"#334155"}}>{r.fiche_number}</td>
+                        <td style={{padding:"8px 12px",color:"#475569"}}>{r.fiche_date}</td>
+                        <td style={{padding:"8px 12px",color:"#64748b"}}>{r.pages}</td>
+                        <td style={{padding:"8px 12px",color:"#475569"}}>{r.docs_listed}</td>
+                        <td style={{padding:"8px 12px",color:"#16a34a",fontWeight:500}}>{r.fav_explicit}</td>
+                        <td style={{padding:"8px 12px",color:"#d97706",fontWeight:500}}>{r.susp_explicit}</td>
+                        <td style={{padding:"8px 12px",color:"#dc2626",fontWeight:500}}>{r.def_explicit}</td>
+                        <td style={{padding:"8px 12px",color:"#94a3b8",maxWidth:240}} className="truncate" title={r.filename}>{r.filename}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                  <tfoot style={{background:"#f8fafc",borderTop:"1px solid #e2e8f0",fontWeight:600}}>
+                    <tr>
+                      <td style={{padding:"8px 12px",color:"#334155"}}>Total</td>
+                      <td></td>
+                      <td style={{padding:"8px 12px",color:"#475569"}}>{(socotec_registry||[]).reduce((s,r)=>s+(r.pages||0),0)}</td>
+                      <td style={{padding:"8px 12px",color:"#475569"}}>{(socotec_registry||[]).reduce((s,r)=>s+(r.docs_listed||0),0)}</td>
+                      <td style={{padding:"8px 12px",color:"#16a34a"}}>{(socotec_registry||[]).reduce((s,r)=>s+(r.fav_explicit||0),0)}</td>
+                      <td style={{padding:"8px 12px",color:"#d97706"}}>{(socotec_registry||[]).reduce((s,r)=>s+(r.susp_explicit||0),0)}</td>
+                      <td style={{padding:"8px 12px",color:"#dc2626"}}>{(socotec_registry||[]).reduce((s,r)=>s+(r.def_explicit||0),0)}</td>
+                      <td></td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+          )}
+        </main>
+      </div>
+
+      {/* ═══════════ DETAIL PANEL ═══════════ */}
+      {selectedItem && (
+        <>
+          <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.3)",zIndex:40}} onClick={()=>setSelectedItem(null)} />
+          <div className="animate-slide-in" style={{position:"fixed",top:0,right:0,height:"100%",width:"60%",background:"white",boxShadow:"-8px 0 30px rgba(0,0,0,0.15)",zIndex:50,display:"flex",flexDirection:"column",overflow:"hidden"}}>
+            {/* Header */}
+            <div style={{background:"#f8fafc",borderBottom:"1px solid #e2e8f0",padding:16,display:"flex",alignItems:"flex-start",gap:12,flexShrink:0}}>
+              <button onClick={()=>setSelectedItem(null)} style={{padding:6,borderRadius:8,background:"none",border:"none",cursor:"pointer"}}
+                onMouseOver={e=>e.currentTarget.style.background="#e2e8f0"} onMouseOut={e=>e.currentTarget.style.background="none"}>
+                <Icon name="x" size={18} />
+              </button>
+              <div style={{flex:1,minWidth:0}}>
+                <div style={{display:"flex",alignItems:"center",gap:8,flexWrap:"wrap"}}>
+                  <span style={{fontSize:18,fontWeight:800,color:"#1e293b"}}>{selectedItem.doc}</span>
+                  <Badge label={`Ind. ${selectedItem.indice}`} color="#64748b" />
+                  <Badge label={CAT_L[selectedItem.cat]||selectedItem.cat} color={CAT_C[selectedItem.cat]||"#94a3b8"} />
+                  <ScoreBar value={selectedItem.score} />
+                </div>
+                <p style={{fontSize:12,color:"#475569",margin:"4px 0 0"}}>{selectedItem.titre}</p>
+                <div style={{display:"flex",gap:12,marginTop:8,fontSize:11,color:"#64748b"}}>
+                  <span>Lot: <strong style={{color:"#334155"}}>{selectedItem.lot}</strong></span>
+                  <span>Émetteur: <strong style={{color:"#334155"}}>{selectedItem.emetteur}</strong></span>
+                </div>
+              </div>
+            </div>
+
+            {/* Content */}
+            <div style={{flex:1,overflowY:"auto",padding:16}}>
+              {/* Status Cards */}
+              <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:8,marginBottom:16}}>
+                {[
+                  {label:"État",val:ST_L[selectedItem.current_state]||selectedItem.current_state},
+                  {label:"Décision",val:DEC_L[selectedItem.final_decision]||selectedItem.final_decision},
+                  {label:"Conflit",val:null,badge:true},
+                  {label:"Phase",val:null,phase:true},
+                  {label:"Action",val:selectedItem.action_needed||ACT_L[selectedItem.action]},
+                  {label:"Blocage",val:selectedItem.blocking_summary||"—"},
+                ].map((c,i) => (
+                  <div key={i} style={{padding:12,borderRadius:8,background:"#f8fafc",border:"1px solid #e2e8f0"}}>
+                    <div style={{fontSize:10,color:"#64748b"}}>{c.label}</div>
+                    {c.badge ? (
+                      <div style={{marginTop:4}}>
+                        <Badge label={CF_L[selectedItem.conflict_severity]||selectedItem.conflict_severity}
+                          color={selectedItem.conflict_severity==="hard"?"#ef4444":selectedItem.conflict_severity==="soft"?"#f59e0b":"#94a3b8"} />
+                        {selectedItem.worst_tag && <span style={{marginLeft:4,fontSize:10,color:"#64748b"}}>({TAG_L[selectedItem.worst_tag]||selectedItem.worst_tag})</span>}
+                      </div>
+                    ) : c.phase ? (
+                      <div style={{marginTop:4}}>
+                        <Badge label={PH_L[selectedItem.responsibility_phase]||selectedItem.responsibility_phase}
+                          color={PH_C[selectedItem.responsibility_phase]||"#94a3b8"} />
+                        {selectedItem.responsible_missions?.length>0 && <div style={{fontSize:10,color:"#64748b",marginTop:4}}>{selectedItem.responsible_missions.join(", ")}</div>}
+                      </div>
+                    ) : (
+                      <div style={{fontSize:12,fontWeight:600,color:"#1e293b",marginTop:4}}>{c.val}</div>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              {/* Metadata */}
+              <div style={{display:"flex",flexWrap:"wrap",gap:8,marginBottom:16}}>
+                <span style={{padding:"4px 8px",borderRadius:6,background:"#f1f5f9",fontSize:11,color:"#475569"}}>Ancienneté: <strong>{selectedItem.aging_days}j</strong></span>
+                {selectedItem.is_moex_holder && <span style={{padding:"4px 8px",borderRadius:6,background:"#fef2f2",fontSize:11,color:"#dc2626",fontWeight:500}}>MOEX holder</span>}
+                {selectedItem.is_moex_late && <span style={{padding:"4px 8px",borderRadius:6,background:"#fef2f2",fontSize:11,color:"#dc2626",fontWeight:500}}>MOEX en retard</span>}
+                {selectedItem.moex_default_flag && <span style={{padding:"4px 8px",borderRadius:6,background:"#fff7ed",fontSize:11,color:"#ea580c",fontWeight:500}}>MOEX défaut</span>}
+                {selectedItem.moex_sub_phase && <span style={{padding:"4px 8px",borderRadius:6,background:"#eff6ff",fontSize:11,color:"#2563eb"}}>Sub-phase: {selectedItem.moex_sub_phase}</span>}
+                {selectedItem.secondary_window_remaining!=null && <span style={{padding:"4px 8px",borderRadius:6,background:"#f0fdfa",fontSize:11,color:"#0d9488"}}>Fenêtre secondaire: {selectedItem.secondary_window_remaining}j</span>}
+                {selectedItem.defaulted_missions?.length>0 && <span style={{padding:"4px 8px",borderRadius:6,background:"#fef2f2",fontSize:11,color:"#dc2626"}}>Défaillants: {selectedItem.defaulted_missions.join(", ")}</span>}
+              </div>
+
+              {/* Response Table */}
+              <h3 style={{fontSize:13,fontWeight:600,color:"#334155",marginBottom:8}}>Réponses ({selectedItem.responses?.length||0})</h3>
+              <div style={{border:"1px solid #e2e8f0",borderRadius:8,overflow:"hidden",marginBottom:16}}>
+                <table style={{width:"100%",fontSize:11,borderCollapse:"collapse"}}>
+                  <thead style={{background:"#f8fafc",borderBottom:"1px solid #e2e8f0"}}>
+                    <tr>
+                      <th style={{padding:"8px 10px",textAlign:"left",fontWeight:600,color:"#475569"}}>Acteur</th>
+                      <th style={{padding:"8px 10px",textAlign:"left",fontWeight:600,color:"#475569"}}>Réponse</th>
+                      <th style={{padding:"8px 10px",textAlign:"left",fontWeight:600,color:"#475569"}}>Sévérité</th>
+                      <th style={{padding:"8px 10px",textAlign:"left",fontWeight:600,color:"#475569"}}>Deadline</th>
+                      <th style={{padding:"8px 10px",textAlign:"left",fontWeight:600,color:"#475569"}}>Répondu</th>
+                      <th style={{padding:"8px 10px",textAlign:"right",fontWeight:600,color:"#475569"}}>Retard</th>
+                      <th style={{padding:"8px 10px",textAlign:"left",fontWeight:600,color:"#475569"}}>Commentaire</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {(selectedItem.responses||[]).map((r,i) => {
+                      const bg = r.response_severity==="favorable"?"#f0fdf4":r.response_severity==="caution"?"#fffbeb":r.response_severity==="blocking"?"#fef2f2":r.is_pending?"#f8fafc":"white";
+                      return (
+                        <tr key={i} style={{background:bg,borderBottom:"1px solid #f1f5f9"}}>
+                          <td style={{padding:"6px 10px",fontWeight:500,color:"#334155"}}>
+                            {r.actor_clean?.replace(/^[0-9A-Z]-/,"")}
+                            {r.is_moex && <span style={{marginLeft:4,color:"#ef4444",fontSize:10}}>(MOEX)</span>}
+                            {!r.is_relevant && <span style={{marginLeft:4,color:"#94a3b8",fontSize:10}}>(n/p)</span>}
+                          </td>
+                          <td style={{padding:"6px 10px"}}><Badge label={TAG_L[r.response_tag_code]||r.response_tag_code} color={TAG_C[r.response_tag_code]||"#94a3b8"} small /></td>
+                          <td style={{padding:"6px 10px"}}><span style={{display:"inline-block",width:8,height:8,borderRadius:"50%",marginRight:4,background:SEV_C[r.response_severity]||"#94a3b8"}} />{r.response_severity}</td>
+                          <td style={{padding:"6px 10px",color:"#64748b"}}>{r.deadline_date||"—"}</td>
+                          <td style={{padding:"6px 10px",color:"#64748b"}}>{r.response_date||"—"}</td>
+                          <td style={{padding:"6px 10px",textAlign:"right",fontFamily:"monospace",color:r.delay_days>0?"#ef4444":r.delay_days<0?"#22c55e":"#94a3b8"}}>{r.delay_days!=null?(r.delay_days>0?`+${r.delay_days}`:r.delay_days):"—"}</td>
+                          <td style={{padding:"6px 10px",color:"#475569",maxWidth:200}} className="truncate" title={r.comment||""}>{r.comment||"—"}</td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Comments */}
+              {selectedItem.comments_by_actor && Object.keys(selectedItem.comments_by_actor).length>0 && (
+                <div style={{marginBottom:16}}>
+                  <h3 style={{fontSize:13,fontWeight:600,color:"#334155",marginBottom:8}}>Commentaires</h3>
+                  {Object.entries(selectedItem.comments_by_actor).map(([actor, comments]) => (
+                    <div key={actor} style={{border:"1px solid #e2e8f0",borderRadius:8,padding:12,marginBottom:8}}>
+                      <div style={{fontSize:11,fontWeight:600,color:"#475569",marginBottom:4}}>{actor.replace(/^[0-9A-Z]-/,"")}</div>
+                      {comments.map((c,i) => <p key={i} style={{fontSize:11,color:"#334155",lineHeight:1.5,margin:0}}>{c}</p>)}
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Smart Lists */}
+              {selectedItem.sl?.length>0 && (
+                <div>
+                  <h3 style={{fontSize:13,fontWeight:600,color:"#334155",marginBottom:8}}>Listes intelligentes</h3>
+                  <div style={{display:"flex",flexWrap:"wrap",gap:4}}>
+                    {selectedItem.sl.map(s => <Badge key={s} label={SL_L[s]||s} color={s==="CHRONIC"?"#8b5cf6":s==="MISSING"?"#ef4444":CAT_C[s]||"#64748b"} />)}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>
